@@ -30,7 +30,7 @@ namespace BookCave.Controllers
         {
             if (!ModelState.IsValid) { return View(); }
 
-            var user = new ApplicationUser { UserName = model.Email, EmailTokenProvider = model.Email };
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
