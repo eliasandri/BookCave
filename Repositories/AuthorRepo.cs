@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using BookCave.Models.ViewModels;
 using BookCave.Data;
+using BookCave.Data.EntityModels;
 using System.Linq;
 
 namespace BookCave.Repositories
@@ -25,6 +26,20 @@ namespace BookCave.Repositories
                           }).ToList();
 
              return authors;
+        }
+
+        public void Delete()
+        {
+            var authors = (from a in _db.Authors
+                          select new Author
+                          {
+                               Id = a.Id,
+                               Name = a.Name,
+                               DateOfBirth = a.DateOfBirth
+                          }).ToList();
+
+            _db.Authors.RemoveRange(authors);
+            _db.SaveChanges();
         }
     }
 }

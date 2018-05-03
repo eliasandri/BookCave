@@ -18,5 +18,10 @@ namespace BookCave.Services
             var authors = _authorRepo.GetAllAuthors();
             return authors;
         }
+
+        public void Delete()
+        {
+            _authorRepo.Delete();
+        }
     }
 }

@@ -21,8 +21,13 @@ namespace BookCave.Controllers
         public IActionResult Index()
         {
             var authors = _authorService.GetAllAuthors();
-
             return View(authors);
+        }
+
+        public IActionResult Delete()
+        {
+            _authorService.Delete();
+            return View("Index");
         }
     }
 }

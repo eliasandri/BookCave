@@ -17,7 +17,7 @@ namespace BookCave
         public static void Main(string[] args)
         {
             var host = BuildWebHost(args); 
-            seedData(); 
+            //seedData(); 
             host.Run();
         }
 
@@ -32,9 +32,9 @@ namespace BookCave
 
                 var initialAuthors = new List<Author>()
                 {
-                new Author { Name = "War and Peace",DateOfBirth = "22 mars 1954" },
-                new Author { Name = "The Adventures of Huckleberry Finn", DateOfBirth = "2 april 1970" },
-                new Author { Name = "Moby-Dick", DateOfBirth = "30 desember 1945" }
+                    new Author { Name = "War and Peace",DateOfBirth = "22 mars 1954" },
+                    new Author { Name = "The Adventures of Huckleberry Finn", DateOfBirth = "2 april 1970" },
+                    new Author { Name = "Moby-Dick", DateOfBirth = "30 desember 1945" }
                 };
                 db.AddRange(initialAuthors);
                 db.SaveChanges();
