@@ -24,13 +24,7 @@ namespace BookCave.Controllers
             return View(books);
         }
 
-<<<<<<< HEAD
-        public IActionResult Delete()
-        {
-            _bookService.Delete();
-            return View("Index");
-        }
-=======
+
         public IActionResult Details()
         {
             return View();
@@ -41,6 +35,5 @@ namespace BookCave.Controllers
                    _bookService.Delete();
                    return View("Index");
                }*/
->>>>>>> Author
     }
 }
