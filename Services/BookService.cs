@@ -17,9 +17,9 @@ namespace BookCave.Services
             
             return books;
         }
-/*        public void Delete()
+        public void Delete()
         {
             _bookRepo.Delete();
-        }*/
+        }
     }
 }
