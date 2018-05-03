@@ -30,14 +30,14 @@ namespace BookCave
         {
             var db = new DataContext();
 
-                var initialAuthors = new List<Author>()
+                var initialGenres = new List<Genre>()
                 {
-                    new Author { Name = "War and Peace",DateOfBirth = "22 mars 1954" },
-                    new Author { Name = "The Adventures of Huckleberry Finn", DateOfBirth = "2 april 1970" },
-                    new Author { Name = "Moby-Dick", DateOfBirth = "30 desember 1945" }
+                    new Genre { Drama = "Titanic", Action = "Top Gun"},
+                    new Genre { Drama = "Titanic", Action = "Top Gun"},
+                    new Genre { Drama = "Titanic", Action = "Top Gun"}
                 };
-                db.AddRange(initialAuthors);
-                db.SaveChanges();
+                db.AddRange(initialGenres);
+                //db.SaveChanges();
         }
     }
 }
