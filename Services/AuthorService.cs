@@ -19,9 +19,9 @@ namespace BookCave.Services
             return authors;
         }
 
-        public void Delete()
+/*        public void Delete()
         {
             _authorRepo.Delete();
-        }
+        }*/
     }
 }
