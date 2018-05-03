@@ -15,7 +15,7 @@ namespace BookCave.Controllers
 
         public HomeController()
         {
-            _bookService = new BookService(); 
+            _bookService = new BookService();
         }
         public IActionResult Index()
         {
@@ -24,10 +24,23 @@ namespace BookCave.Controllers
             return View(books);
         }
 
+<<<<<<< HEAD
         public IActionResult Delete()
         {
             _bookService.Delete();
             return View("Index");
         }
+=======
+        public IActionResult Details()
+        {
+            return View();
+        }
+
+        /*       public IActionResult Delete()
+               {
+                   _bookService.Delete();
+                   return View("Index");
+               }*/
+>>>>>>> Author
     }
 }
