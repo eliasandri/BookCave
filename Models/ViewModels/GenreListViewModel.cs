@@ -5,6 +5,7 @@ namespace BookCave.Models.ViewModels
 {
     public class GenreListViewModel
     {
+        public int GenreId { get; set; }
         public string Drama { get; set; }
         public string Adventure { get; set; }
         public string Children { get; set; }

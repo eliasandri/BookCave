@@ -20,8 +20,8 @@ namespace BookCave.Controllers
 
         public IActionResult Index()
         {
-            var genres = _genreService.GetGenre();
-            return View(genres);
+            //var genres = _genreService.GetGenre();
+            return View();
         }
     }
 }

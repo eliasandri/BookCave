@@ -2,6 +2,7 @@ namespace BookCave.Data.EntityModels
 {
     public class Genre
     {
+        public int GenreId { get; set; }
         public string Drama { get; set; }
         public string Adventure { get; set; }
         public string Children { get; set; }

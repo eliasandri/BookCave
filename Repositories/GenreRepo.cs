@@ -15,19 +15,20 @@ namespace BookCave.Repositories
         }
         public List<GenreListViewModel> GetGenre()
         {
-            var genres = (from g in _db.Genre
+            var genres = (from g in _db.Genres
                           select new GenreListViewModel
                           {
-                              Drama = g.drama,
-                              Adventure = g.adventure,
-                              Children = g.children,
-                              Action = g.action,
-                              StudyBooks = g.studyBooks,
-                              Horror = g.horror,
-                              Romance = g.romance,
-                              Mystery = g.mystery,
-                              ScienceFiction = g.scienceFiction,
-                              Guide = g.guide
+                              GenreId = g.GenreId,
+                              Drama = g.Drama,
+                              Adventure = g.Adventure,
+                              /*Children = g.Children,
+                              Action = g.Action,
+                              StudyBooks = g.StudyBooks,
+                              Horror = g.Horror,
+                              Romance = g.Romance,
+                              Mystery = g.Mystery,
+                              ScienceFiction = g.ScienceFiction,
+                              Guide = g.Guide*/
                           }).ToList();
             return genres;
         }
