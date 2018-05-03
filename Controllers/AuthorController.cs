@@ -24,10 +24,15 @@ namespace BookCave.Controllers
             return View(authors);
         }
 
-/*        public IActionResult Delete()
+        public IActionResult Details()
         {
-            _authorService.Delete();
-            return View("Index");
-        }*/
+            return View();
+        }
+
+        /*        public IActionResult Delete()
+                {
+                    _authorService.Delete();
+                    return View("Index");
+                }*/
     }
 }
