@@ -40,7 +40,7 @@ namespace BookCave.Repositories
         return books;
         }
 
-        public void Delete()
+/*        public void Delete()
         {
             var books = (from a in _db.Books
                           select new Book
@@ -53,6 +53,6 @@ namespace BookCave.Repositories
 
             _db.Books.RemoveRange(books);
             _db.SaveChanges();
-        }
+        }*/
     }
 }

@@ -28,7 +28,7 @@ namespace BookCave.Repositories
              return authors;
         }
 
-        public void Delete()
+/*        public void Delete()
         {
             var authors = (from a in _db.Authors
                           select new Author
@@ -40,6 +40,6 @@ namespace BookCave.Repositories
 
             _db.Authors.RemoveRange(authors);
             _db.SaveChanges();
-        }
+        }*/
     }
 }
