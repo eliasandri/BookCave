@@ -32,17 +32,17 @@ namespace BookCave
 
                 var initialBooks = new List<Book>()
                 {
-                    new Book { Title = "A Storm of Swords: Part 1 Steel and Snow", Description = "The future of the Seven Kingdoms hangs in the balance.In King's Landing the Queen Regent, Cersei Lannister, awaits trial, abandoned by all those she trusted; while in the eastern city of Yunkai her brother Tyrion has been sold as a slave. From the Wall, having left his wife and the Red Priestess Melisandre under the protection of Jon Snow, Stannis Baratheon marches south to confront the Boltons at Winterfell. But beyond the Wall the wildling armies are massing for an assault...On all sides bitter conflicts are reigniting, played out by a grand cast of outlaws and priests, soldiers and skinchangers, nobles and slaves. The tides of destiny will inevitably lead to the greatest dance of all.", Price = 9, Rating = 8, ReleaseYear = 2000, Image = "", AuthorId = 8 },
+                    new Book { Title = "Jamie's 30 minute meals", Description = "Jamie Oliver will teach you how to make good food super fast! Jamie proves that, by mastering a few tricks and being organized and focused in the kitchen, it is absolutely possible, and easy, to get a complete meal on the table in the same amount of time you'd normally spend making one dish!", Price = 5, Rating = 6, ReleaseYear = 2010, Image = "", AuthorId = 17 },
                 };
                 db.AddRange(initialBooks);
                 db.SaveChanges();
 
-               /*var initialArtists = new List<Author>()
+               var initialArtists = new List<Author>()
                 {
-                    new Author { Name = "George R.R. Martin", DateOfBirth = "20 September 1948", Image = "", BookId = 10 }
+                    new Author { Name = "Jamie Oliver", DateOfBirth = "27 May 1975", Image = "", BookId = 23 }
                 };
                 db.AddRange(initialArtists);
-                db.SaveChanges(); */
+                db.SaveChanges(); 
         }
     }
 }
