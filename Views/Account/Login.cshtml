@@ -1,7 +1,18 @@
 @model BookCave.Models.ViewModels.LoginViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="~/css/site.css" />
+  <title>Document</title>
+</head>
+<body>
 
+<div class="loginpositioning">
 <h1>Login</h1>
-
 <form asp-action="Login" asp-controller="Account" class="form-horizontal">
   <div class="form-group">
     <input type="email" asp-for="Email" class="form-control" placeholder="Enter email address..." />
@@ -13,11 +24,14 @@
 
   <div class="checkbox">
     <label>
-      <input type="checkbox" asp-for="RememberMe" /> Remember me
+      <input type="checkbox" asp-for="RememberMe" /> Remember me 
     </label>
   </div>
 
-  <div class="form-group">
+  <div class="form-group"> </br>
     <input type="submit" value="Login" class="btn btn-default" />
   </div>
+  </div>
 </form>
+ </body>
+</html>
