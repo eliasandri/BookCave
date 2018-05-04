@@ -32,14 +32,14 @@ namespace BookCave
 
                 var initialBooks = new List<Book>()
                 {
-                    new Book { Title = "Jamie's 30 minute meals", Description = "Jamie Oliver will teach you how to make good food super fast! Jamie proves that, by mastering a few tricks and being organized and focused in the kitchen, it is absolutely possible, and easy, to get a complete meal on the table in the same amount of time you'd normally spend making one dish!", Price = 5, Rating = 6, ReleaseYear = 2010, Image = "", AuthorId = 17 },
+                    new Book { Title = "Developing Fraction Knowledge", Description ="Supporting and understanding your students' fractional knowledge is crucial to their overall grasp of numbers and mathematics. By centralizing around three key stages of development, this effective guide will help you to assess your students' understanding of fractions and modify your teaching accordingly." , Price = 12, Rating = 7, ReleaseYear = 2016, Image = "", AuthorId = 19 },
                 };
                 db.AddRange(initialBooks);
                 db.SaveChanges();
 
                var initialArtists = new List<Author>()
                 {
-                    new Author { Name = "Jamie Oliver", DateOfBirth = "27 May 1975", Image = "", BookId = 23 }
+                    new Author { Name = "Amy J Hackenber", DateOfBirth = "", Image = "", BookId = 25 }
                 };
                 db.AddRange(initialArtists);
                 db.SaveChanges(); 
