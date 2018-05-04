@@ -19,13 +19,15 @@ namespace BookCave.Controllers
         {
             _authorService = new AuthorService();
         }
-        [Authorize(Roles = "Admin")]
+
+        
         public IActionResult Index()
         {
             var authors = _authorService.GetAllAuthors();
             return View(authors);
         }
-        [Authorize(Roles = "Admin")]
+
+        
         public IActionResult Details()
         {
             return View();

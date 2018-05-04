@@ -25,7 +25,11 @@ namespace BookCave.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("BookId");
+
                     b.Property<string>("DateOfBirth");
+
+                    b.Property<string>("Image");
 
                     b.Property<string>("Name");
 
@@ -41,13 +45,37 @@ namespace BookCave.Migrations
 
                     b.Property<int>("AuthorId");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Description");
+
+                    b.Property<int>("GenreId");
+
+                    b.Property<string>("Image");
+
+                    b.Property<int>("Price");
+
+                    b.Property<int>("Rating");
 
                     b.Property<int>("ReleaseYear");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.Genre", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BookId");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genres");
                 });
 #pragma warning restore 612, 618
         }

@@ -30,14 +30,19 @@ namespace BookCave
         {
             var db = new DataContext();
 
-                var initialGenres = new List<Genre>()
+                var initialBooks = new List<Book>()
                 {
-                    new Genre { Drama = "Titanic", Action = "Top Gun"},
-                    new Genre { Drama = "Titanic", Action = "Top Gun"},
-                    new Genre { Drama = "Titanic", Action = "Top Gun"}
+                    new Book { Title = "Titanic", Description = "geggjud bod", Price = 300, Rating = 9, ReleaseYear = 1990, Image = "", AuthorId = 1 },
                 };
-                db.AddRange(initialGenres);
-                //db.SaveChanges();
+                db.AddRange(initialBooks);
+                db.SaveChanges();
+
+                var initialArtists = new List<Author>()
+                {
+                    new Author { Name = "Elias", DateOfBirth = "25 mars 1996", Image = "", BookId = 1 }
+                };
+                db.AddRange(initialArtists);
+                db.SaveChanges();
         }
     }
 }

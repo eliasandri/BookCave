@@ -30,10 +30,14 @@ namespace BookCave.Repositories
                         select new BookListViewModel
                         {
                             BookId = m.Id,
-                            Name = m.Name,
+                            Title = m.Title,
                             ReleaseYear = m.ReleaseYear,
                             Author = mr.Name,
-                            AuthorId = mr.Id 
+                            AuthorId = mr.Id ,
+                            Description = m.Description,
+                            Price = m.Price,
+                            Image = m.Image,
+                            Rating = m.Rating,
                         }).ToList();
             //return books;
         
@@ -46,7 +50,7 @@ namespace BookCave.Repositories
                           select new Book
                           {
                               Id = a.Id,
-                            Name = a.Name,
+                            Title = a.Title,
                             ReleaseYear = a.ReleaseYear,
                             AuthorId = a.AuthorId
                           }).ToList();

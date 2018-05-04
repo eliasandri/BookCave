@@ -27,7 +27,7 @@ namespace BookCave.Controllers
             return View(books);
         }
 
-        [Authorize(Roles = "Admin")]
+        
         public IActionResult Details()
         {
             return View();

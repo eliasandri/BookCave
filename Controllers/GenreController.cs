@@ -20,11 +20,11 @@ namespace BookCave.Controllers
             _genreService = new GenreService();
         }
 
-        [Authorize(Roles = "Admin")]
+        
         public IActionResult Index()
         {
-            //var genres = _genreService.GetGenre();
-            return View();
+            var genres = _genreService.GetAllGenres();
+            return View(genres);
         }
     }
 }
