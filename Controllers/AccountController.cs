@@ -4,6 +4,7 @@ using BookCave.Models;
 using BookCave.Models.ViewModels;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using Microsoft.Extensions.Logging;
 
 namespace BookCave.Controllers
 {
@@ -11,11 +12,15 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
+        
 
-        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        private RoleManager<IdentityRole> RoleManager;
+
+        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            RoleManager = roleManager;
         }
 
         
@@ -36,10 +41,13 @@ namespace BookCave.Controllers
 
             if(result.Succeeded)
             {
+               
+                    await _userManager.AddToRoleAsync(user, "User");
+                    await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
                 //The user is successfully registered
                 //Add the concatenated first and last name as fullName in claims
-                await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
-                await _signInManager.SignInAsync(user, false);
 
                 return RedirectToAction("Index", "Home");
             }

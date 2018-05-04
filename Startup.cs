@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BookCave
 {
@@ -52,9 +54,40 @@ namespace BookCave
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        /*public void Configure(RoleManager<IdentityRole> roleManager, AuthenticationDbContext dbContext)
+{
+    Func<Task> func = async () =>
+    {
+        if (!await roleManager.RoleExistsAsync("Admin"))
         {
+            var role = new IdentityRole("Admin");
+            await roleManager.CreateAsync(role);
+        }
+    };
+
+    Task task = func();
+    task.Wait();
+}*/
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+       public /*async*/ void Configure(IApplicationBuilder app, IHostingEnvironment env, RoleManager<IdentityRole> roleManager)
+        {
+            Func<Task> func = async () =>
+    {
+        if (!await roleManager.RoleExistsAsync("Admin"))
+        {
+            var role = new IdentityRole("Admin");
+            await roleManager.CreateAsync(role);
+        }
+        if (!await roleManager.RoleExistsAsync("User"))
+        {
+            var role = new IdentityRole("User");
+            await roleManager.CreateAsync(role);
+        }
+    };
+
+    Task task = func();
+    task.Wait();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -66,6 +99,7 @@ namespace BookCave
 
             app.UseStaticFiles();
             app.UseAuthentication();
+            
 
             app.UseMvc(routes =>
             {
@@ -73,6 +107,8 @@ namespace BookCave
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            //Initializer.initial(roleManager);
         }
+        
     }
 }
