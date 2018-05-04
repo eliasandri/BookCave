@@ -12,7 +12,7 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-        
+
 
         private RoleManager<IdentityRole> RoleManager;
 
@@ -23,7 +23,7 @@ namespace BookCave.Controllers
             RoleManager = roleManager;
         }
 
-        
+
         public IActionResult Register()
         {
             return View();
@@ -39,12 +39,12 @@ namespace BookCave.Controllers
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
-               
-                    await _userManager.AddToRoleAsync(user, "User");
-                    await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                await _userManager.AddToRoleAsync(user, "User");
+                await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
+                await _signInManager.SignInAsync(user, isPersistent: false);
 
                 //The user is successfully registered
                 //Add the concatenated first and last name as fullName in claims
@@ -69,7 +69,7 @@ namespace BookCave.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction ("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }
@@ -84,6 +84,16 @@ namespace BookCave.Controllers
         }
 
         public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        public IActionResult Basket()
+        {
+            return View();
+        }
+
+        public IActionResult WishList()
         {
             return View();
         }

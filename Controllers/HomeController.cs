@@ -38,5 +38,14 @@ namespace BookCave.Controllers
                    _bookService.Delete();
                    return View("Index");
                }*/
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+        public IActionResult TermsAndConditions()
+        {
+            return View();
+        }
     }
 }
