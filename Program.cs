@@ -32,14 +32,14 @@ namespace BookCave
 
                 var initialBooks = new List<Book>()
                 {
-                    new Book { Title = "Titanic", Description = "geggjud bod", Price = 300, Rating = 9, ReleaseYear = 1990, Image = "", AuthorId = 1 },
+                    new Book { Title = "Charlie and the Chocolate Factory", Description = "Willy Wonka's famous chocolate factory is opening at last! But only five lucky children will be allowed inside. And the winners are: Augustus Gloop, an enormously fat boy whose hobby is eating; Veruca Salt, a spoiled-rotten brat whose parents are wrapped around her little finger; Violet Beauregarde, a dim-witted gum-chewer with the fastest jaws around; Mike Teavee, a toy pistol-toting gangster-in-training who is obsessed with television; and Charlie Bucket, Our Hero, a boy who is honest and kind, brave and true, and good and ready for the wildest time of his life!", Price = 10, Rating = 9, ReleaseYear = 2007, Image = "", AuthorId = 2 },
                 };
                 db.AddRange(initialBooks);
                 db.SaveChanges();
 
                 var initialArtists = new List<Author>()
                 {
-                    new Author { Name = "Elias", DateOfBirth = "25 mars 1996", Image = "", BookId = 1 }
+                    new Author { Name = "Roald Dahl", DateOfBirth = "13 September 1916", Image = "", BookId = 2 }
                 };
                 db.AddRange(initialArtists);
                 db.SaveChanges();
