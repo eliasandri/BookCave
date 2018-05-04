@@ -32,17 +32,17 @@ namespace BookCave
 
                 var initialBooks = new List<Book>()
                 {
-                    new Book { Title = "Charlie and the Chocolate Factory", Description = "Willy Wonka's famous chocolate factory is opening at last! But only five lucky children will be allowed inside. And the winners are: Augustus Gloop, an enormously fat boy whose hobby is eating; Veruca Salt, a spoiled-rotten brat whose parents are wrapped around her little finger; Violet Beauregarde, a dim-witted gum-chewer with the fastest jaws around; Mike Teavee, a toy pistol-toting gangster-in-training who is obsessed with television; and Charlie Bucket, Our Hero, a boy who is honest and kind, brave and true, and good and ready for the wildest time of his life!", Price = 10, Rating = 9, ReleaseYear = 2007, Image = "", AuthorId = 2 },
+                    new Book { Title = "A Storm of Swords: Part 1 Steel and Snow", Description = "The future of the Seven Kingdoms hangs in the balance.In King's Landing the Queen Regent, Cersei Lannister, awaits trial, abandoned by all those she trusted; while in the eastern city of Yunkai her brother Tyrion has been sold as a slave. From the Wall, having left his wife and the Red Priestess Melisandre under the protection of Jon Snow, Stannis Baratheon marches south to confront the Boltons at Winterfell. But beyond the Wall the wildling armies are massing for an assault...On all sides bitter conflicts are reigniting, played out by a grand cast of outlaws and priests, soldiers and skinchangers, nobles and slaves. The tides of destiny will inevitably lead to the greatest dance of all.", Price = 9, Rating = 8, ReleaseYear = 2000, Image = "", AuthorId = 8 },
                 };
                 db.AddRange(initialBooks);
                 db.SaveChanges();
 
-                var initialArtists = new List<Author>()
+               /*var initialArtists = new List<Author>()
                 {
-                    new Author { Name = "Roald Dahl", DateOfBirth = "13 September 1916", Image = "", BookId = 2 }
+                    new Author { Name = "George R.R. Martin", DateOfBirth = "20 September 1948", Image = "", BookId = 10 }
                 };
                 db.AddRange(initialArtists);
-                db.SaveChanges();
+                db.SaveChanges(); */
         }
     }
 }
