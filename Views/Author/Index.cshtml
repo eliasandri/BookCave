@@ -15,11 +15,13 @@
     <th>Name</th>
     <th>Date Of Birth</th>
   </tr>
-  
+  @foreach(var author in Model)
+  {
     <tr>
-      <th>guðrún</th>>
-      <th>heiða</th>
+      <td><a asp-controller ="Author" asp-action ="Details" asp-route-id="@author.AuthorId">@author.Name</a></td>
+      <td>@author.DateOfBirth</td>
     </tr>
+  
   }
 </table>
 
