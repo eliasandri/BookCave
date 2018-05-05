@@ -1,15 +1,29 @@
 @model List<BookCave.Models.ViewModels.GenreListViewModel>
 
 <style>
+    .container{
+        border: dimgray;
+    }
+
     table{
+        text-align: center;
+        font-size: 26px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
-    h2{
+    h1 {
+        text-align: center;
+        font-style:oblique;
+        font-size: 56px;
+        color: rgb(139, 137, 131);
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    div{
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>
-<h2 class="lead text-center">Genre</h2>
-<div class="container-fluid">
+<h1>Genre</h1>
+<div style="width:50%">
     <table class = "table  table-hover">
         <tr class="active">
             <td>Drama</td>
