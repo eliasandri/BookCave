@@ -28,10 +28,22 @@ namespace BookCave.Controllers
         }
 
         
-        public IActionResult Details()
+        public IActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                return View("Error");
+            }
             var authors = _authorService.GetAllAuthorsDetails();
-            return View(authors);
+
+            for (int i = 0; i < authors.Count; i++)
+            {
+                if (authors[i].AuthorId == id)
+                {
+                    return View(authors);
+                }
+            }
+            return View("Error");
         }
 
         /*        public IActionResult Delete()
