@@ -19,6 +19,12 @@ namespace BookCave.Services
             return authors;
         }
 
+        public List<AuthorDetailsViewModel> GetAllAuthorsDetails()
+        {
+            var authors = _authorRepo.GetAllAuthorsDetails();
+            return authors;
+        }
+
         public void Delete()
         {
             _authorRepo.Delete();

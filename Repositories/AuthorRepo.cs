@@ -25,12 +25,30 @@ namespace BookCave.Repositories
                               Name = a.Name,
                               DateOfBirth = a.DateOfBirth,
                               Image = a.Image,
-                              Book = ar.Title,
+                           }).ToList();
+
+             return authors;
+        }
+
+        public List<AuthorDetailsViewModel> GetAllAuthorsDetails()
+        {
+            var authors = (from a in _db.Authors
+                           join ar in _db.Books on a.BookId equals ar.Id
+                           select new AuthorDetailsViewModel
+                           {
+                              AuthorId = a.Id,
+                              Name = a.Name,
+                              DateOfBirth = a.DateOfBirth,
+                              Image = a.Image,
+                              Books = (from m in _db.Books
+                                       join mr in _db.Authors on m.AuthorId equals mr.Id
+                                       select m).ToList(),
                               BookId = ar.Id
                            }).ToList();
 
              return authors;
         }
+        
 
         public void Delete()
         {

@@ -30,7 +30,8 @@ namespace BookCave.Controllers
         
         public IActionResult Details()
         {
-            return View();
+            var authors = _authorService.GetAllAuthorsDetails();
+            return View(authors);
         }
 
         /*        public IActionResult Delete()
