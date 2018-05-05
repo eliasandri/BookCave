@@ -1,18 +1,63 @@
 @model List<BookCave.Models.ViewModels.GenreListViewModel>
 
-<div>
-    <table class = "table table-striped table-hover">
-        <tr>
-            <th>Genre</th>
-        </tr>
-        <tr>
+<style>
+    .container{
+        border: dimgray;
+    }
+
+    table{
+        text-align: center;
+        font-size: 26px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    h1 {
+        padding-top: 20px;
+        text-align: center;
+        font-style:inherit;
+        font-size: 56px;
+        color: white;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .container-fluid{
+        padding-top: 50px;
+    }
+    div{
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<h1>Genre</h1>
+<div class="container-fluid" style="width:50%">
+    <table class = "table  table-hover">
+        <tr class="active">
             <td>Drama</td>
         </tr>
-        <tr>
+        <tr class="active">
             <td>Action</td>
         </tr>
-        <tr>
+        <tr class="active">
             <td>Adventure</td>
+        </tr>
+        <tr class="active">
+            <td>Study Books</td>
+        </tr>
+        <tr class="active">
+            <td>Horror</td>
+        </tr>
+        <tr class="active">
+            <td>Romance</td>
+        </tr>
+        <tr class="active">
+            <td>Mistery</td>
+        </tr>
+        <tr class="active">
+            <td>Science fiction</td>
+        </tr>
+        <tr class="active">
+            <td>Guide</td>
+        </tr>
+        <tr class="active">
+            <td>Fiction</td>
         </tr>
 
     </table>
