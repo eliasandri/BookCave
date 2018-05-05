@@ -1,4 +1,4 @@
-@model List<BookCave.Models.ViewModels.AuthorDetailsViewModel>
+@model BookCave.Models.ViewModels.AuthorDetailsViewModel
 
 <style>
     .list-group{
@@ -18,15 +18,14 @@
 
 <div class ="list-group"style="margin-right: auto; margin-left: auto; ">
     <ul class="list-group" style="margin-left: auto; margin-right:auto; list-style-type: none;">
-     @foreach (var author in Model)
-     {      
-        <h1>@author.Name</h1>
-        <h3>@author.DateOfBirth</h3>
+         
+        <h1>@Model.Name</h1>
+        <h3>@Model.DateOfBirth</h3>
         
-        @foreach (var books in author.Books)
+        @for (int i = 0; i < Model.Books.Count; i++)
         {     
-            <li style="border-radius: 5px; border-style:solid; border-color:white; text-align: center; background-color: #ffbb99;"><a asp-controller="Book" asp-action="Details">@books.Title</a></li>
+            <li style="border-radius: 5px; border-style:solid; border-color:white; text-align: center; background-color: #ffbb99;"><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Books[i].Id">@Html.DisplayFor(m => Model.Books[i].Title)</a></li>
         }
-    } 
+    
     </ul>
 </div>

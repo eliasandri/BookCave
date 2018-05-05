@@ -42,8 +42,9 @@ namespace BookCave.Repositories
                               Image = a.Image,
                               Books = (from m in _db.Books
                                        join mr in _db.Authors on m.AuthorId equals mr.Id
+                                       where mr.Id == a.BookId
                                        select m).ToList(),
-                              BookId = ar.Id
+                              //BookId = ar.Id
                            }).ToList();
 
              return authors;
