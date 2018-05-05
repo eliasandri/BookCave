@@ -1,0 +1,24 @@
+@model List<BookCave.Models.ViewModels.BookListViewModel>
+
+<table class="table table-striped table-hover">
+  
+  <tr>
+      <th>Realease Year</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>Rating</th>
+    </tr>
+
+
+  @foreach (var book in @Model)
+  {
+    <tr>
+      <th>@book.ReleaseYear</th>
+      <th>@book.Title</th>
+      <th>@book.Author</th>
+      <th>@book.Price</th>
+      <th>@book.Rating</th>
+    </tr>
+  }
+</table>

@@ -9,6 +9,8 @@ namespace BookCave.Data
         public DbSet<Author> Authors { get; set; }
         public DbSet<Genre> Genres { get; set; }
 
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder

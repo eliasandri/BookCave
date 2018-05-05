@@ -1,24 +1,81 @@
-﻿@model List<BookCave.Models.ViewModels.BookListViewModel>
+﻿
 
-<table class="table table-striped table-hover">
-  
-  <tr>
-      <th>Realease Year</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Price</th>
-      <th>Rating</th>
-    </tr>
-
-
-  @foreach (var book in @Model)
-  {
-    <tr>
-      <th>@book.ReleaseYear</th>
-      <th>@book.Title</th>
-      <th>@book.Author</th>
-      <th>@book.Price</th>
-      <th>@book.Rating</th>
-    </tr>
+  @{
+    ViewData["Title"] = "Home";
   }
-</table>
+
+  <style>
+    .fa {
+      font-size: 4em;
+    }
+
+    body {
+      background-image: url("~/images/Portfolio/2.jpg");
+    }
+    
+  </style>
+
+<div class="row text-center">
+  <h1 style="font-size:4em;">Classy Books</h1></hr>
+  <p class="text-muted">Come check out our catalog of fine books</p>
+  <a asp-action="shop" asp-controller="Books" class="btn btn-primary btn-lg">Browse our catalog</a>
+</div>
+
+<div class="container-fluid">
+  <section id="about">
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-6 col-md-3 text-center">
+        <span class="fa fa-book text-primary"></span>
+        <h3>Exclusive Books</h3>
+        <p class="text-muted">We offer only exclusive books</p>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 text-center">
+        <span class="fa fa-plane text-primary"></span>
+        <h3>Ready to ship</h3>
+        <p class="text-muted">We ship all over the world!</p>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 text-center">
+        <span class="fa fa-phone text-primary"></span>
+        <h3>Mobile friendly!</h3>
+        <p class="text-muted">Responsive design for mobile devices!</p>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 text-center">
+        <span class="fa fa-heart text-primary"></span>
+        <h3>Made with sweet love</h3>
+        <p class="text-muted">...and bananas. Mostly bananas...</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="portfolio">
+    @await Html.PartialAsync("_IndexPartial")
+  </section>
+
+  <section id="contact">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2 class="section-heading">Let's get in touch!</h2>
+        </hr>
+        <p>Give us a call and order some of our fine books already!</p>
+      </div>
+
+      <div class="col-md-4 col-md-offset-2 text-center">
+        <span class="fa fa-phone"></span>
+        <p>58-12345 </p>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <span class="fa fa-envelope"></span>
+        <p><a href="mailto:TheBookCave@gmail.com">TheBookCave@gmail.com</a></p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
