@@ -19,7 +19,7 @@ namespace BookCave.Controllers
         {
             _bookService = new BookService();
         }
-        [Authorize(Roles = "Admin")]
+        
         public IActionResult Index()
         {
             var books = _bookService.GetAllBooks();
