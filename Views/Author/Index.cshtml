@@ -1,17 +1,23 @@
+@model List<BookCave.Models.ViewModels.AuthorListViewModel>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Document</title>
-</head>
-<body>
+<style>
+  body{
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+  }
+  table{
+    text-align: center; 
+    font-size: 26px; 
+    border-collapse: collapse;
+  }
+  th{
+    text-align: center; 
+  }
+</style>
 
-  <table class="table table-striped table-hover">
-  <tr>
+<h1 style="text-align: center;">Authors</h1>
+  <table class="table table-hover" style=" width:50%; margin-left: auto; margin-right: auto">
+  <tr class="active">
     <th>Name</th>
     <th>Date Of Birth</th>
   </tr>
@@ -25,5 +31,3 @@
   }
 </table>
 
-</body>
-</html>
