@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
 using Microsoft.AspNetCore.Authorization;
+using BookCave.Models.ViewModels;
 
 namespace BookCave.Controllers
 {
@@ -34,16 +35,17 @@ namespace BookCave.Controllers
             {
                 return View("Error");
             }
+            
             var authors = _authorService.GetAllAuthorsDetails();
-
+            var author = new AuthorDetailsViewModel();
             for (int i = 0; i < authors.Count; i++)
             {
                 if (authors[i].AuthorId == id)
                 {
-                    return View(authors);
+                    author = authors[i];
                 }
             }
-            return View("Error");
+            return View(author);
         }
 
         /*        public IActionResult Delete()
