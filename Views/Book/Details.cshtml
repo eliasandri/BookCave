@@ -1,0 +1,34 @@
+@model BookCave.Models.ViewModels.BookDetailsViewModel
+
+
+    <h3>Details about this book</h3>
+    <ul class="list-group">
+    <h1>@Model.Title</h1>
+    <h3>@Model.ReleaseYear</h3>
+    <h3>@Model.Price</h3>
+    <h3>@Model.Description</h3>
+    <h3>@Model.Rating</h3>
+
+   
+
+    <form action="details.cshtml" method="post">
+    <label for="comment"> Your comment about this book:</label></br>
+    <textarea id="comment" name="user_comment"></textarea></br>
+    <button type="submit">Submit Comment</button>
+    </form>
+
+    <div>
+        <h3>Rating</h3>
+<select>
+    <option value ="1">1</option>
+    <option value ="2">2</option>
+    <option value ="3">3</option>
+    <option value ="4">4</option>
+    <option value ="5">5</option>
+    <option value ="6">6</option>
+    <option value ="7">7</option>
+    <option value ="8">8</option>
+    <option value ="9">9</option>
+    <option value ="10">10</option>
+</select>
+    </div>

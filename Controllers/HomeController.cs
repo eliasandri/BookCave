@@ -13,17 +13,14 @@ namespace BookCave.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        
+
         public IActionResult Index()
         {
             return View();
         }
 
-        
-        public IActionResult Details()
-        {
-            return View();
-        }
+
+
 
         /*       public IActionResult Delete()
                {
