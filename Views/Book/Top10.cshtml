@@ -1,4 +1,4 @@
-@model List<BookCave.Models.ViewModels.BookListViewModel>
+@model BookCave.Models.ViewModels.BookTop10ViewModel>
 
 <div style="width: 50%; margin-left:auto; margin-right:auto;">
     <h2>Top 10 Books</h2>
@@ -6,18 +6,15 @@
   
   <tr>
       <th>Title</th>
-      <th>Author</th>
-      <th>Price</th>
       <th>Rating</th>
-      <th>Image</th>
     </tr>
+     @foreach (var book in @Model)
+  {
   <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Price</th>
-      <th>Rating</th>
-      <th>mynd</th>
+      <th>@book.Title</th>
+      <th>@book.Rating</th>
     </tr>
+  }
 
 
 
