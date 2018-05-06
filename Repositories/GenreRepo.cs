@@ -16,14 +16,11 @@ namespace BookCave.Repositories
         public List<GenreListViewModel> GetAllGenres()
         {
             var genres = (from g in _db.Genres
-                          //join gr in _db.Books on g.BookId equals gr.Id
+                          join gr in _db.Books on g.BookId equals gr.Id
                           select new GenreListViewModel
                           {
                               GenreId = g.Id,
-                              Title = g.Title,
-                              //Book = gr.Title,
-                              //BookId = gr.Id
-
+                              Title = g.Title
                           }).ToList();
                           
             return genres;

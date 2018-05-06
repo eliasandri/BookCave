@@ -54,6 +54,9 @@ namespace BookCave.Repositories
                               Title = a.Title,
                               ReleaseYear = a.ReleaseYear,
                               Image = a.Image,
+                              Description = a.Description,
+                              Price = a.Price,
+                              Rating = a.Rating,
                               Authors = (from m in _db.Authors
                                        join mr in _db.Books on m.BookId equals mr.Id
                                        where m.BookId == a.Id
