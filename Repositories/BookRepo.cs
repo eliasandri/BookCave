@@ -69,12 +69,13 @@ namespace BookCave.Repositories
         public List<BookTop10ViewModel> GetAllTop10Books()
         {
             var books = (from m in _db.Books
+                         orderby m.Rating descending
                          select new BookTop10ViewModel
                          {
                              BookId = m.Id,
                              Title = m.Title,
                              Rating = m.Rating,
-                         }).ToList();
+                         }).Take(10).ToList();
 
                 return books;
         }

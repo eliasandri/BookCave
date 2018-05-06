@@ -25,7 +25,7 @@ namespace BookCave.Services
         public List<BookTop10ViewModel> GetAllTop10Books()
         {
             var books = _bookRepo.GetAllTop10Books();
-            return books
+            return books;
         }
         public void Delete()
         {

@@ -1,4 +1,4 @@
-@model BookCave.Models.ViewModels.BookTop10ViewModel>
+@model List<BookCave.Models.ViewModels.BookTop10ViewModel>
 
 <div style="width: 50%; margin-left:auto; margin-right:auto;">
     <h2>Top 10 Books</h2>
@@ -11,7 +11,7 @@
      @foreach (var book in @Model)
   {
   <tr>
-      <th>@book.Title</th>
+      <th><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></th>
       <th>@book.Rating</th>
     </tr>
   }
