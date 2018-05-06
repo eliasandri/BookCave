@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@model BookCave.Models.ViewModels.BookDetailsViewModel
+
+
     <div style="float: left; margin-left:20%;">
   
-    <h1>Title</h1>
-    <h3>ReleaseYear</h3>
-    <h3>Price</h3>
-    <h3>Description</h3>
-    <h3>Rating</h3>
+    <h1>@Model.Title</h1>
+    <h3>@Model.ReleaseYear</h3>
+    <h3>@Model.Price</h3>
+    <h3>@Model.Description</h3>
+    <h3>@Model.Rating</h3>
     <button class="btn btn-default" type="button">Add to Wishlist</button>
     <button class="btn btn-default" type="button">Add to bakset</button>
 </div>
@@ -43,8 +37,5 @@
 </select>
     </div>
 
-    
-</body>
-</html>
 
 
