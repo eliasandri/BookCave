@@ -3,7 +3,7 @@ using BookCave.Data.EntityModels;
 namespace BookCave.Models.ViewModels
 
 {
-    public class BookDetailsListViewModel
+    public class BookDetailsViewModel
     {
         public int BookId { get; set; }
 

@@ -1,24 +1,34 @@
-@model BookCave.Models.ViewModels.BookDetailsViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="float: left; margin-left:20%;">
+  
+    <h1>Title</h1>
+    <h3>ReleaseYear</h3>
+    <h3>Price</h3>
+    <h3>Description</h3>
+    <h3>Rating</h3>
+    <button class="btn btn-default" type="button">Add to Wishlist</button>
+    <button class="btn btn-default" type="button">Add to bakset</button>
+</div>
 
-
-    <h3>Details about this book</h3>
-    <ul class="list-group">
-    <h1>@Model.Title</h1>
-    <h3>@Model.ReleaseYear</h3>
-    <h3>@Model.Price</h3>
-    <h3>@Model.Description</h3>
-    <h3>@Model.Rating</h3>
-
-   
+<div style="float: right; margin-right:20% ">
 
     <form action="details.cshtml" method="post">
     <label for="comment"> Your comment about this book:</label></br>
     <textarea id="comment" name="user_comment"></textarea></br>
-    <button type="submit">Submit Comment</button>
+    <button class="btn btn-default" type="submit">Submit Comment</button>
     </form>
 
-    <div>
-        <h3>Rating</h3>
+
+        <h2>Rating</h2>
+
 <select>
     <option value ="1">1</option>
     <option value ="2">2</option>
@@ -32,3 +42,9 @@
     <option value ="10">10</option>
 </select>
     </div>
+
+    
+</body>
+</html>
+
+
