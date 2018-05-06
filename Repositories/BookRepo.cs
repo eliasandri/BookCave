@@ -31,10 +31,10 @@ namespace BookCave.Repositories
                         {
                             BookId = m.Id,
                             Title = m.Title,
-                            ReleaseYear = m.ReleaseYear,
+                            //ReleaseYear = m.ReleaseYear,
                             Author = mr.Name,
                             AuthorId = mr.Id ,
-                            Description = m.Description,
+                            //Description = m.Description,
                             Price = m.Price,
                             Image = m.Image,
                             Rating = m.Rating,
