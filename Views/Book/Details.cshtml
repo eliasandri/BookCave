@@ -1,6 +1,6 @@
 @model BookCave.Models.ViewModels.BookDetailsViewModel
 
-
+<div style="width: 90%; margin-left: auto; margin-right: auto;">
 <div style="float: left; margin-left:0%;">
 <img src="@Model.Image" alt="Book Image">
 </div>
@@ -15,7 +15,7 @@
     <button class="btn btn-default" type="button">Add to bakset</button>
 </div>
 
-<div style="float: right; margin-right:20% ">
+<div style="float: right; margin-right:10% ">
 
     <form action="details.cshtml" method="post">
     <label for="comment"> Your comment about this book:</label></br>
@@ -24,7 +24,7 @@
     </form>
 
 
-        <h2>Rating</h2>
+        <h2>Rate this book</h2>
 
 <select>
     <option value ="1">1</option>
@@ -39,6 +39,6 @@
     <option value ="10">10</option>
 </select>
     </div>
-
+</div>
 
 
