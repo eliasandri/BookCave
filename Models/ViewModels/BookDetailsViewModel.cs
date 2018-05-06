@@ -18,7 +18,7 @@ namespace BookCave.Models.ViewModels
         public string Image { get; set; }
         public string Description { get; set; }
 
-        public List<Author> authors { get; set; }
+        public List<Author> Authors { get; set; }
         public int AuthorId { get; set; }
         public string Genre { get; set; }
         public int GenreId { get; set; }

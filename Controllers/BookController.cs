@@ -1,7 +1,7 @@
 using BookCave.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using BookCave.Models.ViewModels;
 namespace BookCave.Controllers
 {
     [Authorize]
@@ -26,7 +26,16 @@ namespace BookCave.Controllers
             {
                 return View("Error");
             }
-            return View();
+            var books = _bookService.GetAllBooksDetails();
+            var book = new BookDetailsViewModel();
+            for (int i = 0; i < books.Count; i++)
+            {
+                if (books[i].BookId == id)
+                {
+                    book = books[i];
+                }
+            }
+            return View(book);
         }
     }
 }

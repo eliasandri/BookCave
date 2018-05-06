@@ -17,6 +17,11 @@ namespace BookCave.Services
             
             return books;
         }
+        public List<BookDetailsViewModel> GetAllBooksDetails()
+        {
+            var books = _bookRepo.GetAllBooksDetails();
+            return books;
+        }
         public void Delete()
         {
             _bookRepo.Delete();

@@ -44,6 +44,26 @@ namespace BookCave.Repositories
         return books;
         }
 
+        public List<BookDetailsViewModel> GetAllBooksDetails()
+        {
+            var books = (from a in _db.Books
+                           join ar in _db.Authors on a.AuthorId equals ar.Id
+                           select new BookDetailsViewModel
+                           {
+                              BookId = a.Id,
+                              Title = a.Title,
+                              ReleaseYear = a.ReleaseYear,
+                              Image = a.Image,
+                              Authors = (from m in _db.Authors
+                                       join mr in _db.Books on m.BookId equals mr.Id
+                                       where m.BookId == a.Id
+                                       select m).ToList(),
+                              AuthorId = ar.Id
+                           }).ToList();
+
+             return books;
+        }
+
         public void Delete()
         {
             var books = (from a in _db.Books
