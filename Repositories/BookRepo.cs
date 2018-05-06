@@ -66,6 +66,18 @@ namespace BookCave.Repositories
 
              return books;
         }
+        public List<BookTop10ViewModel> GetAllTop10Books()
+        {
+            var books = (from m in _db.Books
+                         select new BookTop10ViewModel
+                         {
+                             BookId = m.Id,
+                             Title = m.Title,
+                             Rating = m.Rating,
+                         }).ToList();
+
+                return books;
+        }
 
         public void Delete()
         {
