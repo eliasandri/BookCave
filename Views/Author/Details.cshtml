@@ -20,12 +20,12 @@
     <ul class="list-group" style="margin-left: auto; margin-right:auto; list-style-type: none;">
          
         <h1>@Model.Name</h1>
-        <h3>@Model.DateOfBirth</h3>
+        <h2>@Model.DateOfBirth</h2>
         <img src="@Model.Image" alt="Book Image">
-        
+        <h3>Books that @Model.Name as written</h3>
         @for (int i = 0; i < Model.Books.Count; i++)
         {     
-            <li style="border-radius: 5px; border-style:solid; border-color:white; text-align: center; background-color: #ffbb99;"><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Books[i].Id">@Html.DisplayFor(m => Model.Books[i].Title)</a></li>
+            <h3 style="border-radius: 5px; border-style:solid; border-color:white; text-align: center; "><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Books[i].Id">@Html.DisplayFor(m => Model.Books[i].Title)</a></h3>
         }
         
     
