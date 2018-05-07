@@ -69,7 +69,8 @@ namespace BookCave.Controllers
             }
             return View();
         }
-        /*public IActionResult Edit (int? id)
+        [HttpGet]
+        public IActionResult Edit (int? id)
         {
             if (id == null)
             {
@@ -85,9 +86,17 @@ namespace BookCave.Controllers
             return View(book);
         }
         [HttpPost]
-        public IActionResult Edit (BookEditViewModel book)
+        public IActionResult Edit (Book book)
         {
             if(ModelState.IsValid)
-        }*/
+            {
+                var db = new DataContext();
+                db.Books.Update(book);
+                db.SaveChanges();
+
+                return RedirectToAction("Shop");
+            }
+            return View(book);
+        }
     }
 }
