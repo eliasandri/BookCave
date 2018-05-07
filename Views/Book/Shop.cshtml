@@ -1,33 +1,30 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 
-<table class="table table-striped table-hover">
-  
-  <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Price</th>
-      <th>Rating</th>
-      <th>Image</th>
-      <th></th>
-    </tr>
 
-
+<style>
+  img{
+    width: 80px;
+    height: auto;
+  }
+</style>
+ 
+<div class="row">
   @foreach (var book in @Model)
   {
-    <tr>
-      <td><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></td>
-      <td>@book.Author</td>
-      <td>@book.Price</td>
-      <td>@book.Rating</td>
-      <td><img src="@book.Image" alt="Book Image"></td>
-      <td>
-        <a asp-action="Edit" asp-route-id="@book.BookId">Edit</a>
-        <a asp-action="Delete" asp-route-id="@book.BookId">Delete</a>
-      </td>
-    </tr>
+      <div class="col-lg-3" style="width: 200px; height:250px; border-style: solid;">
+      <img class="img-thumbnail" src="@book.Image" alt="Book Image">
+        <a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a>
+        <p>@book.Author</p>
+        <p>@book.Price</p>
+        <p>@book.Rating</p>
+        
+        
+          <a asp-action="Edit" asp-route-id="@book.BookId">Edit</a>
+          <a asp-action="Delete" asp-route-id="@book.BookId">Delete</a>
+        
+      </div>
   }
-</table>
-
+</div>
 <p>
   <a asp-controller="Book" asp-action="Create" class="btn btn-primary" >Add Book!</a>
 </p>
