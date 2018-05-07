@@ -1,8 +1,15 @@
-@model BookCave.Data.EntityModels.Book
+@model BookCave.Models.ViewModels.BookDetailsViewModel
 <div style="width: 50%; margin-left:auto; margin-right:auto;">
 
 <h2 style="text-align: center;">Edit</h2>
 <form method="POST">
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label asp-for="BookId" >Title:</label>
+      <input type="text" asp-for="BookId" class="form-control ">
+      <span asp-validation-for="BookId" class="badge"></span>
+    </div>
 
   <div class="form-horizontal">
     <div class="form-group">

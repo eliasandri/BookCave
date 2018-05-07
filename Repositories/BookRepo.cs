@@ -4,6 +4,7 @@ using BookCave.Data;
 using System.Linq;
 using BookCave.Data.EntityModels;
 using BookCave.Models.InputModels;
+using System;
 
 namespace BookCave.Repositories
 {
@@ -95,6 +96,51 @@ namespace BookCave.Repositories
                     Image = book.Image
                 };
                 _db.Add(newBook);
+                _db.SaveChanges();
+        }
+        public BookDetailsViewModel GetBookToEdit(int id)
+        {
+            //var db = new DataContext();
+            //var book = _db.Books.Single(model => model.Id == 1);
+
+            var bookToEdit = (from m in _db.Books
+                              where m.AuthorId == id
+                              select new BookDetailsViewModel
+                              {
+                                BookId = m.Id,
+                                Title = m.Title,
+                                ReleaseYear = m.ReleaseYear,
+                                Image = m.Image,
+                                Description = m.Description,
+                                Price = m.Price,
+                                Rating = m.Rating,
+                                AuthorId = m.AuthorId,
+                                GenreId = m.GenreId
+                              }).FirstOrDefault(); 
+
+            return bookToEdit;
+        }
+        public void EditBook(BookDetailsViewModel book)
+        {
+            
+            Console.WriteLine(book.BookId);
+            var editedBook = (from m in _db.Books
+                             where m.Id == book.BookId
+                             select new Book()
+                             {
+                                 Id = book.BookId,
+                                Title = book.Title,
+                                Description = book.Description,
+                                Price = book.Price,
+                                Rating = book.Rating,
+                                ReleaseYear = book.ReleaseYear,
+                                AuthorId = book.AuthorId,
+                                GenreId = book.GenreId,
+                                Image = book.Image
+                             }).SingleOrDefault();
+                //int id = book.BookId;
+                //Book _book = _db.Books.Single(model => model.Id == id);
+                _db.Books.Update(editedBook);
                 _db.SaveChanges();
         }
         public void Delete()

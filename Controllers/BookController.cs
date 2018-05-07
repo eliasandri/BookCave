@@ -50,7 +50,7 @@ namespace BookCave.Controllers
         }
 
 
-        [Authorize(Roles = "PowerUser")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         
         public IActionResult Create()
@@ -70,14 +70,16 @@ namespace BookCave.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Edit (int? id)
+        public IActionResult Edit (int id)
         {
-            if (id == null)
+            /*if (id == null)
             {
                 return View("Error");
-            }
-            var db = new DataContext();
-            Book book = db.Books.Single(model => model.Id == id);
+            }*/
+            //int? _id = id;
+            var book = _bookService.GetBookToEdit(id);
+            //var db = new DataContext();
+            //Book book = db.Books.Single(model => model.Id == id);
 
             if(book == null)
             {
@@ -86,17 +88,18 @@ namespace BookCave.Controllers
             return View(book);
         }
         [HttpPost]
-        public IActionResult Edit (Book book)
+        public IActionResult Edit (BookDetailsViewModel book)
         {
             if(ModelState.IsValid)
             {
-                var db = new DataContext();
+                /*var db = new DataContext();
                 db.Books.Update(book);
-                db.SaveChanges();
+                db.SaveChanges();*/
+                _bookService.EditBook(book);
 
                 return RedirectToAction("Shop");
             }
-            return View(book);
+            return View("Book");
         }
     }
 }

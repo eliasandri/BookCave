@@ -50,7 +50,6 @@ namespace BookCave.Repositories
              return authors;
         }
         
-
         public void Delete()
         {
             var authors = (from a in _db.Authors
