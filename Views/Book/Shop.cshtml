@@ -3,30 +3,33 @@
 
 <style>
   img{
-    width: 80px;
+    width: 100px;
     height: auto;
   }
 </style>
- 
+
+
+ <div class="container" style="margin-left: auto; margin-right: auto;"></div>
 <div class="row">
   @foreach (var book in @Model)
   {
-      <div class="col-lg-3" style="width: 200px; height:250px; border-style: solid;">
-      <img class="img-thumbnail" src="@book.Image" alt="Book Image">
-        <a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a>
-        <p>@book.Author</p>
-        <p>@book.Price</p>
-        <p>@book.Rating</p>
+      <div class="col-lg-3" style="width: 250px; height:400px; border-style: solid; border-color:white;  text-align:center;">
+       <p><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></p>
+      <img text-align:center; class="img-thumbnail" src="@book.Image" alt="Book Image">
+ 
+        <p><a asp-controller ="Author" asp-action ="Details" asp-route-id="@book.AuthorId">Author: @book.Author</a></p>
+        <p>Price: @book.Price</p>
+        <p>Rating: @book.Rating</p>
         
-        
-          <a asp-action="Edit" asp-route-id="@book.BookId">Edit</a>
-          <a asp-action="Delete" asp-route-id="@book.BookId">Delete</a>
-        
+        <div>
+          <button class="btn btn-default"><a asp-action="Edit" asp-route-id="@book.BookId">Edit</a></button>
+          <button class="btn btn-default" style="background-color: red; "><a asp-action="Delete" asp-route-id="@book.BookId">Delete</a></button>
+        </div>
       </div>
   }
 </div>
 <p>
-  <a asp-controller="Book" asp-action="Create" class="btn btn-primary" >Add Book!</a>
+  <a asp-controller="Book" asp-action="Create" class="btn btn-primary">Add Book!</a>
 </p>
 
-
+</div>
