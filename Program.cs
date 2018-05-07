@@ -35,7 +35,7 @@ namespace BookCave
 
                   
 
-                    new Book { Title = "The Fault in Our Stars", Description ="Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis. But when a gorgeous plot twist named Augustus Waters suddenly appears at Cancer Kid Support Group, Hazel's story is about to be completely rewritten. Insightful, bold, irreverent, and raw, `The Fault in Our Stars` is award-winning author John Green's most ambitious and heartbreaking work yet, brilliantly exploring the funny, thrilling, and tragic business of being alive and in love. This book comes from the `New York Times` bestselling author of `Looking for Alaska`, `An Abundance of Katherines`, `Paper Towns` and - with David Levithan - Will Grayson, Will Grayson. John Green has over 1.2 million Twitter followers, and almost 700,000 subscribers to Vlogbrothers, the YouTube channel he created with his brother, Hank. `The Fault in Our Stars` will capture a crossover audience in the same vein as Zadie Smith, David Nicholls' `One Day` and `Before I Die` by Jenny Downham. `Electric ...Filled with staccato bursts of humor and tragedy.` (`Jodi Picoult`)." , Price = 14, Rating = 10, ReleaseYear = 2014, Image = "https://images-na.ssl-images-amazon.com/images/I/51gnhI6hYdL._SX335_BO1,204,203,200_.jpg", AuthorId = 23 },
+                    new Book { Title = "Fifty Shades of Freed", Description ="When unworldly student Anastasia Steele first encountered the driven and dazzling young entrepreneur Christian Grey it sparked a sensual affair that changed both of their lives irrevocably. Shocked, intrigued, and, ultimately, repelled by Christian’s singular erotic tastes, Ana demands a deeper commitment. Determined to keep her, Christian agrees.Now, Ana and Christian have it all—love, passion, intimacy, wealth, and a world of possibilities for their future. But Ana knows that loving her Fifty Shades will not be easy, and that being together will pose challenges that neither of them would anticipate. Ana must somehow learn to share Christian’s opulent lifestyle without sacrificing her own identity. And Christian must overcome his compulsion to control as he wrestles with the demons of a tormented past.Just when it seems that their strength together will eclipse any obstacle, misfortune, malice, and fate conspire to make Ana’s deepest fears turn to reality.", Price = 6, Rating = 5, ReleaseYear = 2012, Image = "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Fifty_Shades_Freed_book_cover.png/220px-Fifty_Shades_Freed_book_cover.png", AuthorId = 41 },
  
                 };
                 db.AddRange(initialBooks);
@@ -44,14 +44,14 @@ namespace BookCave
                var initialArtists = new List<Author>()
                 {
 
-                    new Author { Name = "John Green", DateOfBirth = "24 August 1977", Image = "https://pmcvariety.files.wordpress.com/2015/07/john-green-first-look-deal-fox.jpg?w=700&h=394&crop=1", BookId = 29 }
+                    new Author { Name = "E.L.James", DateOfBirth = "7 March 1963", Image = "https://images-na.ssl-images-amazon.com/images/I/517nrccxRXL._UX250_.jpg", BookId = 52 }
                 };
                 db.AddRange(initialArtists);
-                db.SaveChanges();  
+                db.SaveChanges(); 
 
                 var initialGenres = new List<Genre>()
                 {
-                    new Genre { Title = "Drama", BookId = 1}
+                    new Genre { Title = "Romance", BookId = 54}
                 };
                 db.AddRange(initialGenres);
                 db.SaveChanges();
