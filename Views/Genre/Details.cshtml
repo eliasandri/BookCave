@@ -10,16 +10,18 @@
 
     <div style="width: 50%; margin-left:auto; margin-right:auto; text-align:center; ">
         <h2>Books in this genre</h2>
- <table class="table table-hover">
+<table class="table table-hover">
   
   <tr>
       <th>Title</th>
     </tr>
+     @foreach (var book in @Model)
+  {
   <tr>
-      <th>Title</th>
-      
+      <th><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></th>
     </tr>
-</div>
+  }
+
 
 
 </table>

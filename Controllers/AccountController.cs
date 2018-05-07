@@ -97,5 +97,10 @@ namespace BookCave.Controllers
         {
             return View();
         }
+
+        public IActionResult ShippingAndPay()
+        {
+            return View();
+        }
     }
 }
