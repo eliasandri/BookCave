@@ -13,14 +13,16 @@ namespace BookCave.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-
+        private BookService _bookService;
+        public HomeController()
+        {
+            _bookService = new BookService();
+        }
         public IActionResult Index()
         {
-            return View();
+            var books = _bookService.GetTop5Books();
+            return View(books);
         }
-
-
-
 
         /*       public IActionResult Delete()
                {

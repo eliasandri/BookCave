@@ -28,6 +28,11 @@ namespace BookCave.Services
             var books = _bookRepo.GetAllTop10Books();
             return books;
         }
+        public List<BookTop5ViewModel> GetTop5Books()
+        {
+            var books = _bookRepo.GetTop5Books();
+            return books;
+        }
         
         public void CreateBook(BookCreateViewModel book)
         {

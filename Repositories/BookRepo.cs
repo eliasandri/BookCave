@@ -81,6 +81,19 @@ namespace BookCave.Repositories
 
                 return books;
         }
+        public List<BookTop5ViewModel> GetTop5Books()
+        {
+            var books = (from m in _db.Books
+                        orderby m.Rating descending
+                        select new BookTop5ViewModel
+                        {
+                            BookId = m.Id,
+                            Title = m.Title,
+                            Rating = m.Rating,
+                            Image = m.Image,
+                        }).Take(5).ToList();
+            return books;
+        }
         public void CreateBook(BookCreateViewModel book)
         {
            var newBook = new Book()
