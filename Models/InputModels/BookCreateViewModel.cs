@@ -10,7 +10,7 @@ namespace BookCave.Models.InputModels
         public int GenreId { get; set; }
 
         [Required(ErrorMessage = "Must input Price!")]
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         [Required(ErrorMessage = "Must input Rating!")]
         public int Rating { get; set; }

@@ -11,7 +11,7 @@ namespace BookCave.Models.ViewModels
 
         public int ReleaseYear { get; set; }
 
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         public int Rating { get; set; }
 
