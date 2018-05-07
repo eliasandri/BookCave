@@ -1,58 +1,62 @@
 @model BookCave.Models.InputModels.BookCreateViewModel
+<div style="width: 50%; margin-left:auto; margin-right:auto;">
 
-<h2>Create a book</h2>
+<h2 style="text-align: center;">Create a book</h2>
 <form method="POST">
+
   <div class="form-horizontal">
     <div class="form-group">
-      <label asp-for="Title" class="col-md-2 control-label">Title:</label>
+      <label asp-for="Title" >Title:</label>
       <input type="text" asp-for="Title" class="form-control ">
       <span asp-validation-for="Title" class="badge"></span>
     </div>
 
     <div class="form-group">
-      <label asp-for="GenreId" class="col-md-2 control-label">Genre ID:</label>
+      <label asp-for="GenreId" >Genre ID:</label>
       <input type="text" asp-for="GenreId" class="form-control ">
       <span asp-validation-for="GenreId" class="badge"></span>
     </div>
 
     <div class="form-group">
-      <label asp-for="Price" class="col-md-2 control-label">Price:</label>
+      <label asp-for="Price" >Price:</label>
       <input type="text" asp-for="Price" class="form-control ">
       <span asp-validation-for="Price" class="badge"></span>
     </div>
 
     <div class="form-group">
-      <label asp-for="Rating" class="col-md-2 control-label">Rating:</label>
+      <label asp-for="Rating" >Rating:</label>
       <input type="text" asp-for="Rating" class="form-control ">
       <span asp-validation-for="Rating" class="badge"></span>
     </div>
     
     <div class="form-group">
-      <label asp-for="Description" class="col-md-2 control-label">Description:</label>
+      <label asp-for="Description" >Description:</label>
       <input type="text" asp-for="Description" class="form-control ">
       <span asp-validation-for="Description" class="badge"></span>
     </div>
 
     <div class="form-group">
-      <label asp-for="ReleaseYear" class="col-md-2 control-label">Release year:</label>
+      <label asp-for="ReleaseYear" >Release year:</label>
       <input type="text" asp-for="ReleaseYear" class="form-control ">
       <span asp-validation-for="ReleaseYear" class="badge"></span>
     </div>
 
     <div class="form-group">
-      <label asp-for="AuthorId" class="col-md-2 control-label">Author ID:</label>
+      <label asp-for="AuthorId" >Author ID:</label>
       <input type="text" asp-for="AuthorId" class="form-control ">
       <span asp-validation-for="AuthorId" class="badge"></span>
     </div>
 
     <div class="form-group">
-      <label asp-for="Image" class="col-md-2 control-label">Image link:</label>
+      <label asp-for="Image" >Image link:</label>
       <input type="text" asp-for="Image" class="form-control ">
       <span asp-validation-for="Image" class="badge"></span>
     </div>
 
-    <div class="form-group">
-      <input type="submit" value="Submit book" class="btn btn-default col-md-offset-2">
+    <div class="form-group "style="text-align: center">
+      <input type="submit" value="Submit book" class="btn btn-default">
     </div>
   </div>
 </form>
+
+</div>
