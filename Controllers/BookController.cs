@@ -5,6 +5,7 @@ using BookCave.Models.ViewModels;
 using BookCave.Models.InputModels;
 using BookCave.Data;
 using BookCave.Data.EntityModels;
+using System.Linq;
 
 namespace BookCave.Controllers
 {
@@ -48,6 +49,8 @@ namespace BookCave.Controllers
             return View(books);
         }
 
+
+        [Authorize(Roles = "PowerUser")]
         [HttpGet]
         
         public IActionResult Create()
@@ -58,25 +61,33 @@ namespace BookCave.Controllers
         [HttpPost]
         public IActionResult Create(BookCreateViewModel book)
         {
+            
             if (ModelState.IsValid)
             {
-                var db = new DataContext();
-                var newBook = new Book()
-                {
-                    Title = book.Title,
-                    Description = book.Description,
-                    Price = book.Price,
-                    Rating = book.Rating,
-                    ReleaseYear = book.ReleaseYear,
-                    AuthorId = book.AuthorId,
-                    GenreId = book.GenreId,
-                    Image = book.Image
-                };
-                db.Add(newBook);
-                db.SaveChanges();
+                _bookService.CreateBook(book);
                 return RedirectToAction("Shop");
             }
             return View();
         }
+        /*public IActionResult Edit (int? id)
+        {
+            if (id == null)
+            {
+                return View("Error");
+            }
+            var db = new DataContext();
+            Book book = db.Books.Single(model => model.Id == id);
+
+            if(book == null)
+            {
+                return View("Error");
+            }
+            return View(book);
+        }
+        [HttpPost]
+        public IActionResult Edit (BookEditViewModel book)
+        {
+            if(ModelState.IsValid)
+        }*/
     }
 }

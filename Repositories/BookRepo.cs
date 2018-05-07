@@ -10,12 +10,10 @@ namespace BookCave.Repositories
     public class BookRepo
     {
         private DataContext _db; 
-        private Program _program;
 
         public BookRepo()
         {
             _db = new DataContext();
-            _program = new Program();
         }
         
         public List <BookListViewModel> GetAllBooks()
@@ -83,10 +81,22 @@ namespace BookCave.Repositories
 
                 return books;
         }
-        /*public void CreateBook(BookCreateViewModel book)
+        public void CreateBook(BookCreateViewModel book)
         {
-           _program.CreateBook(book);
-        }*/
+           var newBook = new Book()
+                {
+                    Title = book.Title,
+                    Description = book.Description,
+                    Price = book.Price,
+                    Rating = book.Rating,
+                    ReleaseYear = book.ReleaseYear,
+                    AuthorId = book.AuthorId,
+                    GenreId = book.GenreId,
+                    Image = book.Image
+                };
+                _db.Add(newBook);
+                _db.SaveChanges();
+        }
         public void Delete()
         {
             var books = (from a in _db.Books

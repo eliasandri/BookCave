@@ -28,10 +28,11 @@ namespace BookCave.Services
             var books = _bookRepo.GetAllTop10Books();
             return books;
         }
-        /*public void CreateBook(BookCreateViewModel book)
+        
+        public void CreateBook(BookCreateViewModel book)
         {
-            var createBook = _bookRepo.CreateBook(book);
-        }*/
+            _bookRepo.CreateBook(book);
+        }
         public void Delete()
         {
             _bookRepo.Delete();
