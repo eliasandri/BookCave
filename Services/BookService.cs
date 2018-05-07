@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BookCave.Models.InputModels;
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
 
@@ -27,6 +28,10 @@ namespace BookCave.Services
             var books = _bookRepo.GetAllTop10Books();
             return books;
         }
+        /*public void CreateBook(BookCreateViewModel book)
+        {
+            var createBook = _bookRepo.CreateBook(book);
+        }*/
         public void Delete()
         {
             _bookRepo.Delete();

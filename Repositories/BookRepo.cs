@@ -3,17 +3,21 @@ using BookCave.Models.ViewModels;
 using BookCave.Data;
 using System.Linq;
 using BookCave.Data.EntityModels;
+using BookCave.Models.InputModels;
 
 namespace BookCave.Repositories
 {
     public class BookRepo
     {
         private DataContext _db; 
+        private Program _program;
 
         public BookRepo()
         {
             _db = new DataContext();
+            _program = new Program();
         }
+        
         public List <BookListViewModel> GetAllBooks()
         {
             /*var books = (from b in _db.Books
@@ -79,7 +83,10 @@ namespace BookCave.Repositories
 
                 return books;
         }
-
+        /*public void CreateBook(BookCreateViewModel book)
+        {
+           _program.CreateBook(book);
+        }*/
         public void Delete()
         {
             var books = (from a in _db.Books

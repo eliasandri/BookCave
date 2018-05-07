@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using BookCave.Data;
-using BookCave.Data.EntityModels; 
+using BookCave.Data.EntityModels;
+using BookCave.Models.InputModels;
 
 namespace BookCave
 {
@@ -55,6 +56,25 @@ namespace BookCave
                 };
                 db.AddRange(initialGenres);
                 db.SaveChanges();
+        }
+        public static void CreateBook(BookCreateViewModel book)
+        {
+            var db = new DataContext();
+
+            var newBook = new Book()
+            {
+                Title = book.Title,
+                Description = book.Description,
+                Price = book.Price,
+                Rating = book.Rating,
+                ReleaseYear = book.ReleaseYear,
+                AuthorId = book.AuthorId,
+                GenreId = book.GenreId,
+                Image = book.Image
+            };
+            
+            db.Add(newBook);
+            db.SaveChanges();
         }
     }
 }

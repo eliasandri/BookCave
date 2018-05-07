@@ -2,6 +2,10 @@ using BookCave.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using BookCave.Models.ViewModels;
+using BookCave.Models.InputModels;
+using BookCave.Data;
+using BookCave.Data.EntityModels;
+
 namespace BookCave.Controllers
 {
     [Authorize]
@@ -42,6 +46,37 @@ namespace BookCave.Controllers
         {
             var books = _bookService.GetAllTop10Books();
             return View(books);
+        }
+
+        [HttpGet]
+        
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(BookCreateViewModel book)
+        {
+            if (ModelState.IsValid)
+            {
+                var db = new DataContext();
+                var newBook = new Book()
+                {
+                    Title = book.Title,
+                    Description = book.Description,
+                    Price = book.Price,
+                    Rating = book.Rating,
+                    ReleaseYear = book.ReleaseYear,
+                    AuthorId = book.AuthorId,
+                    GenreId = book.GenreId,
+                    Image = book.Image
+                };
+                db.Add(newBook);
+                db.SaveChanges();
+                return RedirectToAction("Shop");
+            }
+            return View();
         }
     }
 }
