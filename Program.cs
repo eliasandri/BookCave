@@ -30,12 +30,12 @@ namespace BookCave
         {
             var db = new DataContext();
 
-                var initialBooks = new List<Book>()
+               var initialBooks = new List<Book>()
                 {
 
                   
 
-                    new Book { Title = "Fifty Shades of Freed", Description ="When unworldly student Anastasia Steele first encountered the driven and dazzling young entrepreneur Christian Grey it sparked a sensual affair that changed both of their lives irrevocably. Shocked, intrigued, and, ultimately, repelled by Christian’s singular erotic tastes, Ana demands a deeper commitment. Determined to keep her, Christian agrees.Now, Ana and Christian have it all—love, passion, intimacy, wealth, and a world of possibilities for their future. But Ana knows that loving her Fifty Shades will not be easy, and that being together will pose challenges that neither of them would anticipate. Ana must somehow learn to share Christian’s opulent lifestyle without sacrificing her own identity. And Christian must overcome his compulsion to control as he wrestles with the demons of a tormented past.Just when it seems that their strength together will eclipse any obstacle, misfortune, malice, and fate conspire to make Ana’s deepest fears turn to reality.", Price = 6, Rating = 5, ReleaseYear = 2012, Image = "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Fifty_Shades_Freed_book_cover.png/220px-Fifty_Shades_Freed_book_cover.png", AuthorId = 41 },
+                    new Book { Title = "Hamlet", Description = "Hamlet is a tragedy by William Shakespeare, believed to have been written between 1599 and 1601. The play, set in Denmark, recounts how Prince Hamlet exacts revenge on his uncle Claudius, who has murdered Hamlet's father, the King, and then taken the throne and married Hamlet's mother. The play vividly charts the course of real and feigned madness-from overwhelming grief to seething rage-and explores themes of treachery, revenge, incest, and moral corruption.", Price = 6, Rating = 7, ReleaseYear = 2016, Image = "https://images-na.ssl-images-amazon.com/images/I/41IETeONh-L._SX331_BO1,204,203,200_.jpg", AuthorId = 16 },
  
                 };
                 db.AddRange(initialBooks);
@@ -44,17 +44,17 @@ namespace BookCave
                var initialArtists = new List<Author>()
                 {
 
-                    new Author { Name = "E.L.James", DateOfBirth = "7 March 1963", Image = "https://images-na.ssl-images-amazon.com/images/I/517nrccxRXL._UX250_.jpg", BookId = 52 }
+                    new Author { Name = "Arthur Miller", DateOfBirth = "17 October 1915", Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Arthur-miller.jpg/220px-Arthur-miller.jpg", BookId = 67 }
                 };
                 db.AddRange(initialArtists);
                 db.SaveChanges(); 
 
-                var initialGenres = new List<Genre>()
+                /*var initialGenres = new List<Genre>()
                 {
-                    new Genre { Title = "Romance", BookId = 54}
+                    new Genre { Title = "Fantasy", BookId = 10}
                 };
                 db.AddRange(initialGenres);
-                db.SaveChanges();
+                db.SaveChanges();*/
         }
     }
 }
