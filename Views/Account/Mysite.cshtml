@@ -1,8 +1,21 @@
 @model BookCave.Models.ApplicationUser
+<style>
+    div{
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    h3 {
+      text-align: center;
+      font-size: 26px;
+      background-color:whitesmoke;
+    }
+</style>
 <body>
-    <div>
-        <h1>Hello marhhhh</h1>
-        <p>@Model.Email</p>
-        <p>@Model.UserName</p>
+    <div class="container-fluid" style="width:50%">
+        <h1>My Profile</h1>
+        <img src="~/images/default-user.png" alt="Myprofile Image">
+        <h3>@Model.UserName</h3>
+        <h3>@Model.Email</h3>
     </div>
     </body>
