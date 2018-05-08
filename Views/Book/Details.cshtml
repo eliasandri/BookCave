@@ -2,13 +2,6 @@
 
 <link rel="stylesheet" href="~/css/site.css" type="text/css">
 
-<style>
-    img{
-        width: 300px;
-        height: auto;
-    }
-</style> 
-
 <ul class="breadcrumb">
   <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
   <li><a asp-area="" asp-controller="Book" asp-action="Shop">Books</a></li>
@@ -18,31 +11,28 @@
 <div class="container">
 <div class="row align-items-center">
 
-
-  
     <div class="col-xs-4 ">
-     <img src="@Model.Image" alt="Book Image">
+     <img class="detailsImg" src="@Model.Image" alt="Book Image">
     </div>
-
 
     <div class="col-xs-4 ">
       <h1 class="h1Heading">@Model.Title</h1>
       <h3>Rating: @Model.Rating</h3>
-      <p style="font-weight:600">Author</p>
+      <h4>Author</h4>
      @for (int i = 0; i < Model.Authors.Count; i++)
         {     
-            <p><a asp-controller="Author" asp-action="Details" asp-route-id="@Model.Authors[i].Id">@Html.DisplayFor(m => Model.Authors[i].Name)</a></p>
+            <h4><a asp-controller="Author" asp-action="Details" asp-route-id="@Model.Authors[i].Id">@Html.DisplayFor(m => Model.Authors[i].Name)</a></h4>
         }
       
-    <p>Release Year: @Model.ReleaseYear<p>
-    <p style="font-weight:600">Description: </p> 
+    <h4>Release Year: @Model.ReleaseYear</h4>
+    <h4>Description: </h4> 
     <p>@Model.Description</p>
     </br>
     <h3>Price: @Model.Price</h3>
     
     
     <button class="btn btn-default" type="button">Add to Wishlist</button>
-    <button class="btn btn-default" style="background-color: green; color:white; " type="button">Add to bakset</button>
+    <button class="btn btn-default; goodButton" type="button">Add to bakset</button>
     </div>
 
 
