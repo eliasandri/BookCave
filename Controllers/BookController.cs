@@ -59,6 +59,13 @@ namespace BookCave.Controllers
             return View();
         }
 
+        public IActionResult Filter(string orderBy="")
+        {
+            var books = _bookService.Filter(orderBy);
+            return View("Shop", books);
+        }
+
+
         [HttpPost]
         public IActionResult Create(BookCreateViewModel book)
         {

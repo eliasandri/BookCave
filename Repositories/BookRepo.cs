@@ -46,7 +46,57 @@ namespace BookCave.Repositories
         
         return books;
         }
-
+        public List<BookListViewModel> Filter(string orderBy)
+        {
+            if(orderBy == "PriceH2L")
+            {
+            var filtersearch = (from a in _db.Books
+                                orderby a.Price descending
+                                select new BookListViewModel
+                          {
+                          BookId = a.Id,
+                          Title = a.Title,
+                          AuthorId = a.Id,
+                          /*Author = a.Author,*/
+                          Rating = a.Rating,
+                          Image = a.Image,
+                          Price = a.Price,
+                          }).ToList();
+                return filtersearch;
+            }
+            else if(orderBy == "PriceL2H")
+            {
+                var filtersearch = (from a in _db.Books
+                                    orderby a.Price
+                                    select new BookListViewModel
+                                    {
+                                        BookId = a.Id,
+                                        Title = a.Title,
+                                        AuthorId = a.Id,
+                                        /*Author = a.Author,*/
+                                        Rating = a.Rating,
+                                        Image = a.Image,
+                                        Price = a.Price,
+                                        }).ToList();
+                        return filtersearch;
+            }
+            else
+            {
+                var filtersearch = (from a in _db.Books
+                                    orderby a.Title
+                                    select new BookListViewModel
+                                    {
+                                        BookId = a.Id,
+                                        Title = a.Title,
+                                        AuthorId = a.Id,
+                                        /*Author = a.Author,*/
+                                        Rating = a.Rating,
+                                        Image = a.Image,
+                                        Price = a.Price,
+                                    }).ToList();
+                return filtersearch;
+            }
+        }
         public List<BookDetailsViewModel> GetAllBooksDetails()
         {
             var books = (from a in _db.Books

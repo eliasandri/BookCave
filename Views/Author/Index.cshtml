@@ -11,11 +11,19 @@
 
 <div class="center">
 <h1>Authors</h1>
-<button class="btn btn-default">Filter by Name</button>
+<div class="form-group"> </br>
+<form asp-action="FilterSearch" asp-controller="Author" method="POST">
+  <button type="filter" class="btn btn-link">Filter authors by alphabetical order</button>
+</form>
+</div>
 </div>
 
 <div class="AllTables">
   <table class="table table-hover">
+<div class="font">
+<h1 style="text-align: center;">Authors</h1>
+<div style="text-align: center;">
+
   <tr class="active">
     <td>Name</td>
     <td>Date Of Birth</td>

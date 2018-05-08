@@ -17,7 +17,7 @@
       <h1 class="h1Heading">@Model.Name</h1>
         <h3>Born on @Model.DateOfBirth</h3>
       
-        <h3>Books that @Model.Name as written</h3>
+        <h3>Books that @Model.Name has written</h3>
         @for (int i = 0; i < Model.Books.Count; i++)
         {     
             <p><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Books[i].Id">@Html.DisplayFor(m => Model.Books[i].Title)</a></p>
