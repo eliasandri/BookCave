@@ -33,7 +33,11 @@ namespace BookCave.Services
             var books = _bookRepo.GetTop5Books();
             return books;
         }
-        
+        public List<BookNewest5ViewModel> GetNewest5Books()
+        {
+            var newBooks = _bookRepo.GetNewest5Books();
+            return newBooks;
+        }
         public void CreateBook(BookCreateViewModel book)
         {
             _bookRepo.CreateBook(book);

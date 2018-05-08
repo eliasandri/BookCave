@@ -21,6 +21,7 @@ namespace BookCave.Controllers
         public IActionResult Index()
         {
             var books = _bookService.GetTop5Books();
+
             return View(books);
         }
 
