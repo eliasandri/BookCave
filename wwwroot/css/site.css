@@ -147,3 +147,7 @@ h4 {
     padding-left: 8%;
     padding-right: auto;
 }
+
+#logo {
+    width: 75px;
+}
