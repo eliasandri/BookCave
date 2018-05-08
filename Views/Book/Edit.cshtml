@@ -1,6 +1,11 @@
 @model BookCave.Models.ViewModels.BookDetailsViewModel
 <div style="width: 50%; margin-left:auto; margin-right:auto;">
 
+<ul class="breadcrumb">
+  <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+  <li><a asp-area="" asp-controller="Book" asp-action="Shop">Books</a></li>
+  <li>Edit book</li>
+</ul>
 <h2 style="text-align: center;">Edit</h2>
 <form method="POST">
 
