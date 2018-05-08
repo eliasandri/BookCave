@@ -6,6 +6,7 @@ using BookCave.Models.InputModels;
 using BookCave.Data;
 using BookCave.Data.EntityModels;
 using System.Linq;
+using System;
 
 namespace BookCave.Controllers
 {
@@ -70,14 +71,14 @@ namespace BookCave.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Edit (int id)
+        public IActionResult Edit (int? id)
         {
-            /*if (id == null)
+            if (id == null)
             {
                 return View("Error");
-            }*/
+            }
             //int? _id = id;
-            var book = _bookService.GetBookToEdit(id);
+            var book = _bookService.GetBookWithId(id);
             //var db = new DataContext();
             //Book book = db.Books.Single(model => model.Id == id);
 
@@ -96,6 +97,35 @@ namespace BookCave.Controllers
                 db.Books.Update(book);
                 db.SaveChanges();*/
                 _bookService.EditBook(book);
+
+                return RedirectToAction("Shop");
+            }
+            return View("Book");
+        }
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return View("Error");
+            }
+            var book = _bookService.GetBookWithId(id);
+            if(book == null)
+            {
+                return View("Error");
+            }
+            return View(book);
+        }
+        [HttpPost]
+        public IActionResult Delete (int id)
+        {
+            var book = _bookService.GetBookWithId(id);
+            Console.WriteLine(book.BookId);
+            if(ModelState.IsValid)
+            {
+                /*var db = new DataContext();
+                db.Books.Update(book);
+                db.SaveChanges();*/
+                _bookService.DeleteBook(book);
 
                 return RedirectToAction("Shop");
             }
