@@ -12,6 +12,12 @@
     body {
       background-image: url("~/images/Portfolio/2.jpg");
     }
+
+    #bookImg {
+      width: 150px;
+      height: 200px;
+      margin-top: 10px;
+    }
     
   </style>
 
@@ -52,9 +58,18 @@
     </div>
   </section>
 
-  <section id="portfolio">
-    @await Html.PartialAsync("_IndexPartial")
-  </section>
+  <!--><section id="portfolio"><!-->
+    <div class="row"> 
+      @foreach (var book in @Model)
+      {
+        <div class="col-lg-5" style="width: 220px; height: 320px; border-style: solid; text-align: center">
+        <img class="img-thumbnail" id="bookImg" src="@book.Image" alt="BookImage">
+        <p><a asp-controller="Book" asp-action="Details" asp-route-id="@book.BookId"><strong>@book.Title</strong></a></p>
+        <p><strong>Rating: @book.Rating</strong></p>
+        </div>
+      }
+    </div>
+
 
   <section id="contact">
     <div class="row">
