@@ -10,14 +10,9 @@
 </ul>
 
 
-<h2 class="center">All books on stock</h2>
+<h1 class="center">All books on stock</h1>
 
-<style>
-  img{
-    width: 100px;
-    height: auto;
-  }
-</style>
+<div class="center">
 <form method="POST" asp-controller="Book" asp-action="Filter" class="detailed-search">
     <div class="select">
         <label for="orderBy">Filter books by:</label>
@@ -28,9 +23,10 @@
         </select>
 <input type="submit" value="Filter" id="search-button">
 </form>
+</div>
 
-
-<div class="row" style="margin-left:auto; margin-right: auto;">
+<div class="displayBooks">
+<div class="row">
   @foreach (var book in @Model)
   {
       <div class="col-lg-3" style="width: 250px; height:400px; border-style: solid; border-color:white;  text-align:center;">
@@ -52,5 +48,5 @@
 <p>
   <a asp-controller="Book" asp-action="Create" class="btn btn-primary">Add Book!</a>
 </p>
-
+</div>
 </div>
