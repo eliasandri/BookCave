@@ -28,7 +28,22 @@ namespace BookCave.Services
             var books = _bookRepo.GetAllTop10Books();
             return books;
         }
+        public List<BookTop5ViewModel> GetTop5Books()
+        {
+            var books = _bookRepo.GetTop5Books();
+            return books;
+        }
+        public List<BookNewest5ViewModel> GetNewest5Books()
+        {
+            var newBooks = _bookRepo.GetNewest5Books();
+            return newBooks;
+        }
         
+        public List<BookListViewModel> Filter(string orderBy)
+    {
+        var book = _bookRepo.Filter(orderBy);
+        return book;
+    }
         public void CreateBook(BookCreateViewModel book)
         {
             _bookRepo.CreateBook(book);

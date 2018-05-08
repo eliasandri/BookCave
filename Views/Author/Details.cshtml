@@ -1,35 +1,30 @@
 @model BookCave.Models.ViewModels.AuthorDetailsViewModel
 
-<style>
-    .list-group{
-        border-style: solid; 
-        border-width: 2px;
-        border-radius: 5px;
-        border-color:#F1F1F1;
-        width: 50%
-    }  
+<link rel="stylesheet" href="~/css/site.css" type="text/css">
 
-    img{
-    width: 300px;
-    height: auto;
-  }
-    
-</style>
+<ul class="breadcrumb">
+  <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+  <li><a asp-area="" asp-controller="Author" asp-action="Index">Author</a></li>
+  <li>AuthorDetails</li>
+</ul>
 
-
-
-
-<div class ="list-group"style="margin-right: auto; margin-left: auto; ">
-    <ul class="list-group" style="margin-left: auto; margin-right:auto; list-style-type: none;">
-         
-        <h1>@Model.Name</h1>
-        <h2>@Model.DateOfBirth</h2>
-        <img src="@Model.Image" alt="Book Image">
-        <h3>Books that @Model.Name as written</h3>
+<<div class="container">
+<div class="row align-items-center">
+    <div class="col-xs-6 ">
+     <img class="detailsImg" src="@Model.Image" alt="Book Image">
+    </div>
+    <div class="col-xs-6 ">
+      <h1 class="h1Heading">@Model.Name</h1>
+        <h3>Born on @Model.DateOfBirth</h3>
+      
+        <h3>Books that @Model.Name has written</h3>
         @for (int i = 0; i < Model.Books.Count; i++)
         {     
-            <h3 style="border-radius: 5px; border-style:solid; border-color:white; text-align: center; "><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Books[i].Id">@Html.DisplayFor(m => Model.Books[i].Title)</a></h3>
+            <p><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Books[i].Id">@Html.DisplayFor(m => Model.Books[i].Title)</a></p>
         }
+    </div>
+         
+        
         
     
     </ul>

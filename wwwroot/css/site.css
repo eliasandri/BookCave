@@ -56,3 +56,98 @@ margin-bottom:50px;
     border-color: #F1F1F1;
     width: 50%
 }
+
+#top10 {
+    margin-top: 10px;
+    padding-top: 10px;
+    position: relative;
+    width: 250px;
+    height: 400px;
+    border-style: solid;
+    border-color: white;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#top10>img {
+    width: auto;
+    height: 250px;
+}
+
+.center {
+    text-align: center;
+}
+
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.h2Heading {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#bookImg {
+    width: 150px;
+    height: 200px;
+    margin-top: 10px;
+}
+
+#borderStyle {
+    width: 220px;
+    height: 320px;
+    border-style: solid;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    background-color: #F1F1F1;
+}
+
+#top5 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.detailsImg {
+    width: 300px;
+    height: auto;
+}
+
+.AllTables {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: red;
+}
+
+.allInputLabels {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+.goodButton {
+    background-color: green;
+    color: white;
+    border-color: white;
+}
+
+.indexImg {
+    width: 100px;
+    height: auto;
+}
+
+.displayBooks {
+    padding-left: 8%;
+    padding-right: auto;
+}
+
+#logo {
+    width: 75px;
+}
