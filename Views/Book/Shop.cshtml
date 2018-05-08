@@ -2,20 +2,15 @@
 
 <link rel="stylesheet" href="~/css/site.css" type="text/css">
 
-<style>
-  img{
-    width: 100px;
-    height: auto;
-  }
-</style>
+
 
 <ul class="breadcrumb">
   <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-  
   <li>Books</li>
 </ul>
 
-  <h2 class="h2Heading">All books on stock</h2>
+
+<h2 class="center">All books on stock</h2>
 
  <div class="container">
   <div style="text-align:center">
@@ -27,7 +22,7 @@
   {
       <div class="col-lg-3" style="width: 250px; height:400px; border-style: solid; border-color:white;  text-align:center;">
        <p><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></p>
-      <img text-align:center; class="img-thumbnail" src="@book.Image" alt="Book Image">
+      <img text-align:center; class="img-thumbnail; indexImg" src="@book.Image" alt="Book Image">
  
         <p><a asp-controller ="Author" asp-action ="Details" asp-route-id="@book.AuthorId">Author: @book.Author</a></p>
         <p>Price: @book.Price</p>

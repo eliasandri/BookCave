@@ -7,7 +7,10 @@
   <li>Top 10 books</li>
 </ul>
 
-  <h2 class="h2Heading">Top 10 rated books</h2>
+
+
+  <h1 class="center">Top 10 rated books</h1>
+  <div class="displayBooks">
   <div class="row">
     @foreach (var book in @Model)
     {
@@ -17,4 +20,5 @@
       <p>Rating: @book.Rating</p>
       </div>
     }
+  </div>
   </div>
