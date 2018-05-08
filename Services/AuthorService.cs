@@ -24,7 +24,12 @@ namespace BookCave.Services
             var authors = _authorRepo.GetAllAuthorsDetails();
             return authors;
         }
-
+        
+        public List<AuthorListViewModel> FilterSearch(string orderBy)
+        {
+        var authors = _authorRepo.FilterSearch(orderBy);
+        return authors;
+        }
         public void Delete()
         {
             _authorRepo.Delete();

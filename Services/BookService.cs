@@ -29,6 +29,11 @@ namespace BookCave.Services
             return books;
         }
         
+        public List<BookListViewModel> Filter(string orderBy)
+    {
+        var book = _bookRepo.Filter(orderBy);
+        return book;
+    }
         public void CreateBook(BookCreateViewModel book)
         {
             _bookRepo.CreateBook(book);

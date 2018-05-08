@@ -7,13 +7,17 @@
     height: auto;
   }
 </style>
+<form method="POST" asp-controller="Book" asp-action="Filter" class="detailed-search">
+    <div class="select">
+        <label for="orderBy">Filter books by:</label>
+        <select name="orderBy">
+            <option value="PriceH2L">Price high to low</option>
+            <option value="PriceL2H">Price low to high</option>
+            <option value="Alphabeticalorder">Title</option>
+        </select>
+<input type="submit" value="Filter" id="search-button">
+</form>
 
-
- <div class="container">
-  <div style="text-align:center">
-  <button class="btn btn-default">Filter by Title</button>
-  <button class="btn btn-default">Filter by genre</a></button>
-  </div>
 <div class="row" style="margin-left:auto; margin-right: auto;">
   @foreach (var book in @Model)
   {
@@ -22,7 +26,7 @@
       <img text-align:center; class="img-thumbnail" src="@book.Image" alt="Book Image">
  
         <p><a asp-controller ="Author" asp-action ="Details" asp-route-id="@book.AuthorId">Author: @book.Author</a></p>
-        <p>Price: @book.Price</p>
+        <p>Price: $@book.Price</p>
         <p>Rating: @book.Rating</p>
         
         <div>

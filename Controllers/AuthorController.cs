@@ -28,6 +28,12 @@ namespace BookCave.Controllers
             return View(authors);
         }
 
+        public IActionResult FilterSearch(string orderBy="")
+        {
+            var authors = _authorService.FilterSearch(orderBy);
+            return View("Index", authors);
+        }
+
         
         public IActionResult Details(int? id)
         {

@@ -29,7 +29,18 @@ namespace BookCave.Repositories
 
              return authors;
         }
-
+        public List<AuthorListViewModel> FilterSearch(string orderby ="")
+        {
+            var authors = (from a in _db.Authors
+                           orderby a.Name
+                           select new AuthorListViewModel
+                           {
+                               AuthorId = a.Id,
+                               Name = a.Name,
+                               DateOfBirth = a.DateOfBirth
+                           }).ToList();
+                   return authors;
+        }
         public List<AuthorDetailsViewModel> GetAllAuthorsDetails()
         {
             var authors = (from a in _db.Authors

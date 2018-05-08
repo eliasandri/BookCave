@@ -20,8 +20,11 @@
 <div class="font">
 <h1 style="text-align: center;">Authors</h1>
 <div style="text-align: center;">
-<button class="btn btn-default">Filter by Name</button>
-</div>
+  <div class="form-group"> </br>
+<form asp-action="FilterSearch" asp-controller="Author" method="POST">
+  <button type="filter" class="btn btn-link">Filter authors by alphabetical order</button>
+</form>
+  </div>
   <table class="table table-hover" style=" width:50%; margin-left: auto; margin-right: auto">
   <tr class="active">
     <th>Name</th>
