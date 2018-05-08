@@ -5,6 +5,9 @@ using BookCave.Models.ViewModels;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using BookCave.Services;
 
 namespace BookCave.Controllers
 {
@@ -97,5 +100,17 @@ namespace BookCave.Controllers
         {
             return View();
         }
+        public IActionResult OrderHistory()
+        {
+            return View();
+        }
+
+
+        [Authorize]
+        public async Task<IActionResult> Mysite()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return View(user);
+        }
     }
-}
+} 
