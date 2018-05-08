@@ -12,12 +12,23 @@
     body {
       background-image: url("~/images/Portfolio/2.jpg");
     }
-
     #bookImg {
-      width: 150px;
-      height: 200px;
-      margin-top: 10px;
-    }
+    width: 150px;
+    height: 200px;
+    margin-top: 10px;
+  }
+  #borderStyle {
+    width: 220px; 
+    height: 320px;
+    border-style: solid; 
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    background-color: #F1F1F1;
+  }
+  #top5 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
     
   </style>
 
@@ -58,17 +69,26 @@
     </div>
   </section>
 
-  <!--><section id="portfolio"><!-->
+  <br>
+  <h2 id="top5">Top 5 rated books</h2>
+  <br>
+
+  <section id="portfolio">
     <div class="row"> 
       @foreach (var book in @Model)
       {
-        <div class="col-lg-5" style="width: 220px; height: 320px; border-style: solid; text-align: center">
+        <div class="col-lg-5" id="borderStyle">
         <img class="img-thumbnail" id="bookImg" src="@book.Image" alt="BookImage">
         <p><a asp-controller="Book" asp-action="Details" asp-route-id="@book.BookId"><strong>@book.Title</strong></a></p>
         <p><strong>Rating: @book.Rating</strong></p>
         </div>
       }
     </div>
+    </section>
+
+  <br>
+  <h2 id="top5">Newest releases</h2>
+  <br>
 
 
   <section id="contact">
