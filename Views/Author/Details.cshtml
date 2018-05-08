@@ -1,5 +1,7 @@
 @model BookCave.Models.ViewModels.AuthorDetailsViewModel
 
+<link rel="stylesheet" href="~/css/site.css" type="text/css">
+
 <style>
     .list-group{
         border-style: solid; 
@@ -26,7 +28,7 @@
 <div class ="list-group"style="margin-right: auto; margin-left: auto; ">
     <ul class="list-group" style="margin-left: auto; margin-right:auto; list-style-type: none;">
          
-        <h1>@Model.Name</h1>
+        <h1 class="h1Heading">@Model.Name</h1>
         <h2>@Model.DateOfBirth</h2>
         <img src="@Model.Image" alt="Book Image">
         <h3>Books that @Model.Name as written</h3>

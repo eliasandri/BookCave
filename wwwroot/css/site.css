@@ -75,3 +75,29 @@ margin-bottom:50px;
     width: auto;
     height: 250px;
 }
+
+.h1Heading{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.h2Heading{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#bookImg {
+    width: 150px;
+    height: 200px;
+    margin-top: 10px;
+  }
+  #borderStyle {
+    width: 220px; 
+    height: 320px;
+    border-style: solid; 
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    background-color: #F1F1F1;
+  }
+  #top5 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
