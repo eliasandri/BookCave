@@ -78,6 +78,7 @@ namespace BookCave.Repositories
                              BookId = m.Id,
                              Title = m.Title,
                              Rating = m.Rating,
+                             Image = m.Image,
                          }).Take(10).ToList();
 
                 return books;
