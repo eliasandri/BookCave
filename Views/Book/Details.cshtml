@@ -38,9 +38,10 @@
 
 
     <div class="col-xs-4 ">
-        <form action="details.cshtml" method="post">
-    <label for="comment"> Your comment about this book:</label></br>
-    <textarea id="comment" name="user_comment"></textarea></br>
+    <form method="POST">
+    <label asp-for="Review"> Your comment about this book:</label></br>
+    <input type ="text" asp-for="Review" class="form-control"></textarea></br>
+    <span asp-validation-for="Review" class="badge"></span>
     <button class="btn btn-default" type="submit">Submit Comment</button>
     </form>
 

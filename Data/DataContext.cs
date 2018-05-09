@@ -11,6 +11,8 @@ namespace BookCave.Data
 
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
+        public DbSet<Comment> BookComments { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

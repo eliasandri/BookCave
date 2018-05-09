@@ -76,5 +76,11 @@ namespace BookCave.Services
         var book = _bookRepo.GetBookByLayoutSearch(layoutsearch);
         return book;
         }
+
+        public void CreateBookComment(BookDetailsViewModel book)
+        {
+              _bookRepo.CreateBookComment(book);
+        }
+
     }
 }
