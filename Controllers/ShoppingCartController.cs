@@ -35,7 +35,7 @@ namespace BookCave.Controllers
                 CartTotal = cart.GetTotal(),
                 //Books = addedItem * cartItem.Count
             };
-            //Console.WriteLine(viewModel.CartItems[0].CartId);
+            Console.WriteLine(viewModel.CartTotal);
             
             return View(viewModel);
         }

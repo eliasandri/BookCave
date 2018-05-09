@@ -107,10 +107,11 @@ namespace BookCave.Data.EntityModels
                             BookId = b.Id,
                             BookTitle = b.Title,
                             BookPrice = b.Price,
-                            
+                            Count = sc.Count,
                         }).ToList();
             //return _db.ShopCarts.Where(
              //   cart => cart.CartId == ShoppingCartId).ToList();
+             Console.WriteLine("haha");
         return books;
         }
 
@@ -129,7 +130,10 @@ namespace BookCave.Data.EntityModels
                               where cartItems.CartId == ShoppingCartId
                               select (int)cartItems.Count *
                               (double)cartItems.Book.Price).Sum();
+            
+            
             return total;
+            
         }
 
         public int CreateOrder(Order order)

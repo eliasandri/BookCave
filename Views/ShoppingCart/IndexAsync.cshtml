@@ -28,13 +28,13 @@
     {
         <tr id="row-@item.BookId">
             <td>
-                
+                @item.BookTitle
             </td>
             <td>
                 @item.BookPrice $
             </td>
             <td id="item-count-@item.BookId">
-                @item.BookTitle
+               @item.Count 
             </td>
             <td>
                 <a href="#" class="RemoveLink"
@@ -52,7 +52,7 @@
         <td></td>
         <td></td>
         <td id="cart-total">
-            10
+            @Model.CartTotal
         </td>
     </tr>
 </table>
