@@ -9,7 +9,5 @@ namespace BookCave.Models.ViewModels
         public string Name { get; set; }
         public string DateOfBirth { get; set; }
         public string Image { get; set; }
-        
-
     }
 }

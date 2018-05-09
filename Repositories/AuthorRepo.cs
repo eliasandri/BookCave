@@ -60,7 +60,29 @@ namespace BookCave.Repositories
 
              return authors;
         }
-        
+        /*public List<AuthorDetailsViewModel> GetBookByLayoutSearch(string layoutsearch)
+        {
+            var layoutresults = (from a in _db.Authors
+                          join ar in _db.Books on a.BookId equals ar.Id
+                          select new AuthorDetailsViewModel
+                          {
+                          Name = a.Name,
+                          AuthorId = a.Id,
+                          DateOfBirth = a.DateOfBirth,
+                          Image = a.Image,
+                          Books = (from m in _db.Books
+                                  join mr in _db.Authors on m.AuthorId equals mr.Id
+                                  where m.AuthorId == a.Id
+                                  select m).ToList(),
+                            BookId = ar.Id
+                          }
+                        );
+        if (!string.IsNullOrEmpty(layoutsearch))
+        {
+        layoutresults = layoutresults.Where(a => a.Name.ToLower().Contains(layoutsearch.ToLower()));
+        }
+        return layoutresults.ToList();
+        }*/
         public void Delete()
         {
             var authors = (from a in _db.Authors
