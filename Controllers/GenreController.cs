@@ -20,7 +20,6 @@ namespace BookCave.Controllers
             _genreService = new GenreService();
         }
 
-
         public IActionResult Index()
         {
             var genres = _genreService.GetAllGenres();

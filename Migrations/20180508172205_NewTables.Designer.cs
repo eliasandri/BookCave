@@ -11,9 +11,10 @@ using System;
 namespace BookCave.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180508172205_NewTables")]
+    partial class NewTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,41 +84,23 @@ namespace BookCave.Migrations
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(70);
+                    b.Property<string>("Address");
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasMaxLength(40);
+                    b.Property<string>("City");
 
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasMaxLength(40);
+                    b.Property<string>("Country");
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(160);
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(160);
+                    b.Property<string>("LastName");
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasMaxLength(24);
+                    b.Property<string>("Phone");
 
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasMaxLength(10);
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasMaxLength(40);
+                    b.Property<string>("PostalCode");
 
                     b.Property<double>("Total");
 
