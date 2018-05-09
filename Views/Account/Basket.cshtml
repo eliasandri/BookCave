@@ -25,23 +25,29 @@
     <h1 style="font-style: italic">Basket</h1>
 
     <div class="container-fluid" style="width:50%">
+
     <table class="table table-hover">
   <tr>
     <th>Item</th>
     <th></th> 
-    
   </tr>
-  <tr>
-    <td>Ævintýrabók</td>
-    <td><select>
+  
+     @foreach(var order in Model)
+  {
+    <tr class="active">
+      <td>@order.OrderName</a></td>
+      <td><select>
     <option value ="1">1</option>
     <option value ="2">2</option>
     <option value ="3">3</option>
     <option value ="4">4</option>
     <option value ="5">5</option>
-</select>
-<button class="btn btn-default" style="background-color: red;">Delete</button></td> 
-  </tr>
+      </select>
+    <button class="btn btn-default" style="background-color: red;">Delete</button></td> 
+    </tr>
+  }
+    
+ 
 </table>
 </div>
     

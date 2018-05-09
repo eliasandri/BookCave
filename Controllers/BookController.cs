@@ -51,15 +51,15 @@ namespace BookCave.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+
         [HttpGet]
-        
+
         public IActionResult Create()
         {
             return View();
         }
 
-        public IActionResult Filter(string orderBy="")
+        public IActionResult Filter(string orderBy = "")
         {
             var books = _bookService.Filter(orderBy);
             return View("Shop", books);
@@ -69,7 +69,7 @@ namespace BookCave.Controllers
         [HttpPost]
         public IActionResult Create(BookCreateViewModel book)
         {
-            
+
             if (ModelState.IsValid)
             {
                 _bookService.CreateBook(book);
@@ -78,7 +78,7 @@ namespace BookCave.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Edit (int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -89,16 +89,16 @@ namespace BookCave.Controllers
             //var db = new DataContext();
             //Book book = db.Books.Single(model => model.Id == id);
 
-            if(book == null)
+            if (book == null)
             {
                 return View("Error");
             }
             return View(book);
         }
         [HttpPost]
-        public IActionResult Edit (BookDetailsViewModel book)
+        public IActionResult Edit(BookDetailsViewModel book)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 /*var db = new DataContext();
                 db.Books.Update(book);
@@ -116,18 +116,18 @@ namespace BookCave.Controllers
                 return View("Error");
             }
             var book = _bookService.GetBookWithId(id);
-            if(book == null)
+            if (book == null)
             {
                 return View("Error");
             }
             return View(book);
         }
         [HttpPost]
-        public IActionResult Delete (int id)
+        public IActionResult Delete(int id)
         {
             var book = _bookService.GetBookWithId(id);
             Console.WriteLine(book.BookId);
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 /*var db = new DataContext();
                 db.Books.Update(book);

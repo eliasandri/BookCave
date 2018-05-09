@@ -96,22 +96,32 @@ margin-bottom:50px;
 
 #borderStyle {
     width: 220px;
-    height: 320px;
+    height: 450px;
     border-style: solid;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
-    background-color: #F1F1F1;
+    border-color: white;
 }
 
 #borderStyleTwo {
     width: 220px;
-    height: 320px;
+    height: 450px;
     border-style: solid;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
-    background-color: #F1F1F1;
+    border-color: white;
+}
+
+#borderStyleThree {
+    width: 250px;
+    height: 450px;
+    border-style: solid;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    border-color: white;
 }
 
 #top5 {
@@ -151,6 +161,7 @@ h4 {
 .indexImg {
     width: 100px;
     height: auto;
+    text-align: center;
 }
 
 .displayBooks {
@@ -160,4 +171,26 @@ h4 {
 
 #logo {
     width: 75px;
+}
+
+.allDisplay {
+    height: 400px;
+    width: 250px;
+    border-style: solid;
+    border-color: white;
+    text-align: center;
+}
+
+.fa {
+    font-size: 30px;
+}
+
+#bottomofindex {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.redButton {
+    background-color: red;
 }

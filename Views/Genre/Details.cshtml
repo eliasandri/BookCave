@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@model BookCave.Models.ViewModels.GenreDetailsViewModel
+
+
     <ul class="breadcrumb">
   <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
   <li><a asp-area="" asp-controller="Genre" asp-action="Index">Genre</a></li>
@@ -20,15 +14,13 @@
   <tr>
       <th>Title</th>
     </tr>
-     @foreach (var book in @Model)
+     @for (int i = 0; i < @Model.Books.Count; i ++)
   {
   <tr>
-      <th><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></th>
+      <th><a asp-controller ="Book" asp-action ="Details" asp-route-id="@Model.Books[i].Title">@Html.DisplayFor(m => Model.Books[i].Title)</a></th>
     </tr>
   }
 
 
 
 </table>
-</body>
-</html>
