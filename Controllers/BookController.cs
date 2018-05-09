@@ -53,11 +53,12 @@ namespace BookCave.Controllers
             return View(book);
         }
         [HttpPost]
-        public IActionResult Details(BookDetailsViewModel book)
+        public IActionResult Details(BookDetailsViewModel book, int id)
         {
-            Console.WriteLine(book.BookId);
+            
             if (ModelState.IsValid)
             {
+                book.BookId = id;
                 _bookService.CreateBookComment(book);
                 return RedirectToAction("Shop");
             }

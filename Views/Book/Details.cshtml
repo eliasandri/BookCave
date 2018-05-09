@@ -44,7 +44,7 @@
     <label asp-for="Review"> Your comment about this book:</label></br>
     <input type ="text" asp-for="Review" class="form-control"></textarea></br>
     <span asp-validation-for="Review" class="badge"></span>
-    <button class="btn btn-default" type="submit">Submit Comment</button>
+    <button class="btn btn-default" type="submit" <a asp-action="Details" asp-route-id="@Model.BookId" asp-controller="Book"></a>Submit Comment</button>
     </form>
 
       <h2>Rate this book</h2>
