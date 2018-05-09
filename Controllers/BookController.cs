@@ -52,7 +52,23 @@ namespace BookCave.Controllers
 
             return View(book);
         }
-
+        [HttpPost]
+        public IActionResult Details(BookDetailsViewModel book)
+        {
+            Console.WriteLine(book.BookId);
+            if (ModelState.IsValid)
+            {
+                _bookService.CreateBookComment(book);
+                return RedirectToAction("Shop");
+            }
+            return View();
+        }
+        
+        /*public IActionResults PrintBookComment(BookDetailsViewModel book)
+        {
+            var books = _bookService.PrintBookComment();
+            return View(books);
+        }*/
         public IActionResult Top10()
         {
             var books = _bookService.GetAllTop10Books();

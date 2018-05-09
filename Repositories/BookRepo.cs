@@ -1,3 +1,14 @@
+/*using System.Collections.Generic;
+using BookCave.Models.ViewModels;
+
+namespace BookCave.Models.ViewModels
+{
+    public class Top5ViewModel
+    {
+        public List<BookNewest5ViewModel> GetTop5Books { get; set; }
+        public List<BookTop5ViewModel> GetNewest5Books { get; set; }
+    }
+}*/
 using System.Collections.Generic;
 using BookCave.Models.ViewModels;
 using BookCave.Data;
@@ -132,7 +143,6 @@ namespace BookCave.Repositories
                              Rating = m.Rating,
                              Image = m.Image,
                          }).Take(10).ToList();
-
                 return books;
         }
         /*public List<Top5ViewModel> Get5Books()
@@ -191,6 +201,29 @@ namespace BookCave.Repositories
                 _db.Add(newBook);
                 _db.SaveChanges();
         }
+        public void CreateBookComment(BookDetailsViewModel book)
+        {
+            var newComment = new Comment()
+            {
+                BookId = book.BookId,
+                Review = book.Review,
+            };
+            Console.WriteLine(newComment.Review);
+            _db.BookComments.Add(newComment);
+            _db.SaveChanges();
+        }
+
+        /*public PrintBookComment(BookDetailsViewModel book)
+        {
+            var books = (from m in _db.BookComments
+                    join mr in _db.Books on m.BookId equals mr.Id
+                    select new BookDetailsViewModel
+                    {
+                        BookId = book.BookId,
+                        Review = book.Review,
+                    }).ToList();
+            return books;
+        }*/
         public BookDetailsViewModel GetBookWithId(int? id)
         {
             //var db = new DataContext();
