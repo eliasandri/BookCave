@@ -194,3 +194,19 @@ h4 {
 .redButton {
     background-color: red;
 }
+
+#shoppinglist {
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+#tritem {
+    background-color: #F5F5F5
+}
+
+.bold {
+    font-weight: 900;
+}

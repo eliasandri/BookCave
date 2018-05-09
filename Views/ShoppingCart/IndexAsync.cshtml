@@ -1,18 +1,27 @@
 @model BookCave.Models.ViewModels.ShoppingCartViewModel
+
+
+<link rel="stylesheet" href="~/css/site.css" type="text/css">
+
+
 @{
     ViewBag.Title = "Shopping Cart";
 }
+<ul class="breadcrumb">
+  <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+  <li><a asp-area="" asp-controller="Book" asp-action="Shop">Books</a></li>
+  <li><a asp-area="" asp-controller="Book" asp-action="Details">Books Detils</a></li>
+<li>My Cart</li>
+</ul>
 
-<h3>
-    <em>Review</em> your cart:
+
+
+<h3 class="center">
+    Review your cart:
 </h3>
-<p class="button">
-    @Html.ActionLink("Checkout>> ", "AddressAndPayment", "Checkout")
-</p>
-<div id="update-message">
-</div>
-<table>
-    <tr>
+
+<table class="table table-hover " id="shoppinglist">
+    <tr id="tritem">
         <th>
             Item Name
         </th>
@@ -37,22 +46,31 @@
                @item.Count 
             </td>
             <td>
-                <a href="#" class="RemoveLink"
+                <button class="btn btn-defult"><a href="#" class="RemoveLink"
                    data-id="@item.BookId">
                     Remove
                     from cart
-                </a>
+                </a></button>
             </td>
         </tr>
     }
-    <tr>
-        <td>
+    <tr style="border-top-width: thin;">
+        <td class="bold">
             Total
         </td>
         <td></td>
         <td></td>
-        <td id="cart-total">
+        <td id="cart-total" class="bold">
             @Model.CartTotal
         </td>
     </tr>
 </table>
+<div class="center">
+<button class="btn btn-defult;">
+<p class="button">
+    @Html.ActionLink("Checkout>> ", "AddressAndPayment", "Checkout")
+</p>
+</button>
+</div>
+<div id="update-message">
+</div>
