@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using BookCave.Data.EntityModels;
 
-namespace BookCave.Data.EntityModels
+namespace BookCave.Models.InputModels
 {
-    public partial class Order
+    public class OrderCreateViewModel
     {
-        [ScaffoldColumn(false)]
-        public int OrderId { get; set; }
-        [ScaffoldColumn(false)]
         public string Username { get; set; }
         [Required(ErrorMessage = "First Name is required")]
         [DisplayName("First Name")]
@@ -46,5 +44,6 @@ namespace BookCave.Data.EntityModels
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
         public List<OrderDetail> OrderDetails{ get; set; }
+        public int PromoCode { get; set; }
     }
 }

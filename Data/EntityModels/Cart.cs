@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
+using BookCave.Models.ViewModels;
 
 namespace BookCave.Data.EntityModels
 {
@@ -11,14 +12,14 @@ namespace BookCave.Data.EntityModels
     {
         private DataContext _db; 
         //private AuthenticationDbContext _adb;
-        int ShoppingCartId { get; set; }
+        string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
         public Cart()
         {
             _db = new DataContext();
         }
 
-        public static Cart GetCart(int id)
+        public static Cart GetCart(string id)
         {
             
             var cart = new Cart();
@@ -47,12 +48,12 @@ namespace BookCave.Data.EntityModels
                     CartId = ShoppingCartId,
                     Count = 1,
                     DateCreated = DateTime.Now
+                    
                 };
                 _db.ShopCarts.Add(cartItem);
             }
             else
             {
-                
                 cartItem.Count++;
             }
             
@@ -96,14 +97,25 @@ namespace BookCave.Data.EntityModels
             
             _db.SaveChanges();
         }
-        public List<ShopCart> GetCartItems()
+        public List<BookInCartViewModel> GetCartItems()
         {
-            return _db.ShopCarts.Where(
-                cart => cart.CartId == ShoppingCartId).ToList();
+            var books = (from sc in _db.ShopCarts
+                         join b in _db.Books on sc.ItemId equals b.Id
+                         where sc.CartId == ShoppingCartId
+                        select new BookInCartViewModel
+                        {
+                            BookId = b.Id,
+                            BookTitle = b.Title,
+                            BookPrice = b.Price,
+                            
+                        }).ToList();
+            //return _db.ShopCarts.Where(
+             //   cart => cart.CartId == ShoppingCartId).ToList();
+        return books;
         }
+
         public int GetCount()
         {
-
             int? count = (from cartItems in _db.ShopCarts
                           where cartItems.CartId == ShoppingCartId
                           select (int?)cartItems.Count).Sum();
@@ -113,12 +125,10 @@ namespace BookCave.Data.EntityModels
 
         public double GetTotal()
         {
-            
             double total = (from cartItems in _db.ShopCarts
                               where cartItems.CartId == ShoppingCartId
                               select (int)cartItems.Count *
-                              cartItems.Book.Price).Sum();
-
+                              (double)cartItems.Book.Price).Sum();
             return total;
         }
 
@@ -132,13 +142,13 @@ namespace BookCave.Data.EntityModels
             {
                 var orderDetail = new OrderDetail
                 {
-                    ItemId = item.ItemId,
+                    ItemId = item.BookId,
                     OrderId = order.OrderId,
-                    UnitPrice = item.Book.Price,
-                    Quantity = item.Count
+                    UnitPrice = 0,
+                    Quantity = 0
                 };
                 
-                orderTotal += (item.Count * item.Book.Price);
+                orderTotal += 0;
 
                 _db.OrderDetails.Add(orderDetail);
 
@@ -154,7 +164,7 @@ namespace BookCave.Data.EntityModels
             return order.OrderId;
         }
 
-        public int GetCartId(int id)
+        public string GetCartId(string id)
         {
             /*if (context.Session[CartSessionKey] == null)
             {
@@ -174,7 +184,7 @@ namespace BookCave.Data.EntityModels
             return id;
         }
 
-        /*public void MigrateCart(string Email)
+        public void MigrateCart(string Email)
         {
             var shoppingCart = _db.ShopCarts.Where(
                 c => c.CartId == ShoppingCartId);
@@ -184,6 +194,6 @@ namespace BookCave.Data.EntityModels
                 item.CartId = Email;
             }
             _db.SaveChanges();
-        }*/
+        }
     }
 }

@@ -11,8 +11,8 @@ using System;
 namespace BookCave.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180508223433_CartIdToInt")]
-    partial class CartIdToInt
+    [Migration("20180509033302_UpdateOrderTable")]
+    partial class UpdateOrderTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,23 +84,41 @@ namespace BookCave.Migrations
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(70);
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(40);
 
-                    b.Property<string>("Country");
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasMaxLength(40);
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(160);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(160);
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<string>("Phone");
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(24);
 
-                    b.Property<string>("PostalCode");
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasMaxLength(10);
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasMaxLength(40);
 
                     b.Property<double>("Total");
 
@@ -142,7 +160,7 @@ namespace BookCave.Migrations
 
                     b.Property<int?>("BookId");
 
-                    b.Property<int>("CartId");
+                    b.Property<string>("CartId");
 
                     b.Property<int>("Count");
 

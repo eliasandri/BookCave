@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using BookCave.Services;
+using BookCave.Data.EntityModels;
+using System;
 
 namespace BookCave.Controllers
 {
@@ -24,6 +26,13 @@ namespace BookCave.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
             RoleManager = roleManager;
+        }
+        private async Task MigrateShoppingCartAsync(string email)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            Console.WriteLine(user.Id);
+            var cart = Cart.GetCart(user.Id);
+            cart.MigrateCart(email);
         }
 
 
@@ -48,7 +57,7 @@ namespace BookCave.Controllers
                 await _userManager.AddToRoleAsync(user, "User");
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, isPersistent: false);
-
+                MigrateShoppingCartAsync(model.Email);
                 //The user is successfully registered
                 //Add the concatenated first and last name as fullName in claims
 
@@ -72,6 +81,7 @@ namespace BookCave.Controllers
 
             if (result.Succeeded)
             {
+                MigrateShoppingCartAsync(model.Email);
                 return RedirectToAction("Index", "Home");
             }
             return View();
