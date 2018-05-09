@@ -104,6 +104,16 @@ margin-bottom:50px;
     background-color: #F1F1F1;
 }
 
+#borderStyleTwo {
+    width: 220px;
+    height: 320px;
+    border-style: solid;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    background-color: #F1F1F1;
+}
+
 #top5 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

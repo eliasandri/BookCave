@@ -33,11 +33,16 @@ namespace BookCave.Services
             var books = _bookRepo.GetTop5Books();
             return books;
         }
-        public List<BookNewest5ViewModel> GetNewest5Books()
+        /*public List<BookNewest5ViewModel> GetNewest5Books()
         {
             var newBooks = _bookRepo.GetNewest5Books();
             return newBooks;
         }
+        public List<Top5ViewModel> Get5Books()
+        {
+            var result = _bookRepo.Get5Books();
+            return result;
+        }*/
         
         public List<BookListViewModel> Filter(string orderBy)
     {
@@ -65,6 +70,11 @@ namespace BookCave.Services
         public void Delete()
         {
             _bookRepo.Delete();
+        }
+        public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
+        {
+        var book = _bookRepo.GetBookByLayoutSearch(layoutsearch);
+        return book;
         }
     }
 }

@@ -51,13 +51,14 @@ namespace BookCave.Repositories
             if(orderBy == "PriceH2L")
             {
             var filtersearch = (from a in _db.Books
+                                join mr in _db.Authors on a.AuthorId equals mr.Id
                                 orderby a.Price descending
                                 select new BookListViewModel
                           {
                           BookId = a.Id,
                           Title = a.Title,
                           AuthorId = a.Id,
-                          /*Author = a.Author,*/
+                          Author = mr.Name,
                           Rating = a.Rating,
                           Image = a.Image,
                           Price = a.Price,
@@ -67,13 +68,14 @@ namespace BookCave.Repositories
             else if(orderBy == "PriceL2H")
             {
                 var filtersearch = (from a in _db.Books
-                                    orderby a.Price
+                                    join mr in _db.Authors on a.AuthorId equals mr.Id
+                                    orderby a.Price 
                                     select new BookListViewModel
                                     {
                                         BookId = a.Id,
                                         Title = a.Title,
                                         AuthorId = a.Id,
-                                        /*Author = a.Author,*/
+                                        Author = mr.Name,
                                         Rating = a.Rating,
                                         Image = a.Image,
                                         Price = a.Price,
@@ -89,7 +91,7 @@ namespace BookCave.Repositories
                                         BookId = a.Id,
                                         Title = a.Title,
                                         AuthorId = a.Id,
-                                        /*Author = a.Author,*/
+                                        /*Author = a.Name,*/
                                         Rating = a.Rating,
                                         Image = a.Image,
                                         Price = a.Price,
@@ -133,6 +135,11 @@ namespace BookCave.Repositories
 
                 return books;
         }
+        /*public List<Top5ViewModel> Get5Books()
+        {
+            var result = _db.Books.OrderBy(m => m.Rating).ThenBy(m => m.ReleaseYear).ToList(); 
+            return result;
+        }*/
         public List<BookTop5ViewModel> GetTop5Books()
         {
             var books = (from m in _db.Books
@@ -143,10 +150,19 @@ namespace BookCave.Repositories
                             Title = m.Title,
                             Rating = m.Rating,
                             Image = m.Image,
+                            GetNewest5Books = (from b in _db.Books
+                                                orderby b.ReleaseYear descending
+                                                select new BookNewest5ViewModel
+                                                {
+                                                    BookId = b.Id,
+                                                    Title = b.Title,
+                                                    ReleaseYear = b.ReleaseYear,
+                                                    Image = b.Image,
+                                                }).Take(5).ToList(),
                         }).Take(5).ToList();
             return books;
         }
-        public List<BookNewest5ViewModel> GetNewest5Books()
+        /*public List<BookNewest5ViewModel> GetNewest5Books()
         {
             var newBooks = (from b in _db.Books
                             orderby b.ReleaseYear descending
@@ -158,7 +174,7 @@ namespace BookCave.Repositories
                                 Image = b.Image,
                             }).Take(5).ToList();
             return newBooks;
-        }
+        }*/
         public void CreateBook(BookCreateViewModel book)
         {
            var newBook = new Book()
@@ -260,6 +276,28 @@ namespace BookCave.Repositories
 
             _db.Books.RemoveRange(books);
             _db.SaveChanges();
+        }
+
+        public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
+        {
+            var layoutresults = (from a in _db.Books
+                          join b in _db.Authors on a.AuthorId equals b.Id
+                          select new BookListViewModel
+                          {
+                          BookId = a.Id,
+                          Title = a.Title,
+                          Author = b.Name,
+                          AuthorId = b.Id,
+                          Rating = a.Rating,
+                          Image = a.Image,
+                          Price = a.Price,
+                          }
+                        );
+        if (!string.IsNullOrEmpty(layoutsearch))
+        {
+        layoutresults = layoutresults.Where(a => a.Title.ToLower().Contains(layoutsearch.ToLower()));
+        }
+        return layoutresults.ToList();
         }
     }
 }

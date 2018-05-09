@@ -33,8 +33,15 @@ namespace BookCave.Controllers
             var authors = _authorService.FilterSearch(orderBy);
             return View("Index", authors);
         }
-
-        
+        /*public IActionResult QuickSearch(string searchTerm)
+        {
+            var authors = _authorService.GetBookByLayoutSearch(searchTerm);
+            if(!authors.Any())
+            {
+                return View("NotFound");
+            }
+            return View("Shop", authors);
+        }*/
         public IActionResult Details(int? id)
         {
             if (id == null)

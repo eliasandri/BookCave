@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
 using Microsoft.AspNetCore.Authorization;
+using BookCave.Models.ViewModels;
 
 namespace BookCave.Controllers
 {
@@ -21,9 +22,9 @@ namespace BookCave.Controllers
         public IActionResult Index()
         {
             var books = _bookService.GetTop5Books();
-
             return View(books);
         }
+
 
         /*       public IActionResult Delete()
                {
