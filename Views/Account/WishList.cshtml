@@ -29,10 +29,13 @@
           <th>Item</th>
           <th></th> 
         </tr>
-        <tr class="active">
-          <td>Ævintýrabók</td>
-          <td><button class="btn btn-default">Add to Basket</button><button class="btn btn-default" style="background-color: red; ">Remove</button></td> 
-        </tr>
+           @foreach(var wishlistItem in Model)
+  {
+    <tr class="active">
+      <td>@wishlistItem.Item</a></td>
+      <td><button class="btn btn-default" style="background-color: red;">Remove</button><button class="btn btn-default">Add To basket</button></td> 
+    </tr>
+  }
         
       </table>
     </div>

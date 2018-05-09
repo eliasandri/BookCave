@@ -7,25 +7,49 @@
     ViewData["Title"] = "Home";
   }
 
-  <style>
-    .fa {
-      font-size: 4em;
-    }
 
-    body {
-      background-image: url("~/images/Portfolio/2.jpg");
-    }
-
-    
-  </style>
 
 <div class="row text-center">
-  <h1 style="font-size:4em;">Classy Books</h1></hr>
-  <p class="text-muted">Come check out our catalog of fine books</p>
-  <a asp-action="Shop" asp-controller="Book" class="btn btn-primary btn-lg">Browse our catalog</a>
+  <h1 style="font-size:4em;">Welcome to BookCave, the best online bookstore</h1></hr>
+
+  <button class="btn btn-default"><a asp-action="Shop" asp-controller="Book" >Check our collection of awesome books</a></button>
 </div>
 
-<div class="container-fluid">
+
+<div class="container-fluid" >
+  <div >
+  <br>
+  <h2 class="h2Heading">Top 5 rated books</h2>
+  <br>
+    <div class="row"> 
+      @foreach (var book in Model)
+      {
+        <div class="col-lg-5" id="borderStyle" >
+        <img class="img-thumbnail" id="bookImg" src="@book.Image" alt="BookImage">
+        <p><a asp-controller="Book" asp-action="Details" asp-route-id="@book.BookId"><strong>@book.Title</strong></a></p>
+        <p><strong>Rating: @book.Rating</strong></p>
+        </div>
+      }
+</div>
+</div>
+        <div>
+        <h2 id="top5">Newest releases</h2>
+        <br>
+        <div class="row" >
+          @for (int i = 0; i < Model[0].GetNewest5Books.Count; i++)
+          {
+            <div class="col-lg-5" id="borderStyleTwo">
+            <img class="img-thumbnail;" id="bookImg" src="@Model[0].GetNewest5Books[i].Image" alt="BookImage">
+            <p><a asp-controller="Book" asp-action="Details" asp-route-id="@Model[0].GetNewest5Books[i].BookId">@Model[0].GetNewest5Books[i].Title"</a></p>
+            <p>Release Year: @Model[0].GetNewest5Books[i].ReleaseYear</p>
+            </div>
+          }
+        </div>
+        </div>
+
+
+
+        <div class="container-fluid; fa" id="bottomofindex">
   <section id="about">
     <div class="row">
 
@@ -54,62 +78,11 @@
       </div>
 
     </div>
-  </section>
-
-  <br>
-  <h2 class="h2Heading">Top 5 rated books</h2>
-  <br>
-
-  <section id="portfolio">
-    <div class="row"> 
-      @foreach (var book in Model)
-      {
-        <div class="col-lg-5" id="borderStyle">
-        <img class="img-thumbnail" id="bookImg" src="@book.Image" alt="BookImage">
-        <p><a asp-controller="Book" asp-action="Details" asp-route-id="@book.BookId"><strong>@book.Title</strong></a></p>
-        <p><strong>Rating: @book.Rating</strong></p>
-        </div>
-      }
-
-        <br><br>
-        <h2 id="top5">Newest releases</h2>
-        <br>
-        <div class="row">
-          @for (int i = 0; i < Model[0].GetNewest5Books.Count; i++)
-          {
-            <div class="col-lg-5" id="borderStyleTwo">
-            <img class="img-thumbnail" id="bookImg" src="@Model[0].GetNewest5Books[i].Image" alt="BookImage">
-            <p><a asp-controller="Book" asp-action="Details" asp-route-id="@Model[0].GetNewest5Books[i].BookId">@Model[0].GetNewest5Books[i].Title"</a></p>
-            <p>Release Year: @Model[0].GetNewest5Books[i].ReleaseYear</p>
-            </div>
-          }
-        </div>
-
-      
-    </div>
-    </section>
-
-
-  <section id="contact">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center">
-        <h2 class="section-heading">Let's get in touch!</h2>
-        </hr>
-        <p>Give us a call and order some of our fine books already!</p>
-      </div>
-
-      <div class="col-md-4 col-md-offset-2 text-center">
-        <span class="fa fa-phone"></span>
-        <p>58-12345 </p>
-      </div>
-
-      <div class="col-md-4 text-center">
-        <span class="fa fa-envelope"></span>
-        <p><a href="mailto:TheBookCave@gmail.com">TheBookCave@gmail.com</a></p>
-      </div>
-
     </div>
   </section>
+
+
+    
 
 </div>
 

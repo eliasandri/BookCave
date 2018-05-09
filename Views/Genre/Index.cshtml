@@ -9,41 +9,18 @@
 
 
 <h1 class="center">Genre</h1>
-<div class="AllTables">
-    <table class = "table table-hover">
-        <tr class="active">
-            <td>Drama</td>
-        </tr>
-        <tr class="active">
-            <td>Adventure</td>
-        </tr>
-        <tr class="active">
-            <td>Study Books</td>
-        </tr>
-        <tr class="active">
-            <td>Horror</td>
-        </tr>
-        <tr class="active">
-            <td>Romance</td>
-        </tr>
-        <tr class="active">
-            <td>Mystery</td>
-        </tr>
-        <tr class="active">
-            <td>Science fiction</td>
-        </tr>
-        <tr class="active">
-            <td>Food</td>
-        </tr>
-        <tr class="active">
-            <td>Fiction</td>
-        </tr>
-        <tr class="active">
-            <td>Children's Books</td>
-        </tr>
-        <tr class="active">
-            <td>Fantasy</td>
-        </tr>
 
-    </table>
+<div class="AllTables">
+  <table class="table table-hover">
+
+
+  
+  @foreach(var genre in Model)
+  {
+    <tr class="active">
+      <td><a asp-controller ="Genre" asp-action ="Details" asp-route-id="@genre.GenreId">@genre.Title</a></td>
+    </tr>
+  
+  }
+</table>
 </div>
