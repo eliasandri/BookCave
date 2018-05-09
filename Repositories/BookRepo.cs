@@ -133,6 +133,11 @@ namespace BookCave.Repositories
 
                 return books;
         }
+        /*public List<Top5ViewModel> Get5Books()
+        {
+            var result = _db.Books.OrderBy(m => m.Rating).ThenBy(m => m.ReleaseYear).ToList(); 
+            return result;
+        }*/
         public List<BookTop5ViewModel> GetTop5Books()
         {
             var books = (from m in _db.Books
@@ -143,10 +148,19 @@ namespace BookCave.Repositories
                             Title = m.Title,
                             Rating = m.Rating,
                             Image = m.Image,
+                            GetNewest5Books = (from b in _db.Books
+                                                orderby b.ReleaseYear descending
+                                                select new BookNewest5ViewModel
+                                                {
+                                                    BookId = b.Id,
+                                                    Title = b.Title,
+                                                    ReleaseYear = b.ReleaseYear,
+                                                    Image = b.Image,
+                                                }).Take(5).ToList(),
                         }).Take(5).ToList();
             return books;
         }
-        public List<BookNewest5ViewModel> GetNewest5Books()
+        /*public List<BookNewest5ViewModel> GetNewest5Books()
         {
             var newBooks = (from b in _db.Books
                             orderby b.ReleaseYear descending
@@ -158,7 +172,7 @@ namespace BookCave.Repositories
                                 Image = b.Image,
                             }).Take(5).ToList();
             return newBooks;
-        }
+        }*/
         public void CreateBook(BookCreateViewModel book)
         {
            var newBook = new Book()

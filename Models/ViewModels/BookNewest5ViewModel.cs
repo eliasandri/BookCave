@@ -1,4 +1,5 @@
 using BookCave.Models.ViewModels;
+using System.Collections.Generic;
 
 namespace BookCave.Models.ViewModels
 {
@@ -8,5 +9,6 @@ namespace BookCave.Models.ViewModels
         public string Title { get; set; }
         public int ReleaseYear { get; set; }
         public string Image { get; set; }
+        
     }
 }
