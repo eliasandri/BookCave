@@ -6,6 +6,6 @@ namespace BookCave.Models
 {
     public class ApplicationUser : IdentityUser
     {
-       
+       //public string Test { get;set;}
     }
 }

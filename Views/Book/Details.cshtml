@@ -16,7 +16,7 @@
      <img class="detailsImg" src="@Model.Image" alt="Book Image">
     </div>
 
-    <div class="col-lg-4 col-sm-12 col-md-6" style="width:">
+    <div class="col-xs-4">
       <h1 class="h1Heading">@Model.Title</h1>
       <h3>Rating: @Model.Rating</h3>
       <h4>Author</h4>
@@ -33,9 +33,9 @@
     
     
     <button class="btn btn-default" type="button">Add to Wishlist</button>
-   <button class="btn btn-deful; gotobutton">
-        <a asp-controller="ShoppingCart" asp-action="AddToCartAsync" asp-route-id="@Model.BookId">Add to cart</a>
-</button>
+    
+    <form asp-area="" asp-controller="ShoppingCart" asp-action="AddToCartAsync" asp-route-id="@Model.BookId">
+   <button class="btn btn-deful; gotobutton">Add to cart</button> </form>
     </div>
 
 
@@ -58,9 +58,9 @@
     <option value ="8">8</option>
     <option value ="9">9</option>
     <option value ="10">10</option>
-</select>
+</select></br>
     <span asp-validation-for="Rating" class ="badge"></span>
-   <button class="btn btn-default" type="submit">Submit Comment and Rating</button>
+   </br><button class="btn btn-default" type="submit">Submit your Comment and Rating</button>
 </form>
     </div>
   </div>
