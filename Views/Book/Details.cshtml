@@ -8,14 +8,15 @@
   <li>Book details</li>
 </ul>
 
-<div class="container">
+<div class="container-fluid">
+
 <div class="row align-items-center">
 
-    <div class="col-xs-4 ">
+    <div class="col-lg-4 col-sm-12 col-md-6">
      <img class="detailsImg" src="@Model.Image" alt="Book Image">
     </div>
 
-    <div class="col-xs-4" style="width:">
+    <div class="col-lg-4 col-sm-12 col-md-6" style="width:">
       <h1 class="h1Heading">@Model.Title</h1>
       <h3>Rating: @Model.Rating</h3>
       <h4>Author</h4>
@@ -39,15 +40,16 @@
 
 
 
-    <div class="col-xs-4 ">
+    <div class="col-lg-4 col-sm-12 col-md-6">
     <form method="POST">
     <label asp-for="Review"> Your comment about this book:</label></br>
     <input type ="text" asp-for="Review" class="form-control"></textarea></br>
     <span asp-validation-for="Review" class="badge"></span>
     <button class="btn btn-default" type="submit" <a asp-action="Details" asp-route-id="@Model.BookId" asp-controller="Book"></a>Submit Comment</button>
     </form>
+   
 
-      <h2>Rate this book</h2>
+      <h4>Rate this book</h4>
 
 <select>
     <option value ="1">1</option>
@@ -62,17 +64,18 @@
     <option value ="10">10</option>
 </select>
    <button class="btn btn-default" type="button">Submit rating</button>
+     <div class="user-reviews">
+        <h3 style="border-bottom-style:solid;">The Reviews for this book are:</h3>
+        @foreach (var review in Model.Reviews)
+        {
+        <p style="border-bottom-style:solid; border-color:white;">@review.Review</p>
+        }
+    </div>
 
     </div>
   </div>
 
 </div>
 <div>
-    <div class="user-reviews">
-        <h3>The Reviews for this book are:</h3>
-        @foreach (var review in Model.Reviews)
-        {
-        <p>@review.Review</p>
-        }
-    </div>
+   
 </div>

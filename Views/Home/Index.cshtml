@@ -24,7 +24,7 @@
     <div class="row"> 
       @foreach (var book in Model)
       {
-        <div class="col-lg-5" id="borderStyle" >
+        <div class="col-lg-5 col-sm-6 col-md-3" id="borderStyle" >
         <img class="img-thumbnail" id="bookImg" src="@book.Image" alt="BookImage">
         <p><a asp-controller="Book" asp-action="Details" asp-route-id="@book.BookId"><strong>@book.Title</strong></a></p>
         <p><strong>Rating: @book.Rating</strong></p>
@@ -38,7 +38,7 @@
         <div class="row" >
           @for (int i = 0; i < Model[0].GetNewest5Books.Count; i++)
           {
-            <div class="col-lg-5" id="borderStyleTwo">
+            <div class="col-lg-5 col-sm-6 col-md-3" id="borderStyleTwo">
             <img class="img-thumbnail;" id="bookImg" src="@Model[0].GetNewest5Books[i].Image" alt="BookImage">
             <p><a asp-controller="Book" asp-action="Details" asp-route-id="@Model[0].GetNewest5Books[i].BookId">@Model[0].GetNewest5Books[i].Title"</a></p>
             <p>Release Year: @Model[0].GetNewest5Books[i].ReleaseYear</p>
