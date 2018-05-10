@@ -25,6 +25,7 @@ namespace BookCave.Controllers
             var books = _bookService.GetAllBooks();
             return View(books);
         }
+
         public IActionResult QuickSearch(string searchTerm)
         {
             var books = _bookService.GetBookByLayoutSearch(searchTerm);
@@ -48,8 +49,8 @@ namespace BookCave.Controllers
                 {
                     book = books[i];
                 }
+            book.Reviews = _bookService.GetComments(id);
             }
-
             return View(book);
         }
         [HttpPost]
@@ -60,16 +61,12 @@ namespace BookCave.Controllers
             {
                 book.BookId = id;
                 _bookService.CreateBookComment(book);
-                return RedirectToAction("Shop");
+                return RedirectToAction("Details");
             }
             return View();
         }
         
-        /*public IActionResults PrintBookComment(BookDetailsViewModel book)
-        {
-            var books = _bookService.PrintBookComment();
-            return View(books);
-        }*/
+
         public IActionResult Top10()
         {
             var books = _bookService.GetAllTop10Books();

@@ -66,5 +66,13 @@
     </div>
   </div>
 
- 
+</div>
+<div>
+    <div class="user-reviews">
+        <h3>The Reviews for this book are:</h3>
+        @foreach (var review in Model.Reviews)
+        {
+        <p>@review.Review</p>
+        }
+    </div>
 </div>
