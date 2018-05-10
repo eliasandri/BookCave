@@ -3,35 +3,23 @@
     padding-bottom: 20px;
     background-color: #f8f2ed;
 }
-
 /* Wrapping element */
 
 /* Set some basic padding to keep content from hitting the edges */
 
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 /* Carousel */
-
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
 }
-
 /* Make .svg files in the carousel display properly in older browsers */
-
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
 }
-
 /* QR code generator */
-
 #qrCode {
     margin: 15px;
 }
-
 /* Hide/rearrange for smaller screens */
 
 @media screen and (max-width: 767px) {
@@ -40,7 +28,6 @@
         display: none;
     }
 }
-
 /*.loginpositioning 
 {
 margin-left: 400px;
@@ -49,7 +36,6 @@ margin-top: 50px;
 margin-bottom:50px;
 
 }*/
-
 .list-group {
     border-style: solid;
     border-width: 2px;
@@ -57,7 +43,6 @@ margin-bottom:50px;
     border-color: #F1F1F1;
     width: 50%
 }
-
 #top10 {
     margin-top: 10px;
     padding-top: 10px;
@@ -71,30 +56,24 @@ margin-bottom:50px;
     font-size: 20px;
     font-weight: bold;
 }
-
 #top10>img {
     width: auto;
     height: 250px;
 }
-
 .center {
     text-align: center;
 }
-
 * {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .h2Heading {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 #bookImg {
     width: 150px;
     height: 200px;
     margin-top: 10px;
 }
-
 #borderStyle {
     width: 220px;
     height: 450px;
@@ -104,7 +83,6 @@ margin-bottom:50px;
     font-size: 20px;
     border-color: white;
 }
-
 #borderStyleTwo {
     width: 220px;
     height: 450px;
@@ -114,7 +92,6 @@ margin-bottom:50px;
     font-size: 20px;
     border-color: white;
 }
-
 #borderStyleThree {
     width: 250px;
     height: 450px;
@@ -124,16 +101,13 @@ margin-bottom:50px;
     font-size: 20px;
     border-color: white;
 }
-
 #top5 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .detailsImg {
     width: 300px;
     height: auto;
 }
-
 .AllTables {
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -142,38 +116,31 @@ margin-bottom:50px;
     width: 50%;
     background-color: red;
 }
-
 .allInputLabels {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
-
 h4 {
     font-weight: 600;
 }
-
 .goodButton {
     background-color: green;
     color: white;
     border-color: white;
 }
-
 .indexImg {
     width: 100px;
     height: auto;
     text-align: center;
 }
-
 .displayBooks {
     padding-left: 8%;
     padding-right: auto;
 }
-
 #logo {
     width: 75px;
 }
-
 .allDisplay {
     height: 400px;
     width: 250px;
@@ -181,21 +148,17 @@ h4 {
     border-color: white;
     text-align: center;
 }
-
 .fa {
     font-size: 30px;
 }
-
 #bottomofindex {
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 }
-
 .redButton {
     background-color: red;
 }
-
 #shoppinglist {
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -203,11 +166,9 @@ h4 {
     margin-right: auto;
     width: 70%;
 }
-
 #tritem {
     background-color: #F5F5F5
 }
-
 .bold {
     font-weight: 900;
 }
@@ -272,3 +233,99 @@ h4 {
 /*tr:nth-child(4n) {
     border-bottom-style: solid;
 }*/
+.mysite-h3 {
+    text-align: center;
+    font-size: 26px;
+    background-color:whitesmoke;
+  }
+  .mysite-div{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+  }
+  .mysite-h1 {
+    font-style: italic;
+  }
+  .orderh-div{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+  }
+  .orderh-th{
+    text-align: center;
+    font-size: 26px;
+    background-color:whitesmoke;
+  }
+  .order-td{
+    font-size: 16px;
+  }
+  .orderh-h1{
+    font-style: italic;
+    text-align: center;
+    width: 50%
+  }
+  #register-div{
+    padding-right:40%; 
+    padding-left:25%;
+  }
+  #wishlist-div{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width:50%;
+  }
+  #wishlist-table{
+    text-align: center;
+  }
+  .wishlist-td{
+    font-size: 16px;
+  }
+  #wishlist-th{
+    text-align: center;
+    font-size: 26px;
+    background-color:whitesmoke;
+  }
+  #wishlist-button{
+    background-color: red;
+  }
+  #wishlist-h1{
+    font-style: italic;
+  }
+  #login-div{
+    padding-right:40%; 
+    padding-left:25%;
+  }
+  #create-div{
+    text-align: center;
+  }
+  #edit-div{
+    text-align: center;
+  }
+  #address-div{
+    width:60%;
+  }
+  #address-input{
+    background-color: green; 
+    color:white;
+  }
+  #details-div{
+    width: 50%; 
+    margin-left:auto; 
+    margin-right:auto; 
+    text-align:center;
+  }
+  #index-h1{
+    font-size:4em;
+  }
+  .login-form{
+    display: inline;
+  }
+  #login-button{
+    font-size: 20px; 
+    color: red;
+  }
+  #indexasync-tr{
+    border-top-width: thin;
+  }

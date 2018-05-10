@@ -1,19 +1,7 @@
 @model BookCave.Models.ApplicationUser
 <link rel="stylesheet" href="~/css/site.css">
-<style>
-    div{
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-    h3 {
-      text-align: center;
-      font-size: 26px;
-      background-color:whitesmoke;
-    }
-
-</style>
 <body>
+<<<<<<< HEAD
 
 <ul class="breadcrumb">
   <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
@@ -26,6 +14,14 @@
             <h3>Name: @Model.UserName</h3>
             <h3>Email: @Model.Email</h3>
                 <form asp-area="" asp-controller="Order" asp-action="OrderHistory" method="POST">
+=======
+    <div class="mysite-div">
+        <h1 class="mysite-h1">My Profile</h1> <br/>
+            <img src="~/images/default-user.png" alt="Myprofile Image">
+            <h3 class="mysite-h3">@Model.UserName</h3>
+            <h3 class="mysite-h3">@Model.Email</h3>
+                <form asp-action="OrderHistory" asp-controller="Account" method="POST">
+>>>>>>> LagaCSS
                   <br/>
                   <button type="submit" class="btn btn-default btn-lg">My order history</button>
                 </form>

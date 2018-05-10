@@ -4,39 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/site.css">
     <title>Document</title>
 </head>
-<style>
-    div{
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-    th{
-      text-align: center;
-      font-size: 26px;
-      background-color:whitesmoke;
-    }
-    td{
-      font-size: 16px;
-    }
-</style>
 <body>
-  <h1 style="font-style: italic">My wishlist</h1>
-    <div class="container-fluid" style="width:50%">
-      <table class="table table-hover" style="text-align: center">
+  <h1 id="wishlist-h1">My wishlist</h1>
+    <div id="wishlist-div" class="container-fluid">
+      <table id="wishlist-table" class="table table-hover">
          <tr>
-          <th>Item</th>
+          <th id="wishlist-th" >Item</th>
           <th></th> 
-        </tr>
+          </tr>
            @foreach(var wishlistItem in Model)
-  {
-    <tr class="active">
-      <td>@wishlistItem.Item</a></td>
-      <td><button class="btn btn-default" style="background-color: red;">Remove</button><button class="btn btn-default">Add To basket</button></td> 
-    </tr>
-  }
-        
+            {
+            <tr class="active">
+              <td class="wishlist-td">@wishlistItem.Item</a></td>
+              <td class="wishlist-td"><button id="wishlist-button" class="btn btn-default">Remove</button><button class="btn btn-default">Add To basket</button></td> 
+            </tr>
+            }
       </table>
     </div>
 </body>
