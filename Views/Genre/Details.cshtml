@@ -1,5 +1,7 @@
 @model BookCave.Models.ViewModels.GenreDetailsViewModel
 
+<link rel="stylesheet" href="~/css/site.css" type="text/css">
+
 
     <ul class="breadcrumb">
   <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
@@ -7,20 +9,22 @@
   <li>Genre Details</li>
 </ul>
 
-    <div style="width: 50%; margin-left:auto; margin-right:auto; text-align:center; ">
-        <h2>Books in this genre</h2>
+    <div class="center">
+        <h1>Books in this genre</h1></br>
+
+<div class="AllTables" >    
 <table class="table table-hover">
   
-  <tr>
-      <th>Title</th>
-    </tr>
-     @for (int i = 0; i < @Model.Books.Count; i ++)
+  
+     @for (int i = 0; i < Model.Books.Count; i ++)
   {
-  <tr>
-      <th><a asp-controller ="Book" asp-action ="Details" asp-route-id="@Model.Books[i].Title">@Html.DisplayFor(m => Model.Books[i].Title)</a></th>
+  <tr class="active">
+      <td><a asp-controller ="Book" asp-action ="Details" asp-route-id="@Model.Books[i].Id">@Html.DisplayFor(m => Model.Books[i].Title)</a></td>
     </tr>
   }
 
 
 
 </table>
+</div>
+</div>

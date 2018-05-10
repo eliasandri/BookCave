@@ -22,7 +22,27 @@ namespace BookCave.Repositories
                               GenreId = g.Id,
                               Title = g.Title
                           }).ToList();
-                          
+
+            return genres;
+        }
+
+        public List<GenreDetailsViewModel> GetAllGenreDetails()
+        {
+            var genres = (from a in _db.Genres
+                          join ar in _db.Books on a.BookId equals ar.Id
+                          select new GenreDetailsViewModel
+                          {
+                              GenreId = a.Id,
+                              Title = a.Title,
+
+                              Books = (from m in _db.Books
+                                       join mr in _db.Genres on m.GenreId equals mr.Id
+                                       where m.GenreId == a.Id
+
+                                       select m).ToList(),
+                              BookId = ar.Id
+                          }).ToList();
+
             return genres;
         }
     }
