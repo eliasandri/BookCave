@@ -198,25 +198,39 @@ namespace BookCave.Repositories
             {
                 BookId = book.BookId,
                 Review = book.Review,
+                Ratings = book.Ratings,
             };
-            Console.WriteLine(newComment.Review);
+            Console.WriteLine(book.Ratings);
             _db.BookComments.Add(newComment);
             _db.SaveChanges();
         }
 
-        public List<Comment> GetComments(int? bookId)
+        public List<Comment> GetReviews(int? bookId)
         {
-            var comment = (from m in _db.BookComments
+            var reviews = (from a in _db.Books
+                            join b in _db.BookComments on a.Id equals b.BookId
+                            select new Comment
+                    {
+                        Id  = b.Id,
+                        BookId = b.BookId,
+                        Review = b.Review,
+                        Ratings = b.Ratings,
+                    }).ToList();
+            return reviews;
+        }
+      /*  public List<Comment> GetRatings(int? bookId)
+        {
+            var ratings = (from m in _db.BookComments
                             where m.BookId == bookId
-                            orderby m.Review
+                            orderby m.Ratings
                             select new Comment
                     {
                         Id  = m.Id,
                         BookId = m.BookId,
-                        Review = m.Review,
+                        Ratings = m.Ratings,
                     }).ToList();
-            return comment;
-        }
+            return ratings;
+        }*/
         public BookDetailsViewModel GetBookWithId(int? id)
         {
             //var db = new DataContext();
