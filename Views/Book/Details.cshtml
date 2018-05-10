@@ -45,13 +45,9 @@
     <label asp-for="Review"> Your comment about this book:</label></br>
     <input type ="text" asp-for="Review" class="form-control"></textarea></br>
     <span asp-validation-for="Review" class="badge"></span>
-    <button class="btn btn-default" type="submit" <a asp-action="Details" asp-route-id="@Model.BookId" asp-controller="Book"></a>Submit Comment</button>
-    </form>
-   
-
-      <h4>Rate this book</h4>
-
-<select>
+</br>
+      <label asp-for="Rating">Rate this book</label>
+<select asp-for="Ratings">
     <option value ="1">1</option>
     <option value ="2">2</option>
     <option value ="3">3</option>
@@ -63,20 +59,21 @@
     <option value ="9">9</option>
     <option value ="10">10</option>
 </select>
-   <button class="btn btn-default" type="button">Submit rating</button>
-     <div class="user-reviews">
-        <h3 style="border-bottom-style:solid;">The Reviews for this book are:</h3>
-        @foreach (var review in Model.Reviews)
-        {
-        <p style="border-bottom-style:solid; border-color:white;">@review.Review</p>
-        }
-    </div>
-
+    <span asp-validation-for="Rating" class ="badge"></span>
+   <button class="btn btn-default" type="submit">Submit Comment and Rating</button>
+</form>
     </div>
   </div>
 
  <a class="btn btn-default" asp-controller="WishList" asp-action="AddToWishList" asp-route-id="@Model.BookId"></a>
 </div>
 <div>
-   
+    <div class="user-reviews">
+        <h3>The Reviews and Ratings for this book are:</h3>
+        @foreach (var review in Model.Reviews)
+        {  
+        <p><strong>Review: </strong>@review.Review <strong>Rating: </strong>@review.Ratings</p>
+        }
+    </div>
 </div>
+
