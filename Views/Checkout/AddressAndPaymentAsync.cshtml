@@ -1,4 +1,4 @@
-@model BookCave.Data.EntityModels.Order
+@model BookCave.Models.InputModels.OrderCreateViewModel
 <link rel="stylesheet" href="~/css/site.css" type="text/css">
 @{
     ViewBag.Title = "Address And Payment";
@@ -58,7 +58,7 @@
             <input type="text" asp-for="PostalCode">
             <span asp-validation-for="PostalCode" class="badge"></span>
 
-            <select>
+            <select asp-for="Country">
                 <option value="US">United State</option>
                 <option value="UK">United Kingdom</option>
                 <option value="Iceland">Iceland</option>
@@ -70,29 +70,7 @@
             </div>
           </div>
 
-          <div class="col-50">
-            <h3>Payment</h3>
-            <label for="Firstname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-
-            <label for="CardholderName">Name on Card</label>
-            <input type="text" asp-for="CardholderName" ></br>
-            <span asp-validation-for="CardholderName" class="badge"></span>
-            <label for="CardNumber">Credit card number</label>
-            <input type="text" asp-for="CardNumber">
-            <span asp-validation-for="CardNumber" class="badge"></span>
-            <label for="Expdate">Exp Month and Year</label>
-            <input type="text" asp-for="Expdate"></br>
-            <span asp-validation-for="Expdate" class="badge"></span>
-            <label for="CVV">CVV</label>
-            <input type="text" asp-for="CVV" >
-            <span asp-validation-for="CVV" class="badge"></span>
-            </div>
+          
         
         </br>
         <input type="submit" value="Continue to checkout" class="btn" style="background-color: green; color:white;">

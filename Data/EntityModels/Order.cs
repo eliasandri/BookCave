@@ -47,16 +47,6 @@ namespace BookCave.Data.EntityModels
         public System.DateTime OrderDate { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
 
-        [Required(ErrorMessage = "Please put in cardholder name")]
-        public string CardholderName { get; set; }
-
-        [Required(ErrorMessage = "Please put in your card informations")]
-        public int CardNumber { get; set; }
-
-        [Required(ErrorMessage = "Please select exp date")]
-        public int Expdate { get; set; }
-
-        [Required(ErrorMessage = "Please insert CVV security number")]
-        public int CVV { get; set; }
+        
     }
 }

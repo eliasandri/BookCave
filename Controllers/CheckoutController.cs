@@ -23,7 +23,8 @@ namespace BookCave.Controllers
             _userManager = userManager;
         }
 
-        public ActionResult AddressAndPayment()
+        [HttpGet]
+        public ActionResult AddressAndPaymentAsync()
         {
             return View();
         }
@@ -31,19 +32,36 @@ namespace BookCave.Controllers
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> AddressAndPaymentAsync(OrderCreateViewModel _order)
         {
-            Console.WriteLine();
-            var order = new Order();
-            await TryUpdateModelAsync(order);
+            var user = await _userManager.GetUserAsync(User);
+            var cart = Cart.GetCart(user.Id);
 
-            try
+            double totalCartPrice = cart.GetTotal();
+
+            var order = new Order()
             {
-                if (_order.PromoCode != 50)
+                FirstName = _order.FirstName,
+                LastName = _order.LastName,
+                Address = _order.Address,
+                City = _order.City,
+                State = _order.State,
+                PostalCode = _order.PostalCode,
+                Country = _order.Country,
+                Phone = _order.Phone,
+                Email = _order.Email,
+                Total = totalCartPrice,
+
+            };
+            Console.WriteLine(order.Total);
+            //await TryUpdateModelAsync(order);
+            
+                /*if (_order.PromoCode != 50)
                 {
                     
                     return View(order);
-                }
-                else
+                }*/
+                if (ModelState.IsValid)
                 {
+                    Console.WriteLine("damn");
                     order.Username = User.Identity.Name;
                     order.OrderDate = DateTime.Now;
 
@@ -51,20 +69,14 @@ namespace BookCave.Controllers
                     _db.Orders.Add(order);
                     _db.SaveChanges();
                     
-                    var user = await _userManager.GetUserAsync(User);
-                    var cart = Cart.GetCart(user.Id);
+                    
                     cart.CreateOrder(order);
 
                     return RedirectToAction("Complete",
                         new { id = order.OrderId });
                 }
-            }
-            catch
-            {
-                
-                return RedirectToAction("Complete",
-                        new { id = order.OrderId });
-            }
+                return View();
+            
         }
         
         public ActionResult Complete(int id)

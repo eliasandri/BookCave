@@ -34,7 +34,6 @@ namespace BookCave.Data.EntityModels
 
         public void AddToCart(Book book)
         {
-            Console.WriteLine(ShoppingCartId);
             var cartItem = _db.ShopCarts.SingleOrDefault(
                 c => c.CartId == ShoppingCartId
                 && c.ItemId == book.Id);
@@ -126,13 +125,28 @@ namespace BookCave.Data.EntityModels
 
         public double GetTotal()
         {
-            double total = (from cartItems in _db.ShopCarts
+            /*double total = (from cartItems in _db.ShopCarts
                               where cartItems.CartId == ShoppingCartId
                               select (int)cartItems.Count *
-                              (double)cartItems.Book.Price).Sum();
+                              (double)cartItems.Book.Price).Sum();*/
             
+            double _total = 0;
+            var books = (from sc in _db.ShopCarts
+                         join b in _db.Books on sc.ItemId equals b.Id
+                         where sc.CartId == ShoppingCartId
+                        select new BookInCartViewModel
+                        {
+                            BookId = b.Id,
+                            BookTitle = b.Title,
+                            BookPrice = b.Price,
+                            Count = sc.Count,
+                        }).ToList();
+            for (int i = 0; i < books.Count; i++)
+            {
+                _total += books[i].Count * books[i].BookPrice;
+            }
             
-            return total;
+            return _total;
             
         }
 
@@ -148,11 +162,11 @@ namespace BookCave.Data.EntityModels
                 {
                     ItemId = item.BookId,
                     OrderId = order.OrderId,
-                    UnitPrice = 0,
-                    Quantity = 0
+                    UnitPrice = item.BookPrice,
+                    Quantity = item.Count,
                 };
                 
-                orderTotal += 0;
+                orderTotal += (item.Count * item.BookPrice);
 
                 _db.OrderDetails.Add(orderDetail);
 

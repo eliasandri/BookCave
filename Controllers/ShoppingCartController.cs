@@ -22,9 +22,6 @@ namespace BookCave.Controllers
             var user = await _userManager.GetUserAsync(User);
             var cart = Cart.GetCart(user.Id);
             
-         
-
-            Console.WriteLine(user.Id);
             
             /*var _books = (from m in _db.Books
                           where cart.G)*/
@@ -35,6 +32,7 @@ namespace BookCave.Controllers
                 CartTotal = cart.GetTotal(),
                 //Books = addedItem * cartItem.Count
             };
+            Console.WriteLine(viewModel.CartTotal);
             Console.WriteLine(viewModel.CartTotal);
             
             return View(viewModel);
