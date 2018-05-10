@@ -16,5 +16,11 @@ namespace BookCave.Services
             var genres = _genreRepo.GetAllGenres();
             return genres;
         }
+
+        public List<GenreDetailsViewModel> GetAllGenreDetails()
+        {
+            var genres = _genreRepo.GetAllGenreDetails();
+            return genres;
+        }
     }
 }

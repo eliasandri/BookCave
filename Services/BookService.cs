@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using BookCave.Models.InputModels;
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
+using BookCave.Data.EntityModels;
 
 namespace BookCave.Services
 {
@@ -76,10 +77,14 @@ namespace BookCave.Services
         var book = _bookRepo.GetBookByLayoutSearch(layoutsearch);
         return book;
         }
-
         public void CreateBookComment(BookDetailsViewModel book)
         {
               _bookRepo.CreateBookComment(book);
+        }
+        public List<Comment> GetComments(int? bookId)
+        {
+            var book = _bookRepo.GetComments(bookId);
+            return book;
         }
 
     }

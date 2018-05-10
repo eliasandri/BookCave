@@ -210,3 +210,7 @@ h4 {
 .bold {
     font-weight: 900;
 }
+
+#grad {
+    color: yellow;
+}

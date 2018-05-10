@@ -118,7 +118,7 @@ namespace BookCave.Repositories
                                        join mr in _db.Books on m.BookId equals mr.Id
                                        where m.BookId == a.Id
                                        select m).ToList(),
-                              AuthorId = ar.Id
+                              AuthorId = ar.Id,
                            }).ToList();
 
              return books;
@@ -204,22 +204,23 @@ namespace BookCave.Repositories
             _db.SaveChanges();
         }
 
-        /*public PrintBookComment(BookDetailsViewModel book)
+        public List<Comment> GetComments(int? bookId)
         {
-            var books = (from m in _db.BookComments
-                    join mr in _db.Books on m.BookId equals mr.Id
-                    select new BookDetailsViewModel
+            var comment = (from m in _db.BookComments
+                            where m.BookId == bookId
+                            orderby m.Review
+                            select new Comment
                     {
-                        BookId = book.BookId,
-                        Review = book.Review,
+                        Id  = m.Id,
+                        BookId = m.BookId,
+                        Review = m.Review,
                     }).ToList();
-            return books;
-        }*/
+            return comment;
+        }
         public BookDetailsViewModel GetBookWithId(int? id)
         {
             //var db = new DataContext();
             //var book = _db.Books.Single(model => model.Id == 1);
-
             var bookToEdit = (from m in _db.Books
                               where m.AuthorId == id
                               select new BookDetailsViewModel

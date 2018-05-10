@@ -1,11 +1,17 @@
 @model int
+<link rel="stylesheet" href="~/css/site.css" type="text/css">
+
 @{
     ViewBag.Title = "Checkout Complete";
 }
-<h2>Checkout Complete</h2>
-<p>Thanks for your order! Your order number is: @Model</p>
+<div class="center" >
+<h1>Checkout Complete</h1></br>
+
+<h3>Thanks for your order! Your order number is: @Model</h3>
+<p>We look forward to serve you next time</p>
 <p>
     How about shopping for some more Products in our
     @Html.ActionLink("store",
 "Index", "Home")
 </p>
+</div>
