@@ -46,7 +46,5 @@ namespace BookCave.Data.EntityModels
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
-
-        
     }
 }

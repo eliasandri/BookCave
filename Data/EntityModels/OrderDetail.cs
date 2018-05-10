@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace BookCave.Data.EntityModels
 {
     public class OrderDetail

@@ -1,0 +1,27 @@
+@model List<BookCave.Models.ViewModels.OrderListViewModel>
+
+
+<h2>lol</h2>
+
+
+<div class="AllTables">
+  <table class="table table-hover">
+
+
+  <tr class="active">
+    <td>Price</td>
+    <td>Count</td>
+    <td>OrderId</td>
+    <td>BookId</td>
+  </tr>
+@foreach(var order in Model)
+  {
+    <tr class="active">
+      <td>@order.BookPrice</td>
+      <td>@order.Count</td>
+      <td>@order.OrderId</td>
+      <td>@order.BookId</td>
+    </tr>
+  
+  }
+  </table>

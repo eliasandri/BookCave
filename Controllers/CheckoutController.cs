@@ -49,9 +49,8 @@ namespace BookCave.Controllers
                 Phone = _order.Phone,
                 Email = _order.Email,
                 Total = totalCartPrice,
-
             };
-            Console.WriteLine(order.Total);
+            
             //await TryUpdateModelAsync(order);
             
                 /*if (_order.PromoCode != 50)
@@ -65,7 +64,7 @@ namespace BookCave.Controllers
                     order.Username = User.Identity.Name;
                     order.OrderDate = DateTime.Now;
 
-                    
+                    Console.WriteLine(order.Username);
                     _db.Orders.Add(order);
                     _db.SaveChanges();
                     
