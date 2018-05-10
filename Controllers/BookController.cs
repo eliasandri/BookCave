@@ -50,7 +50,7 @@ namespace BookCave.Controllers
                 {
                     book = books[i];
                 }
-            book.Reviews = _bookService.GetComments(id);
+            book.Reviews = _bookService.GetReviews(id);
             }
             return View(book);
         }
@@ -62,6 +62,7 @@ namespace BookCave.Controllers
             {
                 book.BookId = id;
                 _bookService.CreateBookComment(book);
+                Console.WriteLine(book.Ratings);
                 return RedirectToAction("Details");
             }
             return View();

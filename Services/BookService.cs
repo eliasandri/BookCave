@@ -81,11 +81,10 @@ namespace BookCave.Services
         {
               _bookRepo.CreateBookComment(book);
         }
-        public List<Comment> GetComments(int? bookId)
+        public List<Comment> GetReviews(int? bookId)
         {
-            var book = _bookRepo.GetComments(bookId);
+            var book = _bookRepo.GetReviews(bookId);
             return book;
         }
-
     }
 }
