@@ -37,6 +37,7 @@ namespace BookCave.Controllers
         }
         public IActionResult Details(int? id)
         {
+            Console.WriteLine(id);
             if (id == null)
             {
                 return View("Error");

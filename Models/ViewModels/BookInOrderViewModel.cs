@@ -1,14 +1,10 @@
-using System.Collections.Generic;
-
 namespace BookCave.Models.ViewModels
 {
-    public class OrderListViewModel
+    public class BookInOrderViewModel
     {
         public int BookId { get; set; }
         public string BookTitle { get; set; }
         public double BookPrice { get; set; }
         public int Count { get; set; }
-        public int OrderId { get; set; }
-        public List<BookInOrderViewModel> Books { get; set; }
     }
 }
