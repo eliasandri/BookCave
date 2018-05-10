@@ -120,7 +120,6 @@ namespace BookCave.Repositories
                                        select m).ToList(),
                               AuthorId = ar.Id,
                            }).ToList();
-
              return books;
         }
         public List<BookTop10ViewModel> GetAllTop10Books()
@@ -209,12 +208,13 @@ namespace BookCave.Repositories
         {
             var reviews = (from a in _db.Books
                             join b in _db.BookComments on a.Id equals b.BookId
+                            where a.Id == bookId
                             select new Comment
                     {
                         Id  = b.Id,
                         BookId = b.BookId,
                         Review = b.Review,
-                        Ratings = b.Ratings,
+                        Ratings = b.Ratings
                     }).ToList();
             return reviews;
         }
