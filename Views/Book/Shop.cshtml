@@ -38,7 +38,9 @@
         <p>Rating: @book.Rating</p>
         
         <div>
+        
           <button class="btn btn-default"><a asp-action="Edit" asp-route-id="@book.BookId" asp-controller="Book">Edit</a></button>
+          
           <button class="btn btn-default; redButton"><a asp-action="Delete" asp-route-id="@book.BookId" asp-controller="Book">Delete</a></button>
 
         </div>

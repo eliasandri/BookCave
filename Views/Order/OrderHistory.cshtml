@@ -1,41 +1,43 @@
-@model List<BookCave.Models.ViewModels.OrderListViewModel>
+    @model List<BookCave.Models.ViewModels.OrderListViewModel>
 
-  <link rel="stylesheet" href="~/css/site.css" type="text/css">
+      <link rel="stylesheet" href="~/css/site.css" type="text/css">
+    <ul class="breadcrumb">
+      <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+      <li><a asp-area="" asp-controller="Account" asp-action="MySite">My Site</a></li>
+    <li>My Cart</li>
+    </ul>
+
+    <h2 class="center">Your latest orders</h2></br>
 
 
-<h2 class="center">Your latest orders</h2></br>
+      <table class="table " id="oneTable">
+      <tr class="active">
+        <th>BookName</th>
+        <th>Count</th>
+        <th>Price</th>
+        
+        <th>OrderId</th>
+        <th>BookId</th>
+        
+      </tr>
+    @foreach(var order in Model)
+      {
+        <tr class="active" >
+          <td>Book Title Will be here</td>
+          <td>@order.Count</td>
+          <td>@order.BookPrice</td>
+          <td>@order.OrderId</td>
+          <td>@order.BookId</td>
+          
+        </tr>
+      
+      }
+      </table>
 
-
-  <table class="table table-hover">
-
-
-  <tr class="active">
-<<<<<<< HEAD
-    <td>Price</td>
-    <td>Count</td>
-    <td>OrderId</td>
-    <td>BookId</td>
-    <td>BookName</td>
-=======
-    <th>Price</th>
-    <th>Count</th>
-    <th>OrderId</th>
-    <th>BookId</th>
->>>>>>> styleing-mofokka
-  </tr>
-@foreach(var order in Model)
-  {
-    <tr class="active">
-      <td>@order.BookPrice</td>
-      <td>@order.Count</td>
-      <td>@order.OrderId</td>
-      <td>@order.BookId</td>
-      <td>Book Title Will be here</td>
-    </tr>
-
-    
-  
-  }
-  </table>
-  </dix>
-  </div>
+     
+    <div class="center">
+      <form asp-area="" asp-controller="Account" asp-action="Mysite">
+          <button type="submit" class="btn btn-default btn-lg" >Go back to MySite</button>
+          </form>
+        </div>  
+ 

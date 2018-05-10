@@ -33,9 +33,9 @@
     
     
     <button class="btn btn-default" type="button">Add to Wishlist</button>
-   <button class="btn btn-deful; gotobutton">
-        <a asp-controller="ShoppingCart" asp-action="AddToCartAsync" asp-route-id="@Model.BookId">Add to cart</a>
-</button>
+    
+    <form asp-area="" asp-controller="ShoppingCart" asp-action="AddToCartAsync" asp-route-id="@Model.BookId">
+   <button class="btn btn-deful; gotobutton">Add to cart</button> </form>
     </div>
 
 
