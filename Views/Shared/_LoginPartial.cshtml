@@ -1,6 +1,7 @@
 @using Microsoft.AspNetCore.Identity
 @using System.Security.Claims
 @using BookCave.Models
+<link rel="stylesheet" href="~/css/site.css" type="text/css">
 <style>
 form {
     display: inline;
@@ -17,10 +18,11 @@ form {
       <form asp-action="LogOut" asp-controller="Account" method="POST">
           <ul class="nav navbar-nav navbar-right">
               <li>
-                  <button type="submit" class="btn btn-link navbar-btn navbar-link  "><i class="fa fa-sign-out" style ="font-size: 20px; color: red; "></i></button>
+                  <button type="submit" class="btn btn-link navbar-btn navbar-link  "><i class="fa fa-sign-out" id="logoutLogo"></i></button>
               </li>
           </ul>
       </form>
+     
       <form asp-action="MySite" asp-controller="Account" method="POST">
         <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -28,6 +30,7 @@ form {
               </li>
         </ul>
       </form>
+     
   }
   else
   {

@@ -1,7 +1,9 @@
 @model List<BookCave.Models.ViewModels.OrderListViewModel>
 
+  <link rel="stylesheet" href="~/css/site.css" type="text/css">
 
-<h2>lol</h2>
+
+<h2 class="center">Your latest orders</h2></br>
 
 
 <div class="AllTables">
@@ -9,10 +11,10 @@
 
 
   <tr class="active">
-    <td>Price</td>
-    <td>Count</td>
-    <td>OrderId</td>
-    <td>BookId</td>
+    <th>Price</th>
+    <th>Count</th>
+    <th>OrderId</th>
+    <th>BookId</th>
   </tr>
 @foreach(var order in Model)
   {
@@ -25,3 +27,5 @@
   
   }
   </table>
+  </dix>
+  </div>
