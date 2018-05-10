@@ -30,15 +30,6 @@ namespace BookCave.Repositories
         
         public List <BookListViewModel> GetAllBooks()
         {
-            /*var books = (from b in _db.Books
-                        select new BookListViewModel
-                        {
-                            BookId = b.Id,
-                            Name = b.Name,
-                            ReleaseYear = b.ReleaseYear,
-                            Author = "joi",
-                            AuthorId = 2 
-                        }).ToList();*/
             var books = (from m in _db.Books
                         join mr in _db.Authors on m.AuthorId equals mr.Id
                         select new BookListViewModel
@@ -53,7 +44,7 @@ namespace BookCave.Repositories
                             Image = m.Image,
                             Rating = m.Rating,
                         }).ToList();
-            //return books;
+            
         
         return books;
         }
