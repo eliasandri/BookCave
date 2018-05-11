@@ -16,19 +16,19 @@ namespace BookCave.Repositories
         public List<OrderListViewModel> GetAllUserOrders()
         {
             var _bookRepo = new BookRepo();
-            
+
             var orders = (from m in _db.OrderDetails
-                        join mr in _db.Orders on m.OrderId equals mr.OrderId
-                        select new OrderListViewModel
-                        {
-                            BookId = m.ItemId,
-                            Count = m.Quantity,
-                            BookPrice = m.UnitPrice,
-                            OrderId = m.OrderId,
-                            Books = _bookRepo.GetBooksInUserOrder()
-                        }).ToList();
-        return orders;
+                          join mr in _db.Orders on m.OrderId equals mr.OrderId
+                          select new OrderListViewModel
+                          {
+                              BookId = m.ItemId,
+                              Count = m.Quantity,
+                              BookPrice = m.UnitPrice,
+                              OrderId = m.OrderId,
+                              Books = _bookRepo.GetBooksInUserOrder()
+                          }).ToList();
+            return orders;
         }
-        
+
     }
 }

@@ -23,14 +23,14 @@ namespace BookCave.Services
             return book;
 
         }
-         public void EditBook(BookDetailsViewModel book)
+        public void EditBook(BookDetailsViewModel book)
         {
             _adminRepo.EditBook(book);
         }
-        public List <BookListViewModel> GetAllBooks()
+        public List<BookListViewModel> GetAllBooks()
         {
             var books = _adminRepo.GetAllBooks();
-            
+
             return books;
         }
     }

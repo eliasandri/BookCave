@@ -19,7 +19,7 @@ namespace BookCave.Services
         public WishListViewModel GetAllWishListItems()
         {
             var wishListItems = _wishListRepo.GetAllWishListItems();
-            
+
             return wishListItems;
         }
     }

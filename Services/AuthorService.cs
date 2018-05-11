@@ -26,14 +26,9 @@ namespace BookCave.Services
         }
         public List<AuthorListViewModel> FilterSearch(string orderBy)
         {
-        var authors = _authorRepo.FilterSearch(orderBy);
-        return authors;
+            var authors = _authorRepo.FilterSearch(orderBy);
+            return authors;
         }
-        /*public List<AuthorDetailsViewModel> GetBookByLayoutSearch(string layoutsearch)
-        {
-        var authors = _authorRepo.GetBookByLayoutSearch(layoutsearch);
-        return authors;
-        }*/
         public void Delete()
         {
             _authorRepo.Delete();

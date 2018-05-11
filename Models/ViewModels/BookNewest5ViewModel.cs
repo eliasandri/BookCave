@@ -9,6 +9,6 @@ namespace BookCave.Models.ViewModels
         public string Title { get; set; }
         public int ReleaseYear { get; set; }
         public string Image { get; set; }
-        
+
     }
 }

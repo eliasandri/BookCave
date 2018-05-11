@@ -24,20 +24,11 @@ namespace BookCave.Controllers
             var authors = _authorService.GetAllAuthors();
             return View(authors);
         }
-        public IActionResult FilterSearch(string orderBy="")
+        public IActionResult FilterSearch(string orderBy = "")
         {
             var authors = _authorService.FilterSearch(orderBy);
             return View("Index", authors);
         }
-        /*public IActionResult QuickSearch(string searchTerm)
-        {
-            var authors = _authorService.GetBookByLayoutSearch(searchTerm);
-            if(!authors.Any())
-            {
-                return View("NotFound");
-            }
-            return View("Shop", authors);
-        }*/
         public IActionResult Details(int? id)
         {
             var allAuthors = _authorService.GetAllAuthors();
@@ -45,7 +36,7 @@ namespace BookCave.Controllers
             {
                 return View("Error");
             }
-            
+
             var authors = _authorService.GetAllAuthorsDetails();
             var author = new AuthorDetailsViewModel();
             for (int i = 0; i < authors.Count; i++)
