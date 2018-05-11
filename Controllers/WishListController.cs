@@ -19,7 +19,7 @@ namespace BookCave.Controllers
                 return View("Error");
             }
             _wishListService.AddToWishList(id);
-            return View();
+            return RedirectToAction("AllWishListItems");
         }
         public IActionResult AllWishListItems()
         {
