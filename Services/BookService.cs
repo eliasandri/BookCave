@@ -55,7 +55,7 @@ namespace BookCave.Services
         {
             _bookRepo.CreateBookComment(book);
         }
-        public List<Comment> GetReviews(int? bookId)
+        public List<CommentViewModel> GetReviews(int? bookId)
         {
             var book = _bookRepo.GetReviews(bookId);
             return book;

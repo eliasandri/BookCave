@@ -22,7 +22,7 @@
       <h4>Author</h4>
      @for (int i = 0; i < Model.Authors.Count; i++)
         {     
-            <h4><a asp-controller="Author" asp-action="Details" asp-route-id="@Model.Authors[i].Id">@Html.DisplayFor(m => Model.Authors[i].Name)</a></h4>
+            <h4><a asp-controller="Author" asp-action="Details" asp-route-id="@Model.Authors[i].AuthorId">@Html.DisplayFor(m => Model.Authors[i].Name)</a></h4>
         }
       
     <h4>Release Year: @Model.ReleaseYear</h4>

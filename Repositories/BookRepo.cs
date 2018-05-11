@@ -91,22 +91,26 @@ namespace BookCave.Repositories
         public List<BookDetailsViewModel> GetAllBooksDetails()
         {
             var books = (from a in _db.Books
-                         join ar in _db.Authors on a.AuthorId equals ar.Id
-                         select new BookDetailsViewModel
-                         {
-                             BookId = a.Id,
-                             Title = a.Title,
-                             ReleaseYear = a.ReleaseYear,
-                             Image = a.Image,
-                             Description = a.Description,
-                             Price = a.Price,
-                             Rating = a.Rating,
-                             Authors = (from m in _db.Authors
-                                        where m.Id == a.AuthorId
-                                        select m).ToList(),
-                             AuthorId = ar.Id,
-                         }).ToList();
-            return books;
+                           join ar in _db.Authors on a.AuthorId equals ar.Id
+                           select new BookDetailsViewModel
+                           {
+                              BookId = a.Id,
+                              Title = a.Title,
+                              ReleaseYear = a.ReleaseYear,
+                              Image = a.Image,
+                              Description = a.Description,
+                              Price = a.Price,
+                              Rating = a.Rating,
+                              Authors = (from m in _db.Authors
+                                         where m.Id == a.AuthorId
+                                       select new AuthorListViewModel
+                                       {
+                                           AuthorId = a.AuthorId,
+                                           Name = m.Name,
+                                       }).ToList(),
+                              AuthorId = ar.Id,
+                           }).ToList();
+             return books;
         }
         public List<BookTop10ViewModel> GetAllTop10Books()
         {
@@ -173,19 +177,18 @@ namespace BookCave.Repositories
             _db.SaveChanges();
         }
 
-        public List<Comment> GetReviews(int? bookId)
+        public List<CommentViewModel> GetReviews(int? bookId)
         {
             var reviews = (from a in _db.Books
-                           join b in _db.BookComments on a.Id equals b.BookId
-                           where a.Id == bookId
-                           select new Comment
-                           {
-                               Id = b.Id,
-                               BookId = b.BookId,
-                               Review = b.Review,
-                               Ratings = b.Ratings
-                           }).ToList();
-            return reviews;
+                            join b in _db.BookComments on a.Id equals b.BookId
+                            where a.Id == bookId
+                            select new CommentViewModel
+                            {
+                                BookId = b.BookId,
+                                Review = b.Review,
+                                Ratings = b.Ratings
+                            }).ToList();
+                    return reviews;
         }
         /*  public List<Comment> GetRatings(int? bookId)
           {
