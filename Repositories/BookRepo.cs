@@ -74,13 +74,14 @@ namespace BookCave.Repositories
             else
             {
                 var filtersearch = (from a in _db.Books
+                                    join mr in _db.Authors on a.AuthorId equals mr.Id
                                     orderby a.Title
                                     select new BookListViewModel
                                     {
                                         BookId = a.Id,
                                         Title = a.Title,
                                         AuthorId = a.Id,
-                                        /*Author = a.Name,*/
+                                        Author = mr.Name,
                                         Rating = a.Rating,
                                         Image = a.Image,
                                         Price = a.Price,
