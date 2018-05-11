@@ -329,3 +329,12 @@ h4 {
   #indexasync-tr{
     border-top-width: thin;
   }
+  .form-group{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text-group{
+      text-align: center;
+      padding-bottom: 30px;
+  }
