@@ -90,60 +90,10 @@ namespace BookCave.Controllers
             var books = _bookService.GetAllTop10Books();
             return View(books);
         }
-
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         public IActionResult Filter(string orderBy = "")
         {
             var books = _bookService.Filter(orderBy);
             return View("Shop", books);
-        }
-        [HttpPost]
-        public IActionResult Create(BookCreateViewModel book)
-        {
-            if (ModelState.IsValid)
-            {
-                _bookService.CreateBook(book);
-                return RedirectToAction("Shop");
-            }
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return View("Error");
-            }
-            //int? _id = id;
-            var book = _bookService.GetBookWithId(id);
-            //var db = new DataContext();
-            //Book book = db.Books.Single(model => model.Id == id);
-
-            if (book == null)
-            {
-                return View("Error");
-            }
-            return View(book);
-        }
-        [HttpPost]
-        public IActionResult Edit(BookDetailsViewModel book)
-        {
-            if (ModelState.IsValid)
-            {
-                /*var db = new DataContext();
-                db.Books.Update(book);
-                db.SaveChanges();*/
-                _bookService.EditBook(book);
-
-                return RedirectToAction("Shop");
-            }
-            return View("Book");
         }
         public IActionResult Delete(int? id)
         {

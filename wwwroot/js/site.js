@@ -1,10 +1,9 @@
 ﻿$(function () {
   // Document.ready -> link up remove event handler
-  $("#RemoveLink").click(function () {
+  $(".RemoveLink").click(function () {
       // Get the id from the link
       var recordToDelete = $(this).attr("data-id");
-      console.log(5+6);
-      console.log(recordToDelete);
+      
       if (recordToDelete != '') {
           // Perform the ajax post
           $.post("/ShoppingCart/RemoveFromCartAsync", {"id": recordToDelete },
@@ -14,14 +13,16 @@
                   // Successful requests get here
                   // Update the page elements
                   
-                     
+                  if (data.cartTotal == 0)
+                  {
+                   $('#row-' + data.deleteId).css("display","none");
+                  }
                   
                     if (data.itemCount == 0)
                     {
                         $('#row-' + data.deleteId).css("display","none");
                     }
                     
-                   
                   else {
                     
                       $('#item-Count-' + data.deleteId).text(data.itemCount);

@@ -40,9 +40,9 @@
         
         <div>
         
-          <button class="btn btn-default"><a asp-action="Edit" asp-route-id="@book.BookId" asp-controller="Book">Edit</a></button>
+          <button class="btn btn-default"><a asp-action="Edit" asp-route-id="@book.BookId" asp-controller="Admin">Edit</a></button>
           
-          <button class="btn btn-default; redButton"><a asp-action="Delete" asp-route-id="@book.BookId" asp-controller="Book">Delete</a></button>
+          <button class="btn btn-default; redButton"><a asp-action="Delete" asp-route-id="@book.BookId" asp-controller="Admin">Delete</a></button>
 
         </div>
       </div>
@@ -51,7 +51,7 @@
 </div>
 
 <p>
-  <button class="btn btn-default" ><a asp-controller="Book" asp-action="Create">Add Book!</a></button>
+  <button class="btn btn-default" ><a asp-controller="Admin" asp-action="Create">Add Book!</a></button>
 </p>
 </div>
 </div>

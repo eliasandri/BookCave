@@ -32,7 +32,7 @@ namespace BookCave.Controllers
                 return View("Error");
             }
             _wishListService.AddToWishList(id);
-            return RedirectToAction("AllWishListItems");
+            return RedirectToAction("Shop", "Book");
         }
         public async System.Threading.Tasks.Task<IActionResult> AllWishListItemsAsync()
         {

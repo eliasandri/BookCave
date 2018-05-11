@@ -39,20 +39,14 @@ namespace BookCave.Services
             var book = _bookRepo.Filter(orderBy);
             return book;
         }
-        public void CreateBook(BookCreateViewModel book)
-        {
-            _bookRepo.CreateBook(book);
-        }
+        
         public BookDetailsViewModel GetBookWithId(int? id)
         {
             var book = _bookRepo.GetBookWithId(id);
             return book;
 
         }
-        public void EditBook(BookDetailsViewModel book)
-        {
-            _bookRepo.EditBook(book);
-        }
+       
         public void DeleteBook(BookDetailsViewModel book)
         {
             _bookRepo.DeleteBook(book);

@@ -36,21 +36,10 @@
         <p><a asp-controller ="Author" asp-action ="Details" asp-route-id="@book.AuthorId">Author: @book.Author</a></p>
         <p>Price: $@book.Price</p>
         <p>Rating: @book.Rating</p>
-        
-        <div>
-        
-          <button class="btn btn-default"><a asp-action="Edit" asp-route-id="@book.BookId" asp-controller="Book">Edit</a></button>
-          
-          <button class="btn btn-default; redButton"><a asp-action="Delete" asp-route-id="@book.BookId" asp-controller="Book">Delete</a></button>
-
-        </div>
+  
       </div>
   }
 </div>
 </div>
-
-<p>
-  <button class="btn btn-default" ><a asp-controller="Book" asp-action="Create">Add Book!</a></button>
-</p>
 </div>
 </div>
