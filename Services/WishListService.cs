@@ -12,9 +12,9 @@ namespace BookCave.Services
         {
             _wishListRepo = new WishListRepo();
         }
-        public void AddToWishList(int id)
+        public void AddToWishList(int id, string _id)
         {
-            _wishListRepo.AddToWishList(id);
+            _wishListRepo.AddToWishList(id, _id);
         }
         public WishListViewModel GetAllWishListItems()
         {

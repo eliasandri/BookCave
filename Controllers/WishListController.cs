@@ -24,14 +24,15 @@ namespace BookCave.Controllers
             _db = new DataContext();
 
         }
-        public IActionResult AddToWishList(int id)
+        public async System.Threading.Tasks.Task<IActionResult> AddToWishListAsync(int id)
         {
             string _id = id.ToString();
             if (_id == null)
             {
                 return View("Error");
             }
-            _wishListService.AddToWishList(id);
+            var user = await _userManager.GetUserAsync(User);
+            _wishListService.AddToWishList(id, user.Id);
             return RedirectToAction("Shop", "Book");
         }
         public async System.Threading.Tasks.Task<IActionResult> AllWishListItemsAsync()
@@ -49,7 +50,7 @@ namespace BookCave.Controllers
                                        Image = m.Image,
                                        Price = m.Price
                                    }).ToList();
-
+            
             return View(wishListItems);
         }
     }

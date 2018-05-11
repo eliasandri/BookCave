@@ -20,11 +20,12 @@ namespace BookCave.Repositories
             _db = new DataContext();
 
         }
-        public void AddToWishList(int id)
+        public void AddToWishList(int id, string _id)
         {
             var wishListItem = new WishList()
             {
                 BookId = id,
+                UserId = _id
             };
             _db.WishLists.Add(wishListItem);
             _db.SaveChanges();
