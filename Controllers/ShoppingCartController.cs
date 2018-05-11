@@ -83,5 +83,21 @@ namespace BookCave.Controllers
             ViewData["CartCount"] = cart.GetCount();
             return PartialView("CartSummary");
         }
+        public async System.Threading.Tasks.Task<IActionResult> Review()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var cart = Cart.GetCart(user.Id);
+            
+            /*var _books = (from m in _db.Books
+                          where cart.G)*/
+            
+            var viewModel = new ReviewViewModel
+            {
+                Books = cart.GetCartItems(),
+                CartTotal = cart.GetTotal(),
+                //Books = addedItem * cartItem.Count
+            };
+            return View(viewModel);
+        }
     }
 }
