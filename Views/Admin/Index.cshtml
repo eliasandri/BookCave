@@ -11,47 +11,47 @@
 </ul>
 
 
-<h2 class="center">All books</h2>
+  <h2 class="center">All books</h2>
 
-<div class="center">
-<form method="POST" asp-controller="Book" asp-action="Filter" class="detailed-search">
-    <div class="select">
-        <label for="orderBy">Filter books by:</label>
-        <select name="orderBy">
-            <option value="PriceH2L">Price high to low</option>
-            <option value="PriceL2H">Price low to high</option>
-            <option value="Alphabeticalorder">Title</option>
-        </select>
-<input type="submit" value="Filter" id="search-button">
-</form>
-</div>
-
-<div class="displayBooks">
-<div class="row">
-  @foreach (var book in @Model)
-  {
-      <div class="col-lg-3 col-sm-12 col-md-6" id="borderStyleThree">
-       <p><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></p>
-      <img class="img-thumbnail; indexImg" src="@book.Image" alt="Book Image">
- 
-        <p><a asp-controller ="Author" asp-action ="Details" asp-route-id="@book.AuthorId">Author: @book.Author</a></p>
-        <p>Price: $@book.Price</p>
-        <p>Rating: @book.Rating</p>
-        
-        <div>
-        
-          <button class="btn btn-default"><a asp-action="Edit" asp-route-id="@book.BookId" asp-controller="Admin">Edit</a></button>
-          
-          <button class="btn btn-default; redButton"><a asp-action="Delete" asp-route-id="@book.BookId" asp-controller="Admin">Delete</a></button>
-
+    <div class="center">
+      <form method="POST" asp-controller="Book" asp-action="Filter" class="detailed-search">
+          <div class="select">
+              <label for="orderBy">Filter books by:</label>
+              <select name="orderBy">
+                  <option value="PriceH2L">Price high to low</option>
+                  <option value="PriceL2H">Price low to high</option>
+                  <option value="Alphabeticalorder">Title</option>
+              </select>
+          <input type="submit" value="Filter" id="search-button">
         </div>
-      </div>
-  }
-</div>
-</div>
+      </form>
 
-<p>
-  <button class="btn btn-default" ><a asp-controller="Admin" asp-action="Create">Add Book!</a></button>
-</p>
-</div>
-</div>
+  <div class="displayBooks">
+  <div class="row">
+    @foreach (var book in @Model)
+    {
+        <div class="col-lg-3 col-sm-12 col-md-6" id="borderStyleThree">
+        <p><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></p>
+        <img class="img-thumbnail; indexImg" src="@book.Image" alt="Book Image">
+  
+          <p><a asp-controller ="Author" asp-action ="Details" asp-route-id="@book.AuthorId">Author: @book.Author</a></p>
+          <p>Price: $@book.Price</p>
+          <p>Rating: @book.Rating</p>
+          
+          <div>
+          
+            <button class="btn btn-default"><a asp-action="Edit" asp-route-id="@book.BookId" asp-controller="Admin">Edit</a></button>
+            
+            <button class="btn btn-default; redButton"><a asp-action="Delete" asp-route-id="@book.BookId" asp-controller="Admin">Delete</a></button>
+
+          </div>
+        </div>
+    }
+  </div>
+  </div>
+
+  <p>
+    <button class="btn btn-default" ><a asp-controller="Admin" asp-action="Create">Add Book!</a></button>
+  </p>
+  </div>
+  </div>
