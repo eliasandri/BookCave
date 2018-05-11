@@ -44,7 +44,8 @@ namespace BookCave.Controllers
         }*/
         public IActionResult Details(int? id)
         {
-            if (id == null)
+            var allAuthors = _authorService.GetAllAuthors();
+            if (id > allAuthors.Count)
             {
                 return View("Error");
             }
@@ -60,6 +61,7 @@ namespace BookCave.Controllers
             }
             return View(author);
         }
+        
 
         /*        public IActionResult Delete()
                 {

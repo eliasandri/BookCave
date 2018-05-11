@@ -7,6 +7,8 @@ using BookCave.Data;
 using BookCave.Data.EntityModels;
 using System.Linq;
 using System;
+using BookCave.Models;
+using System.Diagnostics;
 
 namespace BookCave.Controllers
 {
@@ -35,10 +37,11 @@ namespace BookCave.Controllers
             }
             return View("Shop", books);
         }
+        [HttpGet]
         public IActionResult Details(int? id)
         {
-            
-            if (id == null)
+            var allBooks = _bookService.GetAllBooks();
+            if (id > allBooks.Count)
             {
                 return View("Error");
             }
@@ -66,7 +69,10 @@ namespace BookCave.Controllers
         [HttpPost]
         public IActionResult Details(BookDetailsViewModel book, int id)
         {
-            
+            if (!ModelState.IsValid)
+            {
+                return View("Error");
+            }
             if (ModelState.IsValid)
             {
                 book.BookId = id;
@@ -169,6 +175,10 @@ namespace BookCave.Controllers
                 return RedirectToAction("Shop");
             }
             return View("Book");
+        }
+        public IActionResult Error()
+        {
+            return View (new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
