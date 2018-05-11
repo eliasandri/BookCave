@@ -116,10 +116,44 @@ namespace BookCave.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> Mysite()
+
+        public async Task<IActionResult> MySite(){
+            
+            
+            var user = await _userManager.GetUserAsync(User);
+            var model = new MySiteViewModel
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                FavoriteBook = user.FavoriteBook
+            };
+            return View (model);
+        }
+        public async Task<IActionResult> EditProfile()
         {
             var user = await _userManager.GetUserAsync(User);
-            return View(user);
+            return View(new AccountDetailsViewModel {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                FavoriteBook = user.FavoriteBook,
+                Address = user.Address
+            });
+        }
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> EditProfile(AccountDetailsViewModel model){
+            
+            var user = await _userManager.GetUserAsync(User);
+
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Address = model.Address;
+            user.FavoriteBook = model.FavoriteBook;
+
+            await _userManager.UpdateAsync(user);
+
+            return View(model);
         }
     }
 } 
