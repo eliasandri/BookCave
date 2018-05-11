@@ -11,7 +11,6 @@ using BookCave.Models.ViewModels;
 
 namespace BookCave.Controllers
 {
-    [Authorize]
     public class AuthorController : Controller
     {
         private AuthorService _authorService;
@@ -49,10 +48,10 @@ namespace BookCave.Controllers
             return View(author);
         }
 
-        /*        public IActionResult Delete()
-                {
-                    _authorService.Delete();
-                    return View("Index");
-                }*/
+        /*public IActionResult Delete()
+        {
+            _authorService.Delete();
+            return View("Index");
+        }/* */
     }
 }

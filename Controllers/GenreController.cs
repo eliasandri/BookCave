@@ -11,7 +11,6 @@ using BookCave.Models.ViewModels;
 
 namespace BookCave.Controllers
 {
-    [Authorize]
     public class GenreController : Controller
     {
         private GenreService _genreService;
@@ -28,7 +27,6 @@ namespace BookCave.Controllers
         {
             var genres = _genreService.GetAllGenreDetails();
             var genre = new GenreDetailsViewModel();
-            //Console.WriteLine(genre.Books[0].Title);
             for (int i = 0; i < genres.Count; i++)
             {
                 if (genres[i].GenreId == id)
