@@ -54,7 +54,11 @@ namespace BookCave.Repositories
                               Books = (from m in _db.Books
                                        join mr in _db.Authors on m.AuthorId equals mr.Id
                                        where m.AuthorId == a.Id
-                                       select m).ToList(),
+                                       select new BookDetailsViewModel
+                                       {
+                                        BookId = m.Id,
+                                        Title = m.Title,
+                                       }).ToList(),
                               BookId = ar.Id
                            }).ToList();
 
