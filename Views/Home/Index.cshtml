@@ -40,7 +40,7 @@
           {
             <div class="col-lg-5" id="borderStyleTwo">
             <img class="img-thumbnail;" id="bookImg" src="@Model[0].GetNewest5Books[i].Image" alt="BookImage">
-            <p><a asp-controller="Book" asp-action="Details" asp-route-id="@Model[0].GetNewest5Books[i].BookId">@Model[0].GetNewest5Books[i].Title"</a></p>
+            <p><a asp-controller="Book" asp-action="Details" asp-route-id="@Model[0].GetNewest5Books[i].BookId">@Model[0].GetNewest5Books[i].Title</a></p>
             <p>Release Year: @Model[0].GetNewest5Books[i].ReleaseYear</p>
             </div>
           }
