@@ -1,9 +1,6 @@
-@model BookCave.Models.ViewModels.ShoppingCartViewModel
-
+@model BookCave.Models.ViewModels.ReviewViewModel
 
 <link rel="stylesheet" href="~/css/site.css" type="text/css">
-
-
 @{
     ViewBag.Title = "Shopping Cart";
 }
@@ -11,16 +8,15 @@
 <ul class="breadcrumb">
   <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
   <li><a asp-area="" asp-controller="Book" asp-action="Shop">Books</a></li>
-<li>My Cart</li>
+  <li><a asp-area="" asp-controller="ShoppingCart" asp-action="IndexAsync">My Cart</a></li>
+  <li>Review Order</li>
 </ul>
 
+<h2 class="center">
+    Review your order, is this correct?
+</h2>
 
-
-<h1 class="center">
-    Review your cart:
-</h1>
-
-<table class="table table-hover " id="shoppinglist">
+<table class="table " id="shoppinglist">
     <tr id="tritem">
         <th>
             Item Name
@@ -47,11 +43,6 @@
                @item.Count 
             </td>
             <td>
-                <button  class="btn btn-defult RemoveLink"
-                   data-id="@item.BookId">
-                    Remove
-                    from cart
-                </button>
             </td>
         </tr>
     }
@@ -69,7 +60,12 @@
 <div class="center">
 <button class="btn btn-defult;">
 <p class="button">
-    @Html.ActionLink("Checkout>> ", "Review", "ShoppingCart")
+    @Html.ActionLink("<<Take me back ", "IndexAsync", "ShoppingCart")
+</p>
+</button>
+<button class="btn btn-defult;">
+<p class="button">
+    @Html.ActionLink("Yes! Continue>> ", "AddressAndPaymentAsync", "Checkout")
 </p>
 </button>
 </div>
