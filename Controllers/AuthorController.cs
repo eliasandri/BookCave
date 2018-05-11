@@ -15,19 +15,15 @@ namespace BookCave.Controllers
     public class AuthorController : Controller
     {
         private AuthorService _authorService;
-
         public AuthorController()
         {
             _authorService = new AuthorService();
         }
-
-        
         public IActionResult Index()
         {
             var authors = _authorService.GetAllAuthors();
             return View(authors);
         }
-
         public IActionResult FilterSearch(string orderBy="")
         {
             var authors = _authorService.FilterSearch(orderBy);
@@ -61,7 +57,6 @@ namespace BookCave.Controllers
             }
             return View(author);
         }
-        
 
         /*        public IActionResult Delete()
                 {

@@ -24,7 +24,6 @@ namespace BookCave.Controllers
             var user = await _userManager.GetUserAsync(User);
             var cart = Cart.GetCart(user.Id);
             
-            
             /*var _books = (from m in _db.Books
                           where cart.G)*/
             

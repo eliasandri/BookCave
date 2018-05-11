@@ -15,7 +15,6 @@ namespace BookCave.Controllers
     public class BookController : Controller
     {
         private BookService _bookService;
-
         public BookController()
         {
             _bookService = new BookService();
@@ -63,6 +62,7 @@ namespace BookCave.Controllers
                 totalForAverage += book.Reviews[i].Ratings;
             }
             book.AverageRating = totalForAverage / book.Reviews.Count;
+
             if(double.IsNaN(book.AverageRating))
             {
                 book.AverageRating = 0.0;
@@ -85,18 +85,13 @@ namespace BookCave.Controllers
             }
             return View();
         }
-        
-
         public IActionResult Top10()
         {
             var books = _bookService.GetAllTop10Books();
             return View(books);
         }
 
-
-
         [HttpGet]
-
         public IActionResult Create()
         {
             return View();
@@ -110,7 +105,6 @@ namespace BookCave.Controllers
         [HttpPost]
         public IActionResult Create(BookCreateViewModel book)
         {
-
             if (ModelState.IsValid)
             {
                 _bookService.CreateBook(book);
@@ -118,6 +112,7 @@ namespace BookCave.Controllers
             }
             return View();
         }
+
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -163,6 +158,7 @@ namespace BookCave.Controllers
             }
             return View(book);
         }
+        
         [HttpPost]
         public IActionResult Delete(int id)
         {

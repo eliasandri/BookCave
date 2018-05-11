@@ -17,10 +17,7 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-
-
         private RoleManager<IdentityRole> RoleManager;
-
         public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
@@ -34,8 +31,6 @@ namespace BookCave.Controllers
             var cart = Cart.GetCart(user.Id);
             cart.MigrateCart(email);
         }
-
-
         public IActionResult Register()
         {
             return View();
@@ -53,7 +48,6 @@ namespace BookCave.Controllers
 
             if (result.Succeeded)
             {
-
                 await _userManager.AddToRoleAsync(user, "User");
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, isPersistent: false);

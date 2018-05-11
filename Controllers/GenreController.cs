@@ -15,12 +15,10 @@ namespace BookCave.Controllers
     public class GenreController : Controller
     {
         private GenreService _genreService;
-
         public GenreController()
         {
             _genreService = new GenreService();
         }
-
         public IActionResult Index()
         {
             var genres = _genreService.GetAllGenres();
@@ -38,7 +36,6 @@ namespace BookCave.Controllers
                     genre = genres[i];
                 }
             }
-
             return View(genre);
         }
     }
