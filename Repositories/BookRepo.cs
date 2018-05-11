@@ -44,8 +44,6 @@ namespace BookCave.Repositories
                             Image = m.Image,
                             Rating = m.Rating,
                         }).ToList();
-            
-        
         return books;
         }
         public List<BookListViewModel> Filter(string orderBy)
@@ -115,8 +113,7 @@ namespace BookCave.Repositories
                               Price = a.Price,
                               Rating = a.Rating,
                               Authors = (from m in _db.Authors
-                                       join mr in _db.Books on m.BookId equals mr.Id
-                                       where m.BookId == a.Id
+                                         where m.Id == a.AuthorId
                                        select m).ToList(),
                               AuthorId = ar.Id,
                            }).ToList();
