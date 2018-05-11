@@ -63,6 +63,10 @@ namespace BookCave.Controllers
                 totalForAverage += book.Reviews[i].Ratings;
             }
             book.AverageRating = totalForAverage / book.Reviews.Count;
+            if(double.IsNaN(book.AverageRating))
+            {
+                book.AverageRating = 0.0;
+            }
             return View(book);
         }
         [HttpPost]
