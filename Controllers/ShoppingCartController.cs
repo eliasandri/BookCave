@@ -56,8 +56,8 @@ namespace BookCave.Controllers
             var cart = Cart.GetCart(user.Id);
 
             Console.WriteLine("lol");
-            string itemName = _db.ShopCarts
-                .Single(item => item.RecordId == id).Book.Title;
+            /*string itemName = _db.ShopCarts
+                .Single(item => item.RecordId == id).Book.Title;*/
             
             int itemCount = cart.RemoveFromCart(id);
             

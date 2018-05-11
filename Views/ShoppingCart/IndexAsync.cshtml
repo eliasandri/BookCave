@@ -37,20 +37,21 @@
     {
         <tr id="row-@item.BookId">
             <td>
-                @item.BookTitle
+                 @Html.ActionLink(item.BookTitle,
+"Details", "Book", new { id = item.BookId }, null)
             </td>
             <td>
                 @item.BookPrice $
             </td>
-            <td id="item-count-@item.BookId">
+            <td id="item-Count-@item.BookId">
                @item.Count 
             </td>
             <td>
-                <button class="btn btn-defult"><a href="#" class="RemoveLink"
+                <button id="RemoveLink" class="btn btn-defult"
                    data-id="@item.BookId">
                     Remove
                     from cart
-                </a></button>
+                </button>
             </td>
         </tr>
     }

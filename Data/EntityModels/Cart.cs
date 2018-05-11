@@ -63,7 +63,7 @@ namespace BookCave.Data.EntityModels
             
             var cartItem = _db.ShopCarts.Single(
                 cart => cart.CartId == ShoppingCartId
-                && cart.RecordId == id);
+                && cart.ItemId == id);
 
             int itemCount = 0;
 

@@ -4,15 +4,21 @@ using BookCave.Data.EntityModels;
 using BookCave.Models.ViewModels;
 using System.Linq;
 using System;
+using Microsoft.AspNetCore.Identity;
+using BookCave.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookCave.Repositories
 {
     public class WishListRepo
     {
+        
         private DataContext _db;
+        
         public WishListRepo()
         {
             _db = new DataContext();
+            
         }
         public void AddToWishList (int id)
         {
@@ -26,6 +32,7 @@ namespace BookCave.Repositories
         }
         public WishListViewModel GetAllWishListItems()
         {
+            //var user = await _userManager.GetUserAsync(User);
             var wishListItems = (from m in _db.WishLists
                                  join mr in _db.Books on m.BookId equals mr.Id
                                  select new WishListViewModel
