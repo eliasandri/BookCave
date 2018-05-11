@@ -8,7 +8,7 @@ namespace BookCave.Repositories
 {
     public class AuthorRepo
     {
-        private DataContext _db; 
+        private DataContext _db;
 
         public AuthorRepo()
         {
@@ -21,15 +21,15 @@ namespace BookCave.Repositories
                            join ar in _db.Books on a.BookId equals ar.Id
                            select new AuthorListViewModel
                            {
-                              AuthorId = a.Id,
-                              Name = a.Name,
-                              DateOfBirth = a.DateOfBirth,
-                              Image = a.Image,
+                               AuthorId = a.Id,
+                               Name = a.Name,
+                               DateOfBirth = a.DateOfBirth,
+                               Image = a.Image,
                            }).ToList();
 
-             return authors;
+            return authors;
         }
-        public List<AuthorListViewModel> FilterSearch(string orderby ="")
+        public List<AuthorListViewModel> FilterSearch(string orderby = "")
         {
             var authors = (from a in _db.Authors
                            orderby a.Name
@@ -39,7 +39,7 @@ namespace BookCave.Repositories
                                Name = a.Name,
                                DateOfBirth = a.DateOfBirth
                            }).ToList();
-                   return authors;
+            return authors;
         }
         public List<AuthorDetailsViewModel> GetAllAuthorsDetails()
         {
@@ -47,18 +47,18 @@ namespace BookCave.Repositories
                            join ar in _db.Books on a.BookId equals ar.Id
                            select new AuthorDetailsViewModel
                            {
-                              AuthorId = a.Id,
-                              Name = a.Name,
-                              DateOfBirth = a.DateOfBirth,
-                              Image = a.Image,
-                              Books = (from m in _db.Books
-                                       join mr in _db.Authors on m.AuthorId equals mr.Id
-                                       where m.AuthorId == a.Id
-                                       select m).ToList(),
-                              BookId = ar.Id
+                               AuthorId = a.Id,
+                               Name = a.Name,
+                               DateOfBirth = a.DateOfBirth,
+                               Image = a.Image,
+                               Books = (from m in _db.Books
+                                        join mr in _db.Authors on m.AuthorId equals mr.Id
+                                        where m.AuthorId == a.Id
+                                        select m).ToList(),
+                               BookId = ar.Id
                            }).ToList();
 
-             return authors;
+            return authors;
         }
         /*public List<AuthorDetailsViewModel> GetBookByLayoutSearch(string layoutsearch)
         {
@@ -86,12 +86,12 @@ namespace BookCave.Repositories
         public void Delete()
         {
             var authors = (from a in _db.Authors
-                          select new Author
-                          {
+                           select new Author
+                           {
                                Id = a.Id,
                                Name = a.Name,
                                DateOfBirth = a.DateOfBirth
-                          }).ToList();
+                           }).ToList();
 
             _db.Authors.RemoveRange(authors);
             _db.SaveChanges();

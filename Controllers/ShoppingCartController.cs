@@ -15,7 +15,7 @@ namespace BookCave.Controllers
     {
         private DataContext _db = new DataContext();
         private readonly UserManager<ApplicationUser> _userManager;
-        public ShoppingCartController (UserManager<ApplicationUser> userManager)
+        public ShoppingCartController(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
         }
@@ -23,10 +23,10 @@ namespace BookCave.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var cart = Cart.GetCart(user.Id);
-            
+
             /*var _books = (from m in _db.Books
                           where cart.G)*/
-            
+
             var viewModel = new ShoppingCartViewModel
             {
                 Books = cart.GetCartItems(),
@@ -35,7 +35,7 @@ namespace BookCave.Controllers
             };
             return View(viewModel);
         }
-        
+
         public async System.Threading.Tasks.Task<ActionResult> AddToCartAsync(int id)
         {
             var addedItem = _db.Books
@@ -49,7 +49,7 @@ namespace BookCave.Controllers
 
             return RedirectToAction("IndexAsync");
         }
-        
+
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> RemoveFromCartAsync(int id)
         {
@@ -59,9 +59,9 @@ namespace BookCave.Controllers
             Console.WriteLine("lol");
             /*string itemName = _db.ShopCarts
                 .Single(item => item.RecordId == id).Book.Title;*/
-            
+
             int itemCount = cart.RemoveFromCart(id);
-            
+
             var results = new ShoppingCartRemoveViewModel
             {
                 /*Message = Server.HtmlEncode(itemName) +
@@ -73,7 +73,7 @@ namespace BookCave.Controllers
             };
             return Json(results);
         }
-        
+
         //[ChildActionOnly]
         public async System.Threading.Tasks.Task<ActionResult> CartSummaryAsync(int id)
         {
@@ -87,10 +87,10 @@ namespace BookCave.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var cart = Cart.GetCart(user.Id);
-            
+
             /*var _books = (from m in _db.Books
                           where cart.G)*/
-            
+
             var viewModel = new ReviewViewModel
             {
                 Books = cart.GetCartItems(),

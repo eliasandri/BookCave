@@ -45,8 +45,8 @@ namespace BookCave.Controllers
             }
             double totalForAverage = 0;
             var books = _bookService.GetAllBooksDetails();
-            
-            
+
+
             var book = new BookDetailsViewModel();
 
             for (int i = 0; i < books.Count; i++)
@@ -55,7 +55,7 @@ namespace BookCave.Controllers
                 {
                     book = books[i];
                 }
-            book.Reviews = _bookService.GetReviews(id);
+                book.Reviews = _bookService.GetReviews(id);
             }
             for (int i = 0; i < book.Reviews.Count; i++)
             {
@@ -63,7 +63,7 @@ namespace BookCave.Controllers
             }
             book.AverageRating = totalForAverage / book.Reviews.Count;
 
-            if(double.IsNaN(book.AverageRating))
+            if (double.IsNaN(book.AverageRating))
             {
                 book.AverageRating = 0.0;
             }
@@ -108,7 +108,7 @@ namespace BookCave.Controllers
             }
             return View(book);
         }
-        
+
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -127,7 +127,7 @@ namespace BookCave.Controllers
         }
         public IActionResult Error()
         {
-            return View (new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

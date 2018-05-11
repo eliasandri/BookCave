@@ -12,15 +12,15 @@ namespace BookCave.Repositories
 {
     public class WishListRepo
     {
-        
+
         private DataContext _db;
-        
+
         public WishListRepo()
         {
             _db = new DataContext();
-            
+
         }
-        public void AddToWishList (int id)
+        public void AddToWishList(int id)
         {
             var wishListItem = new WishList()
             {
@@ -38,14 +38,14 @@ namespace BookCave.Repositories
                                  {
                                      Books = (from a in _db.Books
                                               join ar in _db.WishLists on a.Id equals ar.BookId
-                                              
+
                                               select new BookInWishListViewModel()
                                               {
-                                                 ReleaseYear = a.ReleaseYear,
-                                                 Title = a.Title,
-                                                 BookId = a.Id,
-                                                 Image = a.Image,
-                                                 Price = a.Price 
+                                                  ReleaseYear = a.ReleaseYear,
+                                                  Title = a.Title,
+                                                  BookId = a.Id,
+                                                  Image = a.Image,
+                                                  Price = a.Price
                                               }).ToList(),
                                  }).FirstOrDefault();
             return wishListItems;

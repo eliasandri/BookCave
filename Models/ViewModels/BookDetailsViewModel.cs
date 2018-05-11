@@ -23,9 +23,9 @@ namespace BookCave.Models.ViewModels
         public string Genre { get; set; }
         public int GenreId { get; set; }
         public string Review { get; set; }
-       
+
         public List<Comment> Reviews { get; set; }
         public double AverageRating { get; set; }
-    
+
     }
 }
