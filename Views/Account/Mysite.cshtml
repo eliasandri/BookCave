@@ -6,7 +6,7 @@
             <img src="~/images/default-user.png" alt="Myprofile Image">
             <h3 class="mysite-h3">@Model.UserName</h3>
             <h3 class="mysite-h3">@Model.Email</h3>
-                <form asp-action="OrderHistory" asp-controller="Account" method="POST">
+                <form asp-action="OrderHistory" asp-controller="Order" method="POST">
                   <br/>
                   <button type="submit" class="btn btn-default btn-lg">My order history</button>
                 </form>
