@@ -22,7 +22,6 @@ namespace BookCave.Repositories
         }
         public void AddToWishList (int id)
         {
-            
             var wishListItem = new WishList()
             {
                 BookId = id,
@@ -49,8 +48,6 @@ namespace BookCave.Repositories
                                                  Price = a.Price 
                                               }).ToList(),
                                  }).FirstOrDefault();
-            
-            //Console.WriteLine(wishListItems.Books.Count);
             return wishListItems;
         }
     }

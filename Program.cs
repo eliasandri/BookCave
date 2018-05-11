@@ -33,11 +33,7 @@ namespace BookCave
 
             var initialBooks = new List<Book>()
                 {
-
-
-
                     new Book { Title = "Hamlet", Description = "Hamlet is a tragedy by William Shakespeare, believed to have been written between 1599 and 1601. The play, set in Denmark, recounts how Prince Hamlet exacts revenge on his uncle Claudius, who has murdered Hamlet's father, the King, and then taken the throne and married Hamlet's mother. The play vividly charts the course of real and feigned madness-from overwhelming grief to seething rage-and explores themes of treachery, revenge, incest, and moral corruption.", Price = 6, Rating = 7, ReleaseYear = 2016, Image = "https://images-na.ssl-images-amazon.com/images/I/41IETeONh-L._SX331_BO1,204,203,200_.jpg", AuthorId = 16 },
-
                 };
             db.AddRange(initialBooks);
             db.SaveChanges();

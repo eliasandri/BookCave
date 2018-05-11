@@ -16,7 +16,6 @@ namespace BookCave.Controllers
     {
         private DataContext _db = new DataContext();
         const string PromoCode = "FREE";
-
         private readonly UserManager<ApplicationUser> _userManager;
         public CheckoutController (UserManager<ApplicationUser> userManager)
         {
@@ -58,7 +57,7 @@ namespace BookCave.Controllers
                     
                     return View(order);
                 }*/
-                if (ModelState.IsValid)
+             if (ModelState.IsValid)
                 {
                     Console.WriteLine("damn");
                     order.Username = User.Identity.Name;
@@ -74,8 +73,7 @@ namespace BookCave.Controllers
                     return RedirectToAction("Complete",
                         new { id = order.OrderId });
                 }
-                return View();
-            
+         return View();    
         }
         
         public ActionResult Complete(int id)
@@ -94,6 +92,5 @@ namespace BookCave.Controllers
                 return View("Error");
             }
         }
-
     }
 }

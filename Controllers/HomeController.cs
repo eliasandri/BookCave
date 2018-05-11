@@ -11,7 +11,6 @@ using BookCave.Models.ViewModels;
 
 namespace BookCave.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private BookService _bookService;
@@ -26,7 +25,7 @@ namespace BookCave.Controllers
         }
 
 
-        /*       public IActionResult Delete()
+        /*public IActionResult Delete()
                {
                    _bookService.Delete();
                    return View("Index");

@@ -17,10 +17,7 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-
-
         private RoleManager<IdentityRole> RoleManager;
-
         public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
@@ -34,8 +31,6 @@ namespace BookCave.Controllers
             var cart = Cart.GetCart(user.Id);
             cart.MigrateCart(email);
         }
-
-
         public IActionResult Register()
         {
             return View();
@@ -53,7 +48,6 @@ namespace BookCave.Controllers
 
             if (result.Succeeded)
             {
-
                 await _userManager.AddToRoleAsync(user, "User");
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, isPersistent: false);
@@ -122,10 +116,44 @@ namespace BookCave.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> Mysite()
+
+        public async Task<IActionResult> MySite(){
+            
+            
+            var user = await _userManager.GetUserAsync(User);
+            var model = new MySiteViewModel
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                FavoriteBook = user.FavoriteBook
+            };
+            return View (model);
+        }
+        public async Task<IActionResult> EditProfile()
         {
             var user = await _userManager.GetUserAsync(User);
-            return View(user);
+            return View(new AccountDetailsViewModel {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                FavoriteBook = user.FavoriteBook,
+                Address = user.Address
+            });
+        }
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> EditProfile(AccountDetailsViewModel model){
+            
+            var user = await _userManager.GetUserAsync(User);
+
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Address = model.Address;
+            user.FavoriteBook = model.FavoriteBook;
+
+            await _userManager.UpdateAsync(user);
+
+            return View(model);
         }
     }
 } 

@@ -6,9 +6,11 @@ using BookCave.Models;
 using BookCave.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookCave.Controllers
 {
+    [Authorize]
     public class ShoppingCartController : Controller
     {
         private DataContext _db = new DataContext();
@@ -21,7 +23,6 @@ namespace BookCave.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
             var cart = Cart.GetCart(user.Id);
-            
             
             /*var _books = (from m in _db.Books
                           where cart.G)*/

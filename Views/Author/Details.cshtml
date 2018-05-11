@@ -8,7 +8,7 @@
   <li>AuthorDetails</li>
 </ul>
 
-<<div class="container">
+<div class="container">
 <div class="row align-items-center">
     <div class="col-lg-6 col-sm-12 col-md-6">
      <img class="detailsImg" src="@Model.Image" alt="Book Image">
@@ -23,9 +23,5 @@
             <p><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.Books[i].Id">@Html.DisplayFor(m => Model.Books[i].Title)</a></p>
         }
     </div>
-         
-        
-        
-    
     </ul>
 </div>

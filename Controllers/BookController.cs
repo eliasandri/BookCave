@@ -7,14 +7,14 @@ using BookCave.Data;
 using BookCave.Data.EntityModels;
 using System.Linq;
 using System;
+using BookCave.Models;
+using System.Diagnostics;
 
 namespace BookCave.Controllers
 {
-    [Authorize]
     public class BookController : Controller
     {
         private BookService _bookService;
-
         public BookController()
         {
             _bookService = new BookService();
@@ -35,10 +35,11 @@ namespace BookCave.Controllers
             }
             return View("Shop", books);
         }
+        [HttpGet]
         public IActionResult Details(int? id)
         {
-            
-            if (id == null)
+            var allBooks = _bookService.GetAllBooks();
+            if (id > allBooks.Count)
             {
                 return View("Error");
             }
@@ -61,12 +62,20 @@ namespace BookCave.Controllers
                 totalForAverage += book.Reviews[i].Ratings;
             }
             book.AverageRating = totalForAverage / book.Reviews.Count;
+
+            if(double.IsNaN(book.AverageRating))
+            {
+                book.AverageRating = 0.0;
+            }
             return View(book);
         }
         [HttpPost]
         public IActionResult Details(BookDetailsViewModel book, int id)
         {
-            
+            if (!ModelState.IsValid)
+            {
+                return View("Error");
+            }
             if (ModelState.IsValid)
             {
                 book.BookId = id;
@@ -76,18 +85,13 @@ namespace BookCave.Controllers
             }
             return View();
         }
-        
-
         public IActionResult Top10()
         {
             var books = _bookService.GetAllTop10Books();
             return View(books);
         }
 
-
-
         [HttpGet]
-
         public IActionResult Create()
         {
             return View();
@@ -101,7 +105,6 @@ namespace BookCave.Controllers
         [HttpPost]
         public IActionResult Create(BookCreateViewModel book)
         {
-
             if (ModelState.IsValid)
             {
                 _bookService.CreateBook(book);
@@ -109,6 +112,7 @@ namespace BookCave.Controllers
             }
             return View();
         }
+
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -154,6 +158,7 @@ namespace BookCave.Controllers
             }
             return View(book);
         }
+        
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -169,6 +174,10 @@ namespace BookCave.Controllers
                 return RedirectToAction("Shop");
             }
             return View("Book");
+        }
+        public IActionResult Error()
+        {
+            return View (new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

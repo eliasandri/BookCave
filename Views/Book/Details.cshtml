@@ -32,10 +32,11 @@
     <h3>Price: @Model.Price</h3>
     
     
-    <button class="btn btn-default" type="button">Add to Wishlist</button>
+      <form asp-area="" asp-controller="WishList" asp-action="AddToWishList" asp-route-id="@Model.BookId">
+   <button class="btn btn-deful; gotobutton">Add to WishList</button> </form> </br>
     
     <form asp-area="" asp-controller="ShoppingCart" asp-action="AddToCartAsync" asp-route-id="@Model.BookId">
-   <button class="btn btn-deful; gotobutton">Add to cart</button> </form>
+   <button style="background-color: green"class="btn btn-deful; gotobutton">Add to cart</button> </form>
     </div>
 
 
@@ -62,18 +63,17 @@
     <span asp-validation-for="Rating" class ="badge"></span>
    </br><button class="btn btn-default" type="submit">Submit your Comment and Rating</button>
 </form>
+
+<div class="user-reviews">
+        <h3 style="border-bottom-style: solid">Reviews and Ratings for this book</h3>
+        @foreach (var review in Model.Reviews)
+        {  
+        <p style="border-bottom-style: solid; border-color: white;" ><strong>Review: </strong>@review.Review <strong>Rating: </strong>@review.Ratings</p>
+        }
+    </div>
     </div>
   </div>
 
- <a class="btn btn-default" asp-controller="WishList" asp-action="AddToWishList" asp-route-id="@Model.BookId"></a>
-</div>
-<div>
-    <div class="user-reviews">
-        <h3>The Reviews and Ratings for this book are:</h3>
-        @foreach (var review in Model.Reviews)
-        {  
-        <p><strong>Review: </strong>@review.Review <strong>Rating: </strong>@review.Ratings</p>
-        }
-    </div>
-</div>
+
+
 

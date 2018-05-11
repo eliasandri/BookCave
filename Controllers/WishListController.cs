@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using BookCave.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookCave.Controllers
 {
+    [Authorize]
     public class WishListController : Controller
     {
         private WishListService _wishListService;

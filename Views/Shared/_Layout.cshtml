@@ -23,7 +23,6 @@
 </head>
 
 <body>
-    
     <nav class="navbar navbar-inverse navbar-fixed-top" id="navbarcolor">
         <div class="container">
             <div class="navbar-header">
@@ -40,7 +39,8 @@
                     <li><a asp-area="" asp-controller="Book" asp-action="Shop">Books</a></li>
                     <li><a asp-area="" asp-controller="Author" asp-action="Index">Authors</a></li>
                     <li><a asp-area="" asp-controller="Genre" asp-action="Index">Genre</a></li>
-                    <li><a asp-area="" asp-controller="Book" asp-action="Top10">Top 10</a></li>    
+                    <li><a asp-area="" asp-controller="Book" asp-action="Top10">Top 10</a></li>  
+                    <li><a asp-area="" asp-controller="Admin" asp-action="Index">I am Admin</a></li>    
                 </ul>
         <div id="search">
             <form method="GET" asp-area="" asp-controller="Book" asp-action="QuickSearch">
@@ -55,7 +55,7 @@
         </div>
         <div class="navbar-collapse collapse" id="icons">
             <a asp-area="" asp-controller="ShoppingCart" asp-action="IndexAsync"><i class="fa fa-shopping-cart" id="icon1"></i></a>
-            <a asp-area="" asp-controller="Account" asp-action="WishList"><i class="fa fa-heart" id="icon2"></i></a>
+            <a asp-area="" asp-controller="WishList" asp-action="AllWishListItems"><i class="fa fa-heart" id="icon2"></i></a>
         </div>
         </div>
         
