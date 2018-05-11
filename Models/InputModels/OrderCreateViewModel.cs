@@ -43,7 +43,7 @@ namespace BookCave.Models.InputModels
         public double Total { get; set; }
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
+        //public List<OrderDetail> OrderDetails { get; set; }
 
     }
 }

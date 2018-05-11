@@ -33,11 +33,14 @@ namespace BookCave.Repositories
                           {
                               GenreId = a.Id,
                               Title = a.Title,
-
                               Books = (from m in _db.Books
                                        join mr in _db.Genres on m.GenreId equals mr.Id
                                        where m.GenreId == a.Id
-                                       select m).ToList(),
+                                       select new BookListViewModel
+                                       {
+                                           BookId = m.Id,
+                                           Title = m.Title,
+                                       }).ToList(),
                               BookId = ar.Id
                           }).ToList();
 

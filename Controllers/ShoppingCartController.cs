@@ -42,9 +42,7 @@ namespace BookCave.Controllers
                 .Single(item => item.Id == id);
 
             var user = await _userManager.GetUserAsync(User);
-            Console.WriteLine(user.Id);
             var cart = Cart.GetCart(user.Id);
-
             cart.AddToCart(addedItem);
 
             return RedirectToAction("IndexAsync");
@@ -56,7 +54,6 @@ namespace BookCave.Controllers
             var user = await _userManager.GetUserAsync(User);
             var cart = Cart.GetCart(user.Id);
 
-            Console.WriteLine("lol");
             /*string itemName = _db.ShopCarts
                 .Single(item => item.RecordId == id).Book.Title;*/
 
