@@ -15,6 +15,7 @@
           <th id="wishlist-th" >Item</th>
           <th></th> 
           </tr>
+
            @foreach(var wishlistItem in Model)
             {
             <tr class="active">
@@ -22,6 +23,7 @@
               <td class="wishlist-td"><button id="wishlist-button" class="btn btn-default">Remove</button><button class="btn btn-default">Add To basket</button></td> 
             </tr>
             }
+            
       </table>
     </div>
 </body>
