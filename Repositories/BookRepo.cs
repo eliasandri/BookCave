@@ -91,22 +91,26 @@ namespace BookCave.Repositories
         public List<BookDetailsViewModel> GetAllBooksDetails()
         {
             var books = (from a in _db.Books
-                         join ar in _db.Authors on a.AuthorId equals ar.Id
-                         select new BookDetailsViewModel
-                         {
-                             BookId = a.Id,
-                             Title = a.Title,
-                             ReleaseYear = a.ReleaseYear,
-                             Image = a.Image,
-                             Description = a.Description,
-                             Price = a.Price,
-                             Rating = a.Rating,
-                             Authors = (from m in _db.Authors
-                                        where m.Id == a.AuthorId
-                                        select m).ToList(),
-                             AuthorId = ar.Id,
-                         }).ToList();
-            return books;
+                           join ar in _db.Authors on a.AuthorId equals ar.Id
+                           select new BookDetailsViewModel
+                           {
+                              BookId = a.Id,
+                              Title = a.Title,
+                              ReleaseYear = a.ReleaseYear,
+                              Image = a.Image,
+                              Description = a.Description,
+                              Price = a.Price,
+                              Rating = a.Rating,
+                              Authors = (from m in _db.Authors
+                                         where m.Id == a.AuthorId
+                                       select new AuthorListViewModel
+                                       {
+                                           AuthorId = a.AuthorId,
+                                           Name = m.Name,
+                                       }).ToList(),
+                              AuthorId = ar.Id,
+                           }).ToList();
+             return books;
         }
         public List<BookTop10ViewModel> GetAllTop10Books()
         {
@@ -173,19 +177,18 @@ namespace BookCave.Repositories
             _db.SaveChanges();
         }
 
-        public List<Comment> GetReviews(int? bookId)
+        public List<CommentViewModel> GetReviews(int? bookId)
         {
             var reviews = (from a in _db.Books
-                           join b in _db.BookComments on a.Id equals b.BookId
-                           where a.Id == bookId
-                           select new Comment
-                           {
-                               Id = b.Id,
-                               BookId = b.BookId,
-                               Review = b.Review,
-                               Ratings = b.Ratings
-                           }).ToList();
-            return reviews;
+                            join b in _db.BookComments on a.Id equals b.BookId
+                            where a.Id == bookId
+                            select new CommentViewModel
+                            {
+                                BookId = b.BookId,
+                                Review = b.Review,
+                                Ratings = b.Ratings
+                            }).ToList();
+                    return reviews;
         }
         /*  public List<Comment> GetRatings(int? bookId)
           {
@@ -243,51 +246,6 @@ namespace BookCave.Repositories
             _db.Books.Update(editedBook);
             _db.SaveChanges();
         }
-<<<<<<< HEAD
-=======
-        public void DeleteBook(BookDetailsViewModel book)
-        {
-            Console.WriteLine(book.AuthorId);
-            Console.WriteLine(book.Title);
-            Console.WriteLine(book.Description);
-            Console.WriteLine(book.Price);
-            Console.WriteLine(book.GenreId);
-            Console.WriteLine(book.AuthorId);
-
-            var deletedBook = (from m in _db.Books
-                               where m.Id == book.BookId
-                               select new Book()
-                               {
-                                   Id = book.BookId,
-                                   Title = book.Title,
-                                   Description = book.Description,
-                                   Price = book.Price,
-                                   Rating = book.Rating,
-                                   ReleaseYear = book.ReleaseYear,
-                                   AuthorId = book.AuthorId,
-                                   GenreId = book.GenreId,
-                                   Image = book.Image
-                               }).SingleOrDefault();
-
-            _db.Books.Remove(deletedBook);
-            _db.SaveChanges();
-        }
-        public void Delete()
-        {
-            var books = (from a in _db.Books
-                         select new Book
-                         {
-                             Id = a.Id,
-                             Title = a.Title,
-                             ReleaseYear = a.ReleaseYear,
-                             AuthorId = a.AuthorId
-                         }).ToList();
-
-            _db.Books.RemoveRange(books);
-            _db.SaveChanges();
-        }
-
->>>>>>> dee8e43d7af75c9f98a39deb6a9a8beb4fc314d1
         public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
         {
             var layoutresults = (from a in _db.Books
