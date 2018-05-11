@@ -32,7 +32,7 @@
     <h3>Price: @Model.Price</h3>
     
     
-      <form asp-area="" asp-controller="WishList" asp-action="AllWishListItems" asp-route-id="@Model.BookId">
+      <form asp-area="" asp-controller="WishList" asp-action="AddToWishList" asp-route-id="@Model.BookId">
    <button class="btn btn-deful; gotobutton">Add to WishList</button> </form> </br>
     
     <form asp-area="" asp-controller="ShoppingCart" asp-action="AddToCartAsync" asp-route-id="@Model.BookId">
