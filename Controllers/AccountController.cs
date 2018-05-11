@@ -117,9 +117,10 @@ namespace BookCave.Controllers
 
         [Authorize]
 
-        public async Task<IActionResult> MySite(){
-            
-            
+        public async Task<IActionResult> MySite()
+        {
+
+
             var user = await _userManager.GetUserAsync(User);
             var model = new MySiteViewModel
             {
@@ -128,12 +129,13 @@ namespace BookCave.Controllers
                 Address = user.Address,
                 FavoriteBook = user.FavoriteBook
             };
-            return View (model);
+            return View(model);
         }
         public async Task<IActionResult> EditProfile()
         {
             var user = await _userManager.GetUserAsync(User);
-            return View(new AccountDetailsViewModel {
+            return View(new AccountDetailsViewModel
+            {
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 FavoriteBook = user.FavoriteBook,
@@ -142,8 +144,9 @@ namespace BookCave.Controllers
         }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> EditProfile(AccountDetailsViewModel model){
-            
+        public async Task<IActionResult> EditProfile(AccountDetailsViewModel model)
+        {
+
             var user = await _userManager.GetUserAsync(User);
 
             user.FirstName = model.FirstName;
@@ -156,4 +159,4 @@ namespace BookCave.Controllers
             return View(model);
         }
     }
-} 
+}

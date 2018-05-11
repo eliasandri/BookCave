@@ -1,27 +1,33 @@
 @model BookCave.Models.ViewModels.AccountDetailsViewModel
 <link rel="stylesheet" href="~/css/site.css">
 
-<h1 class="text-group">Profile details</h1>
-<h3 class="text-group">Feel free to edit any of your details below so your account is totally up to date</h3>
-<form id="editpr-form" asp-action="EditProfile" asp-controller="Account"  method="POST">
-    <div class="form-group">
-        First name:<input type="text" autofocus="autofocus" class="form-control" asp-for="FirstName" placeholder="Enter your first name.." value="@Model.FirstName"/>
-    </div>
-    <div class="form-group">
-        Last name:<input type="text" autofocus="autofocus" class="form-control" asp-for="LastName" placeholder="Enter your last name.." value="@Model.LastName"/>
-    </div>
-    <div class="form-group">
-        Address:<input type="text" autofocus="autofocus" class="form-control" asp-for="Address" placeholder="Enter your address.." value="@Model.Address"/>
-    </div>
-    <div class="form-group">
-        Favorite Book:<input type="text" autofocus="autofocus" class="form-control" asp-for="FavoriteBook" placeholder="Enter your favorite book.." value="@Model.FavoriteBook"/>
-    </div>
-    <div class="form-group">
-        <input type="submit" class="btn btn-default" value="Update profile!" />
-    </div>
-</form>
-<form asp-action="MySite" asp-controller="Account" method="POST">
-    <div class="form-group">
-        <button type="submit" class="btn btn-default btn-md">Take me back to my profile</button>
-    </div>
-</form>
+    <h1 class="text-group">Profile details</h1>
+    <h3 class="text-group">Feel free to edit any of your details below so your account is totally up to date</h3>
+    <form id="editpr-form" asp-action="EditProfile" asp-controller="Account"  method="POST">
+        <div class="form-group">
+            First name:<input type="text" autofocus="autofocus" class="form-control" asp-for="FirstName" placeholder="Enter your first name.." value="@Model.FirstName"/>
+        </div>
+
+        <div class="form-group">
+            Last name:<input type="text" autofocus="autofocus" class="form-control" asp-for="LastName" placeholder="Enter your last name.." value="@Model.LastName"/>
+        </div>
+
+        <div class="form-group">
+            Address:<input type="text" autofocus="autofocus" class="form-control" asp-for="Address" placeholder="Enter your address.." value="@Model.Address"/>
+        </div>
+
+        <div class="form-group">
+            Favorite Book:<input type="text" autofocus="autofocus" class="form-control" asp-for="FavoriteBook" placeholder="Enter your favorite book.." value="@Model.FavoriteBook"/>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-default" value="Update profile!" />
+        </div>
+
+    </form>
+    
+    <form asp-action="MySite" asp-controller="Account" method="POST">
+        <div class="form-group">
+            <button type="submit" class="btn btn-default btn-md">Take me back to my profile</button>
+        </div>
+    </form>

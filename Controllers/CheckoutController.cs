@@ -17,7 +17,7 @@ namespace BookCave.Controllers
         private DataContext _db = new DataContext();
         const string PromoCode = "FREE";
         private readonly UserManager<ApplicationUser> _userManager;
-        public CheckoutController (UserManager<ApplicationUser> userManager)
+        public CheckoutController(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
         }
@@ -49,36 +49,36 @@ namespace BookCave.Controllers
                 Email = _order.Email,
                 Total = totalCartPrice,
             };
-            
+
             //await TryUpdateModelAsync(order);
-            
-                /*if (_order.PromoCode != 50)
-                {
-                    
-                    return View(order);
-                }*/
-             if (ModelState.IsValid)
-                {
-                    Console.WriteLine("damn");
-                    order.Username = User.Identity.Name;
-                    order.OrderDate = DateTime.Now;
 
-                    Console.WriteLine(order.Username);
-                    _db.Orders.Add(order);
-                    _db.SaveChanges();
-                    
-                    
-                    cart.CreateOrder(order);
+            /*if (_order.PromoCode != 50)
+            {
 
-                    return RedirectToAction("Complete",
-                        new { id = order.OrderId });
-                }
-         return View();    
+                return View(order);
+            }*/
+            if (ModelState.IsValid)
+            {
+                Console.WriteLine("damn");
+                order.Username = User.Identity.Name;
+                order.OrderDate = DateTime.Now;
+
+                Console.WriteLine(order.Username);
+                _db.Orders.Add(order);
+                _db.SaveChanges();
+
+
+                cart.CreateOrder(order);
+
+                return RedirectToAction("Complete",
+                    new { id = order.OrderId });
+            }
+            return View();
         }
-        
+
         public ActionResult Complete(int id)
         {
-            
+
             bool isValid = _db.Orders.Any(
                 o => o.OrderId == id &&
                 o.Username == User.Identity.Name);

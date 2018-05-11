@@ -13,10 +13,10 @@ namespace BookCave.Services
         {
             _bookRepo = new BookRepo();
         }
-        public List <BookListViewModel> GetAllBooks()
+        public List<BookListViewModel> GetAllBooks()
         {
             var books = _bookRepo.GetAllBooks();
-            
+
             return books;
         }
         public List<BookDetailsViewModel> GetAllBooksDetails()
@@ -33,19 +33,31 @@ namespace BookCave.Services
         {
             var books = _bookRepo.GetTop5Books();
             return books;
-        }       
+        }
         public List<BookListViewModel> Filter(string orderBy)
         {
             var book = _bookRepo.Filter(orderBy);
             return book;
         }
-        
+
         public BookDetailsViewModel GetBookWithId(int? id)
         {
             var book = _bookRepo.GetBookWithId(id);
             return book;
 
         }
+<<<<<<< HEAD
+=======
+
+        public void DeleteBook(BookDetailsViewModel book)
+        {
+            _bookRepo.DeleteBook(book);
+        }
+        public void Delete()
+        {
+            _bookRepo.Delete();
+        }
+>>>>>>> dee8e43d7af75c9f98a39deb6a9a8beb4fc314d1
         public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
         {
             var book = _bookRepo.GetBookByLayoutSearch(layoutsearch);
@@ -53,7 +65,7 @@ namespace BookCave.Services
         }
         public void CreateBookComment(BookDetailsViewModel book)
         {
-              _bookRepo.CreateBookComment(book);
+            _bookRepo.CreateBookComment(book);
         }
         public List<Comment> GetReviews(int? bookId)
         {
