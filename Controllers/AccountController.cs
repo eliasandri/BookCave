@@ -51,7 +51,7 @@ namespace BookCave.Controllers
                 await _userManager.AddToRoleAsync(user, "User");
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                MigrateShoppingCartAsync(model.Email);
+                await MigrateShoppingCartAsync(model.Email);
                 //The user is successfully registered
                 //Add the concatenated first and last name as fullName in claims
 
@@ -75,7 +75,7 @@ namespace BookCave.Controllers
 
             if (result.Succeeded)
             {
-                MigrateShoppingCartAsync(model.Email);
+                await MigrateShoppingCartAsync(model.Email);
                 return RedirectToAction("Index", "Home");
             }
             return View();
