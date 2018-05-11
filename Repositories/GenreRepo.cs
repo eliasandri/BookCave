@@ -22,7 +22,6 @@ namespace BookCave.Repositories
                               GenreId = g.Id,
                               Title = g.Title
                           }).ToList();
-
             return genres;
         }
 
@@ -38,13 +37,11 @@ namespace BookCave.Repositories
                               Books = (from m in _db.Books
                                        join mr in _db.Genres on m.GenreId equals mr.Id
                                        where m.GenreId == a.Id
-
                                        select m).ToList(),
                               BookId = ar.Id
                           }).ToList();
 
             return genres;
         }
-       
     }
 }

@@ -9,8 +9,6 @@ namespace BookCave.Repositories
     public class OrderRepo
     {
         private DataContext _db;
-        
-        
         public OrderRepo()
         {
             _db = new DataContext();
@@ -29,8 +27,6 @@ namespace BookCave.Repositories
                             OrderId = m.OrderId,
                             Books = _bookRepo.GetBooksInUserOrder()
                         }).ToList();
-          
-        
         return orders;
         }
         

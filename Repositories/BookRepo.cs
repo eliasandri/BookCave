@@ -1,14 +1,3 @@
-/*using System.Collections.Generic;
-using BookCave.Models.ViewModels;
-
-namespace BookCave.Models.ViewModels
-{
-    public class Top5ViewModel
-    {
-        public List<BookNewest5ViewModel> GetTop5Books { get; set; }
-        public List<BookTop5ViewModel> GetNewest5Books { get; set; }
-    }
-}*/
 using System.Collections.Generic;
 using BookCave.Models.ViewModels;
 using BookCave.Data;
@@ -54,16 +43,16 @@ namespace BookCave.Repositories
                                 join mr in _db.Authors on a.AuthorId equals mr.Id
                                 orderby a.Price descending
                                 select new BookListViewModel
-                          {
-                          BookId = a.Id,
-                          Title = a.Title,
-                          AuthorId = a.Id,
-                          Author = mr.Name,
-                          Rating = a.Rating,
-                          Image = a.Image,
-                          Price = a.Price,
-                          }).ToList();
-                return filtersearch;
+                                {
+                                    BookId = a.Id,
+                                    Title = a.Title,
+                                    AuthorId = a.Id,
+                                    Author = mr.Name,
+                                    Rating = a.Rating,
+                                    Image = a.Image,
+                                    Price = a.Price,
+                                }).ToList();
+                        return filtersearch;
             }
             else if(orderBy == "PriceL2H")
             {
@@ -72,14 +61,14 @@ namespace BookCave.Repositories
                                     orderby a.Price 
                                     select new BookListViewModel
                                     {
-                                        BookId = a.Id,
-                                        Title = a.Title,
-                                        AuthorId = a.Id,
-                                        Author = mr.Name,
-                                        Rating = a.Rating,
-                                        Image = a.Image,
-                                        Price = a.Price,
-                                        }).ToList();
+                                    BookId = a.Id,
+                                    Title = a.Title,
+                                    AuthorId = a.Id,
+                                    Author = mr.Name,
+                                    Rating = a.Rating,
+                                    Image = a.Image,
+                                    Price = a.Price,
+                                    }).ToList();
                         return filtersearch;
             }
             else
@@ -132,11 +121,7 @@ namespace BookCave.Repositories
                          }).Take(10).ToList();
                 return books;
         }
-        /*public List<Top5ViewModel> Get5Books()
-        {
-            var result = _db.Books.OrderBy(m => m.Rating).ThenBy(m => m.ReleaseYear).ToList(); 
-            return result;
-        }*/
+
         public List<BookTop5ViewModel> GetTop5Books()
         {
             var books = (from m in _db.Books
@@ -159,19 +144,6 @@ namespace BookCave.Repositories
                         }).Take(5).ToList();
             return books;
         }
-        /*public List<BookNewest5ViewModel> GetNewest5Books()
-        {
-            var newBooks = (from b in _db.Books
-                            orderby b.ReleaseYear descending
-                            select new BookNewest5ViewModel
-                            {
-                                BookId = b.Id,
-                                Title = b.Title,
-                                ReleaseYear = b.ReleaseYear,
-                                Image = b.Image,
-                            }).Take(5).ToList();
-            return newBooks;
-        }*/
         public void CreateBook(BookCreateViewModel book)
         {
            var newBook = new Book()
@@ -207,13 +179,13 @@ namespace BookCave.Repositories
                             join b in _db.BookComments on a.Id equals b.BookId
                             where a.Id == bookId
                             select new Comment
-                    {
-                        Id  = b.Id,
-                        BookId = b.BookId,
-                        Review = b.Review,
-                        Ratings = b.Ratings
-                    }).ToList();
-            return reviews;
+                            {
+                                Id  = b.Id,
+                                BookId = b.BookId,
+                                Review = b.Review,
+                                Ratings = b.Ratings
+                            }).ToList();
+                    return reviews;
         }
       /*  public List<Comment> GetRatings(int? bookId)
         {
@@ -251,7 +223,6 @@ namespace BookCave.Repositories
         }
         public void EditBook(BookDetailsViewModel book)
         {
-            
             Console.WriteLine(book.BookId);
             var editedBook = (from m in _db.Books
                              where m.Id == book.BookId
@@ -304,7 +275,7 @@ namespace BookCave.Repositories
             var books = (from a in _db.Books
                           select new Book
                           {
-                              Id = a.Id,
+                            Id = a.Id,
                             Title = a.Title,
                             ReleaseYear = a.ReleaseYear,
                             AuthorId = a.AuthorId
@@ -320,34 +291,33 @@ namespace BookCave.Repositories
                           join b in _db.Authors on a.AuthorId equals b.Id
                           select new BookListViewModel
                           {
-                          BookId = a.Id,
-                          Title = a.Title,
-                          Author = b.Name,
-                          AuthorId = b.Id,
-                          Rating = a.Rating,
-                          Image = a.Image,
-                          Price = a.Price,
+                            BookId = a.Id,
+                            Title = a.Title,
+                            Author = b.Name,
+                            AuthorId = b.Id,
+                            Rating = a.Rating,
+                            Image = a.Image,
+                            Price = a.Price,
                           }
                         );
-        if (!string.IsNullOrEmpty(layoutsearch))
-        {
-        layoutresults = layoutresults.Where(a => a.Title.ToLower().Contains(layoutsearch.ToLower()));
-        }
-        return layoutresults.ToList();
+            if (!string.IsNullOrEmpty(layoutsearch))
+            {
+                layoutresults = layoutresults.Where(a => a.Title.ToLower().Contains(layoutsearch.ToLower()));
+            }
+            return layoutresults.ToList();
         }
          public List<BookInOrderViewModel> GetBooksInUserOrder()
         {
-                            var Books = (from b in _db.Books
-                            join br in _db.OrderDetails on b.Id equals br.ItemId
-                            where b.Id == br.ItemId
-                            select new BookInOrderViewModel
-                            {
-                                BookId = b.Id,
-                                BookTitle = b.Title,
-                                BookPrice = b.Price,
-                            }).ToList();
-
-                            return Books;
+            var Books = (from b in _db.Books
+                        join br in _db.OrderDetails on b.Id equals br.ItemId
+                        where b.Id == br.ItemId
+                        select new BookInOrderViewModel
+                        {
+                            BookId = b.Id,
+                            BookTitle = b.Title,
+                            BookPrice = b.Price,
+                        }).ToList();
+            return Books;
         }
     }
 }
