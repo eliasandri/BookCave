@@ -164,13 +164,14 @@ namespace BookCave.Repositories
             _db.Add(newBook);
             _db.SaveChanges();
         }
-        public void CreateBookComment(BookDetailsViewModel book)
+        public void CreateBookComment(BookDetailsViewModel book, string userName)
         {
             var newComment = new Comment()
             {
                 BookId = book.BookId,
                 Review = book.Review,
                 Ratings = book.Ratings,
+                UserName = userName,
             };
             Console.WriteLine(book.Ratings);
             _db.BookComments.Add(newComment);
@@ -186,7 +187,8 @@ namespace BookCave.Repositories
                             {
                                 BookId = b.BookId,
                                 Review = b.Review,
-                                Ratings = b.Ratings
+                                Ratings = b.Ratings,
+                                UserName = b.UserName,
                             }).ToList();
                     return reviews;
         }

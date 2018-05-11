@@ -68,7 +68,7 @@
         <h3 style="border-bottom-style: solid">Reviews and Ratings for this book</h3>
         @foreach (var review in Model.Reviews)
         {  
-        <p style="border-bottom-style: solid; border-color: white;" ><strong>Review: </strong>@review.Review <strong>Rating: </strong>@review.Ratings</p>
+        <p style="border-bottom-style: solid; border-color: white;"> <strong>Comment and rating by @review.UserName </strong><br> <strong> Review: </strong>@review.Review <br><strong>Rating: </strong>@review.Ratings</p>
         }
     </div>
     </div>

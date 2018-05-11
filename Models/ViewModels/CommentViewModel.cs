@@ -10,5 +10,6 @@ namespace BookCave.Models.ViewModels
         public int BookId { get; set; }
         public int CommentId { get; set; }
         public int Ratings { get; set; }
+        public string UserName { get; set; }
     }
 }

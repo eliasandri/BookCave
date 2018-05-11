@@ -51,9 +51,9 @@ namespace BookCave.Services
             var book = _bookRepo.GetBookByLayoutSearch(layoutsearch);
             return book;
         }
-        public void CreateBookComment(BookDetailsViewModel book)
+        public void CreateBookComment(BookDetailsViewModel book, string userName)
         {
-            _bookRepo.CreateBookComment(book);
+            _bookRepo.CreateBookComment(book, userName);
         }
         public List<CommentViewModel> GetReviews(int? bookId)
         {

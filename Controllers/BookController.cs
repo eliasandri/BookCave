@@ -9,15 +9,18 @@ using System.Linq;
 using System;
 using BookCave.Models;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookCave.Controllers
 {
     public class BookController : Controller
     {
+        private readonly UserManager<ApplicationUser> _userManager;
         private BookService _bookService;
-        public BookController()
+        public BookController(UserManager<ApplicationUser> userManager)
         {
             _bookService = new BookService();
+            _userManager = userManager;
         }
 
         public IActionResult Shop()
@@ -36,7 +39,7 @@ namespace BookCave.Controllers
             return View("Shop", books);
         }
         [HttpGet]
-        public IActionResult Details(int? id)
+        public IActionResult DetailsAsync(int? id)
         {
             var allBooks = _bookService.GetAllBooks();
             if (id > allBooks.Count)
@@ -45,7 +48,7 @@ namespace BookCave.Controllers
             }
             double totalForAverage = 0;
             var books = _bookService.GetAllBooksDetails();
-
+            
 
             var book = new BookDetailsViewModel();
 
@@ -70,7 +73,7 @@ namespace BookCave.Controllers
             return View(book);
         }
         [HttpPost]
-        public IActionResult Details(BookDetailsViewModel book, int id)
+        public async System.Threading.Tasks.Task<IActionResult> DetailsAsync(BookDetailsViewModel book, int id)
         {
             if (!ModelState.IsValid)
             {
@@ -79,9 +82,9 @@ namespace BookCave.Controllers
             if (ModelState.IsValid)
             {
                 book.BookId = id;
-                _bookService.CreateBookComment(book);
-                Console.WriteLine(book.Ratings);
-                return RedirectToAction("Details");
+                var user = await _userManager.GetUserAsync(User);
+                _bookService.CreateBookComment(book, user.UserName);
+                return RedirectToAction("DetailsAsync");
             }
             return View();
         }

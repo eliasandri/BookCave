@@ -30,7 +30,7 @@
   @foreach (var book in @Model)
   {
       <div class="col-lg-3 col-sm-12 col-md-6" id="borderStyleThree">
-       <p><a asp-controller ="Book" asp-action ="Details" asp-route-id="@book.BookId">@book.Title</a></p>
+       <p><a asp-controller ="Book" asp-action ="DetailsAsync" asp-route-id="@book.BookId">@book.Title</a></p>
       <img class="img-thumbnail; indexImg" src="@book.Image" alt="Book Image">
  
         <p><a asp-controller ="Author" asp-action ="Details" asp-route-id="@book.AuthorId">Author: @book.Author</a></p>
