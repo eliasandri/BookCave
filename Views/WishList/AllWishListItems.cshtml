@@ -1,0 +1,13 @@
+@model BookCave.Models.ViewModels.WishListViewModel
+
+
+@foreach (var iteem in Model.Books)
+  {
+    <p>@iteem.Title</p>
+    <p>@iteem.BookId</p>
+    <p>@iteem.Price</p>
+    <p>@iteem.ReleaseYear</p>
+    <p><img src="@iteem.Image" alt=""></p>
+  }
+
+  

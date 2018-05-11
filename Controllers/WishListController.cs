@@ -21,5 +21,10 @@ namespace BookCave.Controllers
             _wishListService.AddToWishList(id);
             return View();
         }
+        public IActionResult AllWishListItems()
+        {
+            var wishListItems = _wishListService.GetAllWishListItems();
+            return View(wishListItems);
+        }
     }
 }
