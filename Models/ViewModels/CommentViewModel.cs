@@ -9,5 +9,6 @@ namespace BookCave.Models.ViewModels
         public string Review { get; set;}
         public int BookId { get; set;}
         public int CommentId { get; set; }
+        public int Ratings { get; set; }
     }
 }

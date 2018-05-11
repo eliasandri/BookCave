@@ -103,7 +103,11 @@ namespace BookCave.Repositories
                               Rating = a.Rating,
                               Authors = (from m in _db.Authors
                                          where m.Id == a.AuthorId
-                                       select m).ToList(),
+                                       select new AuthorListViewModel
+                                       {
+                                           AuthorId = a.AuthorId,
+                                           Name = m.Name,
+                                       }).ToList(),
                               AuthorId = ar.Id,
                            }).ToList();
              return books;
@@ -173,14 +177,13 @@ namespace BookCave.Repositories
             _db.SaveChanges();
         }
 
-        public List<Comment> GetReviews(int? bookId)
+        public List<CommentViewModel> GetReviews(int? bookId)
         {
             var reviews = (from a in _db.Books
                             join b in _db.BookComments on a.Id equals b.BookId
                             where a.Id == bookId
-                            select new Comment
+                            select new CommentViewModel
                             {
-                                Id  = b.Id,
                                 BookId = b.BookId,
                                 Review = b.Review,
                                 Ratings = b.Ratings
