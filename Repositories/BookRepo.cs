@@ -243,48 +243,6 @@ namespace BookCave.Repositories
                 _db.Books.Update(editedBook);
                 _db.SaveChanges();
         }
-        public void DeleteBook(BookDetailsViewModel book)
-        {
-            Console.WriteLine(book.AuthorId);
-            Console.WriteLine(book.Title);
-            Console.WriteLine(book.Description);
-            Console.WriteLine(book.Price);
-            Console.WriteLine(book.GenreId);
-            Console.WriteLine(book.AuthorId);
-
-            var deletedBook = (from m in _db.Books
-                             where m.Id == book.BookId
-                             select new Book()
-                             {
-                                 Id = book.BookId,
-                                Title = book.Title,
-                                Description = book.Description,
-                                Price = book.Price,
-                                Rating = book.Rating,
-                                ReleaseYear = book.ReleaseYear,
-                                AuthorId = book.AuthorId,
-                                GenreId = book.GenreId,
-                                Image = book.Image
-                             }).SingleOrDefault();
-
-                 _db.Books.Remove(deletedBook);
-                _db.SaveChanges();
-        }
-        public void Delete()
-        {
-            var books = (from a in _db.Books
-                          select new Book
-                          {
-                            Id = a.Id,
-                            Title = a.Title,
-                            ReleaseYear = a.ReleaseYear,
-                            AuthorId = a.AuthorId
-                          }).ToList();
-
-            _db.Books.RemoveRange(books);
-            _db.SaveChanges();
-        }
-
         public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
         {
             var layoutresults = (from a in _db.Books

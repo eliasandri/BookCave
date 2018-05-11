@@ -95,36 +95,6 @@ namespace BookCave.Controllers
             var books = _bookService.Filter(orderBy);
             return View("Shop", books);
         }
-        public IActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return View("Error");
-            }
-            var book = _bookService.GetBookWithId(id);
-            if (book == null)
-            {
-                return View("Error");
-            }
-            return View(book);
-        }
-        
-        [HttpPost]
-        public IActionResult Delete(int id)
-        {
-            var book = _bookService.GetBookWithId(id);
-            Console.WriteLine(book.BookId);
-            if (ModelState.IsValid)
-            {
-                /*var db = new DataContext();
-                db.Books.Update(book);
-                db.SaveChanges();*/
-                _bookService.DeleteBook(book);
-
-                return RedirectToAction("Shop");
-            }
-            return View("Book");
-        }
         public IActionResult Error()
         {
             return View (new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

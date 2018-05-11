@@ -57,7 +57,7 @@ namespace BookCave.Repositories
             //var db = new DataContext();
             //var book = _db.Books.Single(model => model.Id == 1);
             var bookToEdit = (from m in _db.Books
-                              where m.AuthorId == id
+                              where m.Id == id
                               select new BookDetailsViewModel
                               {
                                 BookId = m.Id,
@@ -90,6 +90,28 @@ namespace BookCave.Repositories
                             Rating = m.Rating,
                         }).ToList();
         return books;
+        }
+        public void DeleteBook(BookDetailsViewModel book)
+        {
+            var deletedBook = (from m in _db.Books
+                             where m.Id == book.BookId
+                             select new Book()
+                             {
+                                 Id = book.BookId,
+                                Title = book.Title,
+                                Description = book.Description,
+                                Price = book.Price,
+                                Rating = book.Rating,
+                                ReleaseYear = book.ReleaseYear,
+                                AuthorId = book.AuthorId,
+                                GenreId = book.GenreId,
+                                Image = book.Image
+                             }).SingleOrDefault();
+
+                 _db.Books.Remove(deletedBook);
+                _db.SaveChanges();
+
+                
         }
     }
 }

@@ -46,15 +46,6 @@ namespace BookCave.Services
             return book;
 
         }
-       
-        public void DeleteBook(BookDetailsViewModel book)
-        {
-            _bookRepo.DeleteBook(book);
-        }
-        public void Delete()
-        {
-            _bookRepo.Delete();
-        }
         public List<BookListViewModel> GetBookByLayoutSearch(string layoutsearch)
         {
             var book = _bookRepo.GetBookByLayoutSearch(layoutsearch);

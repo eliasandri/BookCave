@@ -33,5 +33,9 @@ namespace BookCave.Services
             
             return books;
         }
+        public void DeleteBook(BookDetailsViewModel book)
+        {
+            _adminRepo.DeleteBook(book);
+        }
     }
 }
