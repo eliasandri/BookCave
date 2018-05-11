@@ -1,13 +1,63 @@
 @model BookCave.Models.ViewModels.WishListViewModel
 
+<link rel="stylesheet" href="~/css/site.css">
 
-@foreach (var iteem in Model.Books)
-  {
-    <p>@iteem.Title</p>
-    <p>@iteem.BookId</p>
-    <p>@iteem.Price</p>
-    <p>@iteem.ReleaseYear</p>
-    <p><img src="@iteem.Image" alt=""></p>
-  }
 
-  
+
+
+<table class="table table-hover " id="shoppinglist">
+    <tr class="active" id="tritem">
+      <th>
+          
+        </th>
+        <th>
+            Item Name
+        </th>
+        <th>
+            Release Year
+        </th>
+        <th>
+            Price
+        </th>
+         <th>
+            BookId
+        </th>
+        <th>
+
+        </th>
+        <th>
+          
+        </th>
+    </tr>
+    @foreach (var iteem in Model.Books)
+    {
+        <tr class="active">
+            <td>
+                <img class="indexImg" src="@iteem.Image" alt="">
+            </td>
+            <td>
+               <p><a asp-controller ="Book" asp-action ="Details" asp-route-id="@iteem.BookId">@iteem.Title</a></p>
+            </td>
+            <td>
+                @iteem.ReleaseYear
+                
+            </td>
+            <td>
+                @iteem.Price
+            </td>
+            <td>
+               @iteem.BookId
+            </td>
+            <td>
+             <form asp-area="" asp-controller="ShoppingCart" asp-action="AddToCartAsync" asp-route-id="@iteem.BookId">
+            <button class="btn btn-deful; gotobutton">Add to cart</button> </form>
+             
+            </td>
+            <td>
+              <button class="btn btn-defult">Delete</button>
+            </td>
+           
+        </tr>
+    }
+   
+</table>
