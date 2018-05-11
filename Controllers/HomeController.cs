@@ -11,7 +11,6 @@ using BookCave.Models.ViewModels;
 
 namespace BookCave.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private BookService _bookService;

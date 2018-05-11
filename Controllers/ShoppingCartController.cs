@@ -6,9 +6,11 @@ using BookCave.Models;
 using BookCave.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookCave.Controllers
 {
+    [Authorize]
     public class ShoppingCartController : Controller
     {
         private DataContext _db = new DataContext();

@@ -12,7 +12,6 @@ using System.Diagnostics;
 
 namespace BookCave.Controllers
 {
-    [Authorize]
     public class BookController : Controller
     {
         private BookService _bookService;
