@@ -177,7 +177,7 @@ namespace BookCave.Data.EntityModels
             
             _db.SaveChanges();
             
-            //EmptyCart();
+            EmptyCart();
             
             return order.OrderId;
         }

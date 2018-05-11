@@ -37,13 +37,17 @@ namespace BookCave.Controllers
         }
         public IActionResult Details(int? id)
         {
-            Console.WriteLine(id);
+            
             if (id == null)
             {
                 return View("Error");
             }
+            double totalForAverage = 0;
             var books = _bookService.GetAllBooksDetails();
+            
+            
             var book = new BookDetailsViewModel();
+
             for (int i = 0; i < books.Count; i++)
             {
                 if (books[i].BookId == id)
@@ -52,6 +56,11 @@ namespace BookCave.Controllers
                 }
             book.Reviews = _bookService.GetReviews(id);
             }
+            for (int i = 0; i < book.Reviews.Count; i++)
+            {
+                totalForAverage += book.Reviews[i].Ratings;
+            }
+            book.AverageRating = totalForAverage / book.Reviews.Count;
             return View(book);
         }
         [HttpPost]

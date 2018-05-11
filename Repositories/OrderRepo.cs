@@ -9,12 +9,16 @@ namespace BookCave.Repositories
     public class OrderRepo
     {
         private DataContext _db;
+        
+        
         public OrderRepo()
         {
             _db = new DataContext();
         }
         public List<OrderListViewModel> GetAllUserOrders()
         {
+            var _bookRepo = new BookRepo();
+            
             var orders = (from m in _db.OrderDetails
                         join mr in _db.Orders on m.OrderId equals mr.OrderId
                         select new OrderListViewModel
@@ -23,19 +27,12 @@ namespace BookCave.Repositories
                             Count = m.Quantity,
                             BookPrice = m.UnitPrice,
                             OrderId = m.OrderId,
-                            Books = (from b in _db.Books
-                            join br in _db.OrderDetails on b.Id equals br.ItemId
-                            where b.Id == br.ItemId
-                            select new BookInOrderViewModel
-                            {
-                                BookId = b.Id,
-                                BookTitle = b.Title,
-                                BookPrice = b.Price,
-                            }).ToList()
+                            Books = _bookRepo.GetBooksInUserOrder()
                         }).ToList();
-            
-        Console.WriteLine(orders[0].Books[2].BookTitle);
+          
+        
         return orders;
         }
+        
     }
 }

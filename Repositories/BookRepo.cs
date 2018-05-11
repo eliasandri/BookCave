@@ -338,5 +338,19 @@ namespace BookCave.Repositories
         }
         return layoutresults.ToList();
         }
+         public List<BookInOrderViewModel> GetBooksInUserOrder()
+        {
+                            var Books = (from b in _db.Books
+                            join br in _db.OrderDetails on b.Id equals br.ItemId
+                            where b.Id == br.ItemId
+                            select new BookInOrderViewModel
+                            {
+                                BookId = b.Id,
+                                BookTitle = b.Title,
+                                BookPrice = b.Price,
+                            }).ToList();
+
+                            return Books;
+        }
     }
 }

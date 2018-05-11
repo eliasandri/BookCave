@@ -25,6 +25,7 @@ namespace BookCave.Models.ViewModels
         public string Review { get; set; }
        
         public List<Comment> Reviews { get; set; }
+        public double AverageRating { get; set; }
     
     }
 }
