@@ -34,7 +34,7 @@
         <tr id="row-@item.BookId">
             <td>
                  @Html.ActionLink(item.BookTitle,
-"Details", "Book", new { id = item.BookId }, null)
+"DetailsAsync", "Book", new { id = item.BookId }, null)
             </td>
             <td>
                 @item.BookPrice $
